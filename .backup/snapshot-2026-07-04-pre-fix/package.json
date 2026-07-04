@@ -1,0 +1,14 @@
+{
+  "name": "travel-guides",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pdf": "node scripts/generate-pdf.mjs",
+    "pdf:london": "node scripts/generate-pdf.mjs cities/london-pdf.html cities/london.pdf",
+    "new-city": "node scripts/new-city.mjs",
+    "verify:mobile": "node scripts/verify-mobile.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}
