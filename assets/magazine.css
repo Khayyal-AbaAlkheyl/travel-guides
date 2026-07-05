@@ -13,6 +13,7 @@
   --river: #0077b6;
   --gold: #b8860b;
   --navy: #1a2744;
+  --navy-ink: #1a2744;
   --hero-image: url('');
 
   /* Surfaces */
@@ -52,15 +53,29 @@
 }
 
 html[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #0f1219;
-  --surface: #171c28;
+  --surface: #1a2030;
+  --surface-raised: #222a3c;
   --text: #eef0f4;
-  --text-muted: #9aa3b2;
-  --border: #2a3142;
+  --text-muted: #a8b0bf;
+  --heading: #f3f5f8;
+  --border: #2f384c;
   --shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.45);
-  --accent-soft: rgba(196, 30, 58, 0.16);
-  --toolbar-bg: #0a0e16;
+  --accent-soft: rgba(196, 30, 58, 0.2);
+  --toolbar-bg: #121826;
+  --navy: #121826;
+  --navy-ink: #dce3f0;
+  --gold: #d4a843;
+  --morning: rgba(254, 243, 199, 0.12);
+  --morning-text: #fcd34d;
+  --afternoon: rgba(219, 234, 254, 0.12);
+  --afternoon-text: #93c5fd;
+  --evening: rgba(252, 231, 243, 0.12);
+  --evening-text: #f9a8d4;
+  --night: #1e293b;
+  --night-text: #e2e8f0;
 }
 
 html.is-arabic {
@@ -315,7 +330,7 @@ body {
   font-size: 1.45rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
 
 .section-head p {
@@ -345,7 +360,7 @@ body {
   letter-spacing: -0.02em;
   margin: 20px 0 12px;
   padding: 0 4px;
-  color: var(--navy);
+  color: var(--navy-ink);
   line-height: 1.2;
   overflow-wrap: anywhere;
 }
@@ -1196,7 +1211,7 @@ body {
   text-align: right;
   padding-top: 16px;
   font-variant-numeric: tabular-nums;
-  color: var(--navy);
+  color: var(--navy-ink);
   line-height: 1.2;
 }
 
@@ -1353,7 +1368,7 @@ body {
 .more-nav__btn.active {
   background: var(--navy);
   color: #fff;
-  border-color: var(--navy);
+  border-color: var(--navy-ink);
 }
 
 .more-section {
@@ -1684,7 +1699,7 @@ body {
 .emergency-list__icon svg {
   width: 28px;
   height: 28px;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
 
 /* Phrases */
@@ -1754,7 +1769,7 @@ body {
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
 
 .cheat-sheet__subtitle {
@@ -2053,7 +2068,7 @@ html[dir="rtl"] .pdf-fab {
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--navy-ink);
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
@@ -2300,7 +2315,7 @@ html[dir="rtl"] .pdf-fab {
   font-size: 1.45rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--navy);
+  color: var(--navy-ink);
   line-height: 1.15;
 }
 
@@ -2388,7 +2403,7 @@ html[dir="rtl"] .pdf-fab {
   font-size: 13px;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
 
 .home-essential__note {
@@ -2434,7 +2449,7 @@ html[dir="rtl"] .pdf-fab {
   font-weight: 700;
   font-size: 14px;
   margin-bottom: 4px;
-  color: var(--navy);
+  color: var(--navy-ink);
 }
 
 .home-arrival-card__desc {
@@ -2540,7 +2555,7 @@ html[dir="rtl"] .pdf-fab {
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--navy-ink);
   margin-bottom: 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
@@ -2586,6 +2601,242 @@ html[data-theme="dark"] .home-hero__panel,
 html[data-theme="dark"] .pdf-fab,
 html[data-theme="dark"] .app-toolbar__btn {
   background: var(--toolbar-bg);
+}
+
+html[data-theme="dark"] .home-section__title,
+html[data-theme="dark"] .section-head h2,
+html[data-theme="dark"] .page-title,
+html[data-theme="dark"] .place-list-card__title,
+html[data-theme="dark"] .gem-card__name,
+html[data-theme="dark"] .home-essential__value,
+html[data-theme="dark"] .home-arrival-card__title,
+html[data-theme="dark"] .home-weather-card__month,
+html[data-theme="dark"] .budget-overview__card h3,
+html[data-theme="dark"] .transport-card__name,
+html[data-theme="dark"] .day-tab__title,
+html[data-theme="dark"] .cheat-sheet__title,
+html[data-theme="dark"] .emergency-card__label,
+html[data-theme="dark"] .warning-card__title,
+html[data-theme="dark"] .nearby-list__title,
+html[data-theme="dark"] .hotel-grid__label,
+html[data-theme="dark"] .weather-card__name {
+  color: var(--heading);
+}
+
+html[data-theme="dark"] .place-list-card,
+html[data-theme="dark"] .home-essential,
+html[data-theme="dark"] .home-arrival-card,
+html[data-theme="dark"] .home-weather-card,
+html[data-theme="dark"] .home-packing__panel,
+html[data-theme="dark"] .home-letter,
+html[data-theme="dark"] .gem-card,
+html[data-theme="dark"] .transport-card,
+html[data-theme="dark"] .weather-card,
+html[data-theme="dark"] .budget-overview__card,
+html[data-theme="dark"] .warning-card,
+html[data-theme="dark"] .emergency-card,
+html[data-theme="dark"] .place-highlight,
+html[data-theme="dark"] .day-tab,
+html[data-theme="dark"] .more-nav__btn,
+html[data-theme="dark"] .route-banner,
+html[data-theme="dark"] .detail-page__bar {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .stop__card--morning { background: var(--morning); }
+html[data-theme="dark"] .stop__card--afternoon { background: var(--afternoon); }
+html[data-theme="dark"] .stop__card--evening { background: var(--evening); }
+html[data-theme="dark"] .stop__card--morning .stop__name { color: var(--morning-text); }
+html[data-theme="dark"] .stop__card--afternoon .stop__name { color: var(--afternoon-text); }
+html[data-theme="dark"] .stop__card--evening .stop__name { color: var(--evening-text); }
+html[data-theme="dark"] .stop__transit { color: var(--accent); }
+html[data-theme="dark"] .stop__map {
+  background: var(--surface-raised);
+  color: var(--text);
+}
+html[data-theme="dark"] .stop__footer { border-top-color: var(--border); }
+
+html[data-theme="dark"] .box--did-you-know,
+html[data-theme="dark"] .box--local-secret,
+html[data-theme="dark"] .box--instagram {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .box--did-you-know .box__title { color: #60a5fa; }
+html[data-theme="dark"] .box--local-secret .box__title { color: var(--accent); }
+html[data-theme="dark"] .box--instagram .box__title { color: #f472b6; }
+
+html[data-theme="dark"] .home-packing__temp {
+  background: var(--accent);
+  color: #fff;
+}
+
+html[data-theme="dark"] .route-banner__info h3,
+html[data-theme="dark"] .stop__name,
+html[data-theme="dark"] .dish-card__name,
+html[data-theme="dark"] .transport-card__price,
+html[data-theme="dark"] .place-highlight__value,
+html[data-theme="dark"] .phrase-item__english,
+html[data-theme="dark"] .etiquette-item__rule {
+  color: var(--heading);
+}
+
+html[data-theme="dark"] .chip--accent {
+  color: #ffb3c1;
+}
+
+html[data-theme="dark"] .cheat-sheet {
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .cheat-sheet__header {
+  border-bottom-color: var(--border);
+}
+
+html[data-theme="dark"] .nearby-block {
+  color: var(--text);
+}
+
+html[data-theme="dark"] .home-hero__panel {
+  color: #fff;
+}
+
+html[data-theme="dark"] .home-hero__title,
+html[data-theme="dark"] .home-hero__stat-value {
+  color: #fff;
+}
+
+html[data-theme="dark"] .warning-card__desc,
+html[data-theme="dark"] .emergency-card__desc {
+  color: var(--text-muted);
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .panel {
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .chip {
+  background: var(--surface-raised);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+html[data-theme="dark"] .chip--gold {
+  background: rgba(212, 168, 67, 0.16);
+  color: #e8c56a;
+  border-color: rgba(212, 168, 67, 0.25);
+}
+
+html[data-theme="dark"] .chip--warn {
+  background: rgba(251, 191, 36, 0.14);
+  color: #fcd34d;
+  border-color: rgba(251, 191, 36, 0.22);
+}
+
+html[data-theme="dark"] .chip--accent,
+html[data-theme="dark"] .chip--tube,
+html[data-theme="dark"] .chip--parks,
+html[data-theme="dark"] .chip--ok {
+  color: var(--text);
+}
+
+html[data-theme="dark"] .prose,
+html[data-theme="dark"] .place-list-card__meta,
+html[data-theme="dark"] .place-list-card__teaser,
+html[data-theme="dark"] .home-essential__note,
+html[data-theme="dark"] .home-arrival-card__desc,
+html[data-theme="dark"] .transport-card__desc,
+html[data-theme="dark"] .gem-card__desc,
+html[data-theme="dark"] .weather-card__desc,
+html[data-theme="dark"] .stop__desc,
+html[data-theme="dark"] .editor-letter__body,
+html[data-theme="dark"] .home-letter__body {
+  color: var(--text-muted);
+}
+
+html[data-theme="dark"] .prose--highlight,
+html[data-theme="dark"] .tip-inline,
+html[data-theme="dark"] .home-weather__spot,
+html[data-theme="dark"] .transport-tip {
+  background: rgba(196, 30, 58, 0.14);
+  color: var(--text);
+  border-color: rgba(196, 30, 58, 0.35);
+}
+
+html[data-theme="dark"] .tip-inline {
+  border-left-color: var(--accent);
+}
+
+html[data-theme="dark"] .box--insider {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .btn--ghost {
+  background: var(--surface-raised);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .hero::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(10, 14, 22, 0.92) 100%);
+}
+
+html[data-theme="dark"] .home-hero__photo::after {
+  background: linear-gradient(180deg, transparent 50%, rgba(10, 14, 22, 0.55) 100%);
+}
+
+html[data-theme="dark"] .weather-table th {
+  background: var(--toolbar-bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .weather-table td {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .family-table th {
+  background: var(--toolbar-bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .family-table td {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .nav-item {
+  color: var(--text-muted);
+}
+
+html[data-theme="dark"] .nav-item.active {
+  color: var(--accent);
+}
+
+html[data-theme="dark"] .more-nav__btn.active,
+html[data-theme="dark"] .day-tab.active,
+html[data-theme="dark"] .home-packing__tab.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+html[data-theme="dark"] .link-sm,
+html[data-theme="dark"] .place-list-card__cta {
+  color: #ff8fa3;
+}
+
+html[data-theme="dark"] .stat,
+html[data-theme="dark"] .photo-caption {
+  color: var(--text-muted);
 }
 
 html[dir="rtl"] .detail-back,

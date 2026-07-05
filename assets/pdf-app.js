@@ -95,9 +95,12 @@
 
   function qrBlock(url, label, size) {
     size = size || 72;
+    const imgHtml = typeof qrImg === 'function'
+      ? qrImg(url, size, label || 'QR code')
+      : '<img src="' + esc(qr(url, size)) + '" width="' + size + '" height="' + size + '" alt="' + esc(label || 'QR code') + '">';
     return (
       '<div class="pdf-spread__qr">' +
-        qr(url, size) +
+        imgHtml +
         '<div class="pdf-spread__qr-label">' + esc(label || 'Scan for map') + '</div>' +
       '</div>'
     );
@@ -614,13 +617,13 @@
           : '') +
 
         (day.mapUrl
-          ? '<div style="display:flex;align-items:center;gap:4mm;margin-bottom:4mm;">' +
+          ? '<div class="pdf-day__route-row">' +
               qrBlock(day.mapUrl, 'Full route map', 56) +
-              '<div style="font-size:7.5pt;"><strong>Route map</strong><br><a href="' + esc(day.mapUrl) + '">Open full day route in Google Maps</a></div>' +
+              '<div class="pdf-day__route-text"><strong>Route map</strong><br>Scan QR for Google Maps</div>' +
             '</div>'
           : '') +
 
-        '<div class="pdf-timeline">' +
+        '<div class="pdf-timeline' + ((day.stops || []).length > 5 ? ' pdf-timeline--compact' : '') + '">' +
           (day.stops || []).map(function (stop) {
             return (
               '<div class="pdf-stop">' +
@@ -931,7 +934,7 @@
           (cs.topQrCodes || []).map(function (item) {
             return (
               '<div class="pdf-cheat-qr">' +
-                qr(item.mapUrl, 52) +
+                (typeof qrImg === 'function' ? qrImg(item.mapUrl, 52, item.name) : '<img src="' + esc(qr(item.mapUrl, 52)) + '" width="52" height="52" alt="">') +
                 '<div class="pdf-cheat-qr__name">' + esc(item.name) + '</div>' +
               '</div>'
             );

@@ -17,6 +17,8 @@
       statHotels: 'Hotels',
       statDining: 'Dining',
       statDays: 'Days',
+      statQr: 'QR Codes',
+      statChapters: 'Chapters',
       edition: 'Edition',
       homeWelcomeKicker: 'Welcome',
       homeWelcomeTitle: 'From the Editor',
@@ -86,7 +88,77 @@
       moreEmergency: 'Emergency',
       moreLocal: 'Local tips',
       moreCheat: 'Cheat sheet',
-      navLabel: 'Main navigation'
+      navLabel: 'Main navigation',
+      labelTicket: 'Ticket',
+      labelTube: 'Tube',
+      labelVisitTime: 'Visit time',
+      labelSummerWait: 'Summer wait',
+      labelPrice: 'Price',
+      labelRating: 'Rating',
+      labelCategory: 'Category',
+      labelWait: 'Wait',
+      labelReserve: 'Reserve',
+      labelInsider: 'Insider',
+      labelTip: 'Tip',
+      labelEatNearby: 'Eat nearby',
+      labelGettingThere: 'Getting there',
+      labelNearbyTop5: 'Nearby — top 5',
+      labelAddress: 'Address',
+      labelAirport: 'Airport',
+      labelRoom: 'Room',
+      labelNearby: 'Nearby',
+      labelPaymentTips: 'Payment tips',
+      labelProTip: 'Pro tip',
+      labelRainyDay: 'Rainy day',
+      labelSunnyDay: 'Sunny day',
+      labelKeyLocations: 'Key locations',
+      legendSights: 'Sights',
+      legendHotels: 'Hotels',
+      legendDining: 'Dining',
+      legendParks: 'Parks',
+      legendDistrict: 'District',
+      openMap: 'Open map →',
+      labelLostPassport: 'Lost passport',
+      labelHospitals: 'Hospitals',
+      labelEmbassies: 'Embassies',
+      labelAttraction: 'Attraction',
+      labelKids: 'Kids',
+      labelStroller: 'Stroller',
+      labelBaby: 'Baby',
+      labelFamilyPrice: 'Family £',
+      tierBudget: 'Budget',
+      tierMid: 'Mid',
+      tierLuxury: 'Luxury',
+      rowDaily: 'daily',
+      rowAccommodation: 'accommodation',
+      rowFood: 'food',
+      rowTransport: 'transport',
+      rowActivities: 'activities',
+      rowExtras: 'extras',
+      labelVat: 'VAT',
+      usefulPhrases: 'Useful phrases',
+      localEtiquette: 'Local etiquette',
+      waitSuffix: 'wait',
+      visitPrefix: 'Visit',
+      walkInOk: 'Walk-in OK',
+      labelLens: 'Lens',
+      labelExterior: 'Exterior',
+      labelRestaurant: 'Restaurant',
+      labelView: 'View',
+      dayPrefix: 'Day',
+      labelFamousFor: 'Famous for',
+      labelMustTry: 'Must try',
+      labelSunset: 'Sunset',
+      labelMonth: 'Month',
+      cheatSheetTitle: 'Cheat Sheet',
+      cheatEmergency: 'Emergency',
+      cheatTransport: 'Transport',
+      cheatMoney: 'Money',
+      cheatApps: 'Apps',
+      seasonSpring: 'Spring',
+      seasonSummer: 'Summer',
+      seasonAutumn: 'Autumn',
+      seasonChristmas: 'Christmas'
     },
     ar: {
       langToggle: 'EN',
@@ -97,6 +169,8 @@
       statHotels: 'فنادق',
       statDining: 'مطاعم',
       statDays: 'أيام',
+      statQr: 'رموز QR',
+      statChapters: 'فصول',
       edition: 'طبعة',
       homeWelcomeKicker: 'مرحباً',
       homeWelcomeTitle: 'من المحرر',
@@ -166,9 +240,84 @@
       moreEmergency: 'طوارئ',
       moreLocal: 'نصائح محلية',
       moreCheat: 'ملخص سريع',
-      navLabel: 'التنقل الرئيسي'
+      navLabel: 'التنقل الرئيسي',
+      labelTicket: 'التذكرة',
+      labelTube: 'المترو',
+      labelVisitTime: 'مدة الزيارة',
+      labelSummerWait: 'انتظار الصيف',
+      labelPrice: 'السعر',
+      labelRating: 'التقييم',
+      labelCategory: 'الفئة',
+      labelWait: 'الانتظار',
+      labelReserve: 'الحجز',
+      labelInsider: 'من الداخل',
+      labelTip: 'نصيحة',
+      labelEatNearby: 'أكل قريب',
+      labelGettingThere: 'كيف تصل',
+      labelNearbyTop5: 'قريب — أفضل 5',
+      labelAddress: 'العنوان',
+      labelAirport: 'المطار',
+      labelRoom: 'الغرفة',
+      labelNearby: 'قريب',
+      labelPaymentTips: 'نصائح الدفع',
+      labelProTip: 'نصيحة احترافية',
+      labelRainyDay: 'يوم ممطر',
+      labelSunnyDay: 'يوم مشمس',
+      labelKeyLocations: 'مواقع رئيسية',
+      legendSights: 'معالم',
+      legendHotels: 'فنادق',
+      legendDining: 'مطاعم',
+      legendParks: 'حدائق',
+      legendDistrict: 'حي',
+      openMap: 'افتح الخريطة ←',
+      labelLostPassport: 'جواز مفقود',
+      labelHospitals: 'مستشفيات',
+      labelEmbassies: 'سفارات',
+      labelAttraction: 'معلم',
+      labelKids: 'أطفال',
+      labelStroller: 'عربة',
+      labelBaby: 'رضيع',
+      labelFamilyPrice: 'عائلة £',
+      tierBudget: 'اقتصادي',
+      tierMid: 'متوسط',
+      tierLuxury: 'فاخر',
+      rowDaily: 'يومياً',
+      rowAccommodation: 'إقامة',
+      rowFood: 'طعام',
+      rowTransport: 'مواصلات',
+      rowActivities: 'أنشطة',
+      rowExtras: 'إضافات',
+      labelVat: 'ضريبة القيمة',
+      usefulPhrases: 'عبارات مفيدة',
+      localEtiquette: 'آداب محلية',
+      waitSuffix: 'انتظار',
+      visitPrefix: 'زيارة',
+      walkInOk: 'بدون حجز',
+      labelLens: 'عدسة',
+      labelExterior: 'خارجي',
+      labelRestaurant: 'مطعم',
+      labelView: 'إطلالة',
+      dayPrefix: 'اليوم',
+      labelFamousFor: 'مشهور بـ',
+      labelMustTry: 'جرّب',
+      labelSunset: 'غروب',
+      labelMonth: 'الشهر',
+      cheatSheetTitle: 'ملخص سريع',
+      cheatEmergency: 'طوارئ',
+      cheatTransport: 'مواصلات',
+      cheatMoney: 'مال',
+      cheatApps: 'تطبيقات',
+      seasonSpring: 'الربيع',
+      seasonSummer: 'الصيف',
+      seasonAutumn: 'الخريف',
+      seasonChristmas: 'عيد الميلاد'
     }
   };
+
+  function cleanAr(value, fallback) {
+    if (typeof value !== 'string' || value.includes('MYMEMORY WARNING')) return fallback;
+    return value;
+  }
 
   const MONTHS_AR = {
     Jan: 'يناير',
@@ -277,8 +426,40 @@
 
   function weatherRowField(month, field, fallback) {
     if (!isAr() || !global.PLAN_AR?.weatherTable?.rows) return fallback;
-    const row = global.PLAN_AR.weatherTable.rows.find(r => r.month === month);
-    return row?.[field] ?? fallback;
+    const planRows = global.PLAN?.weatherTable?.rows;
+    const arRows = global.PLAN_AR.weatherTable.rows;
+    if (Array.isArray(planRows) && Array.isArray(arRows)) {
+      const idx = planRows.findIndex(r => r.month === month);
+      if (idx >= 0 && arRows[idx]?.[field] != null) {
+        return cleanAr(arRows[idx][field], fallback);
+      }
+    }
+    const row = arRows.find(r => r.month === month);
+    return cleanAr(row?.[field], fallback);
+  }
+
+  function content(section, index, field, fallback) {
+    if (!isAr() || !global.PLAN_AR?.[section]) return fallback;
+    const block = global.PLAN_AR[section];
+    const value = Array.isArray(block)
+      ? block[index]?.[field]
+      : block[field];
+    return cleanAr(value, fallback);
+  }
+
+  function contentPath(section, field, fallback) {
+    if (!isAr() || !global.PLAN_AR?.[section]) return fallback;
+    const parts = field.split('.');
+    let cur = global.PLAN_AR[section];
+    for (const p of parts) cur = cur?.[p];
+    return cleanAr(cur, fallback);
+  }
+
+  function contentList(section, index, fallback) {
+    if (!isAr() || !global.PLAN_AR?.[section]) return fallback;
+    const block = global.PLAN_AR[section];
+    if (Array.isArray(block)) return block[index] ?? fallback;
+    return fallback;
   }
 
   function themeIconSvg() {
@@ -370,6 +551,9 @@
     packingItems,
     welcomeField,
     weatherSweetSpot,
-    weatherRowField
+    weatherRowField,
+    content,
+    contentPath,
+    contentList
   };
 })(typeof window !== 'undefined' ? window : globalThis);

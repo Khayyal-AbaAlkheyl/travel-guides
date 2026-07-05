@@ -90,6 +90,12 @@
     return `https://api.qrserver.com/v1/create-qr-code/?size=${s}x${s}&data=${data}&margin=4`;
   }
 
+  function qrImg(url, size, alt) {
+    const s = size || 100;
+    const src = qr(url, s);
+    return `<img src="${esc(src)}" width="${s}" height="${s}" alt="${esc(alt || 'QR code')}" loading="lazy" decoding="async">`;
+  }
+
   function stars(n) {
     const count = Math.max(0, Math.min(5, Math.round(Number(n) || 0)));
     let html = '<span class="star-bar" aria-label="' + count + ' out of 5">';
@@ -316,6 +322,7 @@
     ICONS,
     applyTheme,
     qr,
+    qrImg,
     stars,
     staticMap,
     getCoords,

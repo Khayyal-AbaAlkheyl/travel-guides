@@ -50,6 +50,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -60,11 +61,14 @@ body {
   background: var(--bg);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+  overflow-x: hidden;
 }
 
 a {
   color: var(--accent-deep);
   text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 img {
@@ -75,7 +79,17 @@ img {
 
 /* ── Document shell ── */
 .pdf-doc {
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.pdf-page-shell {
   width: 100%;
+  max-width: 210mm;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* ── Full-bleed cover & back ── */
@@ -209,6 +223,10 @@ img {
   page-break-before: always;
   break-before: page;
   padding-bottom: 4mm;
+  width: 100%;
+  max-width: 210mm;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .pdf-section:first-of-type {
@@ -221,13 +239,16 @@ img {
   break-before: page;
   page-break-after: avoid;
   break-after: avoid;
-  margin: 0 calc(-1 * var(--page-margin-x)) 6mm;
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto 6mm;
   min-height: 52mm;
   position: relative;
   display: flex;
   align-items: flex-end;
   color: #fff;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .pdf-chapter__bg {
@@ -849,6 +870,10 @@ img {
   page-break-after: always;
   break-after: page;
   padding-bottom: 2mm;
+  width: 100%;
+  max-width: 210mm;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .pdf-spread__header {
@@ -962,10 +987,15 @@ img {
   break-before: page;
   page-break-after: always;
   break-after: page;
+  width: 100%;
+  max-width: 210mm;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .pdf-day__head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   margin-bottom: 3mm;
@@ -986,12 +1016,31 @@ img {
   font-family: var(--font-display);
   font-size: 15pt;
   font-weight: 700;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .pdf-day__route {
   font-size: 7pt;
   color: var(--text-muted);
   margin-left: auto;
+  text-align: right;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.pdf-day__route-row {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+  margin-bottom: 4mm;
+  max-width: 100%;
+}
+
+.pdf-day__route-text {
+  font-size: 7.5pt;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .pdf-day-photos {
@@ -1042,6 +1091,17 @@ img {
 
 .pdf-timeline {
   margin-top: 2mm;
+  max-width: 100%;
+}
+
+.pdf-timeline--compact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2mm 4mm;
+}
+
+.pdf-timeline--compact .pdf-stop {
+  margin-bottom: 0;
 }
 
 .pdf-stop {
@@ -1051,6 +1111,7 @@ img {
   grid-template-columns: 12mm 1fr;
   gap: 4px;
   margin-bottom: 3px;
+  min-width: 0;
 }
 
 .pdf-stop__time {
@@ -1066,6 +1127,9 @@ img {
   border-radius: 4px;
   border-left: 3px solid var(--accent);
   font-size: 7.5pt;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .pdf-stop__card--morning { background: var(--morning); border-left-color: #d97706; }
@@ -1091,6 +1155,16 @@ img {
 .pdf-stop__meta {
   margin-top: 2px;
   font-size: 6.5pt;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pdf-spread__qr img,
+.pdf-cheat-qr img,
+.pdf-map-qr img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* ── Weather plans (rainy/sunny) ── */
@@ -1210,6 +1284,9 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 210mm;
+  box-sizing: border-box;
 }
 
 .pdf-cheat-sheet__head {
@@ -1375,17 +1452,22 @@ img {
   body {
     background: #d4d0c8;
     padding: 16px 0;
+    overflow-x: hidden;
   }
 
   .pdf-doc {
-    max-width: 210mm;
+    width: 210mm;
+    max-width: min(210mm, calc(100vw - 24px));
     margin: 0 auto;
+    overflow-x: hidden;
   }
 
   .pdf-cover,
   .pdf-back-cover {
+    width: 210mm;
+    max-width: min(210mm, calc(100vw - 24px));
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
   }
 
   .pdf-section,
@@ -1393,13 +1475,36 @@ img {
   .pdf-day,
   .pdf-cheat-sheet {
     background: #fff;
+    width: 210mm;
+    max-width: min(210mm, calc(100vw - 24px));
+    margin: 0 auto 20px;
     padding: var(--page-margin-top) var(--page-margin-x) var(--page-margin-bottom);
-    margin-bottom: 20px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    box-sizing: border-box;
   }
 
   .pdf-chapter {
-    margin-left: calc(-1 * var(--page-margin-x));
-    margin-right: calc(-1 * var(--page-margin-x));
+    width: 210mm;
+    max-width: min(210mm, calc(100vw - 24px));
+    margin: 0 auto 6mm;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media print {
+  .pdf-section,
+  .pdf-spread,
+  .pdf-day,
+  .pdf-cheat-sheet {
+    padding: 0;
+    margin: 0;
+    width: auto;
+    max-width: none;
+  }
+
+  .pdf-chapter {
+    width: 210mm;
+    margin: 0;
   }
 }
