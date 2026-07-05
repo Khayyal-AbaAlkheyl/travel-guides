@@ -18,14 +18,18 @@
   text-transform: uppercase;
 }
 
+html.is-arabic .discover-wordmark {
+  font-family: var(--font-ar, 'Noto Sans Arabic', sans-serif);
+  letter-spacing: 0.08em;
+}
+
 .hero__badge,
-.chapter-opener__num {
+.section-head h2 {
   font-family: var(--discover-font);
 }
 
 .page-title,
 .hero__title,
-.chapter-opener__title,
 .section-head h2 {
   font-family: var(--discover-display);
 }

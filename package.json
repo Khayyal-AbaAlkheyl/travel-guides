@@ -7,7 +7,9 @@
     "pdf:london": "node scripts/generate-pdf.mjs cities/london-pdf.html cities/london.pdf",
     "normalize:images": "node scripts/normalize-image-urls.mjs data/london.js",
     "new-city": "node scripts/new-city.mjs",
-    "verify:mobile": "node scripts/verify-mobile.mjs"
+    "verify:mobile": "node scripts/verify-mobile.mjs",
+    "audit:images": "node scripts/audit-images.mjs",
+    "fix:images": "node scripts/fix-broken-images.mjs"
   },
   "devDependencies": {
     "puppeteer": "^24.0.0"

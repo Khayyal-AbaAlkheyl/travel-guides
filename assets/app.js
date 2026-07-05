@@ -26,6 +26,48 @@
     ICONS
   } = global;
 
+  function t(key, varsOrFallback, maybeFallback) {
+    if (global.I18n) return global.I18n.t(key, varsOrFallback, maybeFallback);
+    if (typeof varsOrFallback === 'string' && maybeFallback === undefined) return varsOrFallback;
+    return maybeFallback ?? key;
+  }
+
+  function txMeta(field, fallback) {
+    return global.I18n ? global.I18n.metaField(field, fallback) : fallback;
+  }
+
+  function txEssential(key, field, fallback) {
+    return global.I18n ? global.I18n.essentialField(key, field, fallback) : fallback;
+  }
+
+  function txArrival(step, field, fallback) {
+    return global.I18n ? global.I18n.arrivalField(step, field, fallback) : fallback;
+  }
+
+  function txPacking(season, field, fallback) {
+    return global.I18n ? global.I18n.packingField(season, field, fallback) : fallback;
+  }
+
+  function txPackingItems(season, fallbackItems) {
+    return global.I18n ? global.I18n.packingItems(season, fallbackItems) : fallbackItems;
+  }
+
+  function txWelcome(field, fallback) {
+    return global.I18n ? global.I18n.welcomeField(field, fallback) : fallback;
+  }
+
+  function txMonth(month) {
+    return global.I18n ? global.I18n.monthName(month) : month;
+  }
+
+  function txWeatherRow(month, field, fallback) {
+    return global.I18n ? global.I18n.weatherRowField(month, field, fallback) : fallback;
+  }
+
+  function txSweetSpot(fallback) {
+    return global.I18n ? global.I18n.weatherSweetSpot(fallback) : fallback;
+  }
+
   let activeTab = 'home';
   let activeDay = 1;
   let activeMoreSection = 'transport';
@@ -33,7 +75,7 @@
   /** @type {{ kind: 'sight'|'stay'|'eat', index: number } | null} */
   let detailView = null;
 
-  const DETAIL_BACK_LABEL = { sight: 'Sights', stay: 'Stay', eat: 'Eat' };
+  const DETAIL_BACK_LABEL = { sight: 'tabSights', stay: 'tabStay', eat: 'tabEat' };
 
   function placeId(name) {
     return String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -50,10 +92,13 @@
   }
 
   function renderDetailShell(kind, content) {
-    const label = DETAIL_BACK_LABEL[kind] || 'Back';
+    const tabKey = DETAIL_BACK_LABEL[kind];
+    const backText = tabKey
+      ? `← ${t('backTo', { label: t(tabKey) })}`
+      : `← ${t('back', 'Back')}`;
     return `<div class="detail-page">
       <header class="detail-page__bar">
-        <button type="button" class="detail-back" onclick="closeDetail()">← Back to ${esc(label)}</button>
+        <button type="button" class="detail-back" onclick="closeDetail()">${esc(backText)}</button>
       </header>
       ${content}
     </div>`;
@@ -84,10 +129,10 @@
     if (Array.isArray(s)) return s;
     if (!s || typeof s !== 'object') return [];
     return [
-      { value: String(s.attractions || ''), label: 'Sights' },
-      { value: String(s.hotels || ''), label: 'Hotels' },
-      { value: String(s.dining || ''), label: 'Dining' },
-      { value: String(s.days || ''), label: 'Days' },
+      { value: String(s.attractions || ''), label: t('statSights', 'Sights') },
+      { value: String(s.hotels || ''), label: t('statHotels', 'Hotels') },
+      { value: String(s.dining || ''), label: t('statDining', 'Dining') },
+      { value: String(s.days || ''), label: t('statDays', 'Days') },
       { value: String(s.qrCodes || ''), label: 'QR Codes' },
       { value: String(s.chapters || ''), label: 'Chapters' }
     ].filter(x => x.value);
@@ -105,7 +150,7 @@
     return `<div class="hero ${tall ? 'hero--cover' : ''}">
       ${img(theme().heroImage, m.city + ' skyline', '16/9', 'center 35%')}
       <div class="hero__content">
-        <span class="discover-wordmark">Discover</span>
+        <span class="discover-wordmark">${esc(t('discover', 'Discover'))}</span>
         <span class="hero__badge">${esc(m.badge)} · ${esc(m.country)}</span>
         <h1 class="hero__title">${esc(m.city)}</h1>
         <p class="hero__subtitle">${esc(m.tagline)}</p>
@@ -113,14 +158,77 @@
     </div>${statsHtml}`;
   }
 
+  const ESSENTIAL_ICONS = {
+    currency: 'currency',
+    power: 'plug',
+    sim: 'sim',
+    language: 'language',
+    tipping: 'card',
+    emergency: 'emergency',
+    tapWater: 'droplet',
+    timezone: 'clock'
+  };
+
+  function renderHomeHero() {
+    const m = meta();
+    const stats = statsArray().slice(0, 4);
+    const statsHtml = stats.map(s =>
+      `<div class="home-hero__stat">
+        <div class="home-hero__stat-value">${esc(s.value)}</div>
+        <div class="home-hero__stat-label">${esc(s.label)}</div>
+      </div>`
+    ).join('');
+
+    return `<header class="home-hero">
+      <div class="home-hero__photo">
+        ${img(theme().heroImage, m.city + ' skyline', '16/9', 'center 35%')}
+      </div>
+      <div class="home-hero__panel">
+        <span class="home-hero__wordmark">${esc(t('discover', 'Discover'))}</span>
+        <h1 class="home-hero__title">${esc(m.city)}</h1>
+        <p class="home-hero__tagline">${esc(txMeta('tagline', m.tagline))}</p>
+        <p class="home-hero__edition">${esc(m.edition || '2026')} ${esc(t('edition', 'Edition'))} · ${esc(m.country)}</p>
+        ${statsHtml ? `<div class="home-hero__stats">${statsHtml}</div>` : ''}
+      </div>
+    </header>`;
+  }
+
+  function renderHomeSection(kicker, title, subtitle, bodyHtml) {
+    return `<section class="home-section">
+      <header class="home-section__head">
+        <span class="home-section__kicker">${esc(kicker)}</span>
+        <h2 class="home-section__title">${esc(title)}</h2>
+        ${subtitle ? `<p class="home-section__sub">${esc(subtitle)}</p>` : ''}
+      </header>
+      <div class="home-section__body">${bodyHtml}</div>
+    </section>`;
+  }
+
+  function renderHomeWeatherCards() {
+    const rows = (PLAN.weatherTable?.rows || []).filter(r => HOME_WEATHER_MONTHS.includes(r.month));
+    const cards = rows.map(r =>
+      `<div class="home-weather-card">
+        <div class="home-weather-card__month">${esc(txMonth(r.month))}</div>
+        <div class="home-weather-card__row"><span>${esc(t('weatherTemp', 'Temp'))}</span><strong dir="ltr">${esc(r.avgTemp)}</strong></div>
+        <div class="home-weather-card__row"><span>${esc(t('weatherRain', 'Rain'))}</span><strong dir="ltr">${esc(r.rain)}</strong></div>
+        <div class="home-weather-card__row"><span>${esc(t('weatherCrowds', 'Crowds'))}</span><strong>${esc(txWeatherRow(r.month, 'crowds', r.crowds))}</strong></div>
+        <div class="home-weather-card__row"><span>${esc(t('weatherBestFor', 'Best for'))}</span><strong>${esc(txWeatherRow(r.month, 'recommend', r.recommend))}</strong></div>
+      </div>`
+    ).join('');
+    const sweetSpot = txSweetSpot(PLAN.weatherTable?.sweetSpot);
+    return `<div class="home-weather-grid">${cards}</div>
+      ${sweetSpot ? `<div class="home-weather__spot">${esc(sweetSpot)}</div>` : ''}`;
+  }
+
   function renderChapterOpener(num, title, subtitle, bg) {
-    const media = bg ? img(bg, title, '21/9', 'center 30%') : '';
-    return `<div class="chapter-opener full-bleed">
-      ${media}
-      <div class="chapter-opener__inner">
-        <div class="chapter-opener__num">${esc(num)}</div>
-        <h2 class="chapter-opener__title">${esc(title)}</h2>
-        ${subtitle ? `<p class="chapter-opener__sub">${esc(subtitle)}</p>` : ''}
+    const image = bg || theme().heroImage;
+    return `<div class="hero hero--cover hero--chapter">
+      ${img(image, title, '16/9', 'center 35%')}
+      <div class="hero__content">
+        <span class="discover-wordmark">${esc(t('discover', 'Discover'))}</span>
+        <span class="hero__badge">${esc(num)}</span>
+        <h2 class="hero__title">${esc(title)}</h2>
+        ${subtitle ? `<p class="hero__subtitle">${esc(subtitle)}</p>` : ''}
       </div>
     </div>`;
   }
@@ -193,7 +301,7 @@
           <span class="chip chip--warn">${esc(a.waitSummer)} wait</span>
         </div>
         ${a.tip ? `<p class="place-list-card__teaser">${esc(shortText(a.tip, 1))}</p>` : ''}
-        <span class="place-list-card__cta">View guide →</span>
+        <span class="place-list-card__cta">${esc(t('viewGuide', 'View guide →'))}</span>
       </div>
     </button>`;
   }
@@ -272,70 +380,57 @@
     const m = meta();
     const w = PLAN.welcome || {};
     const essentials = PLAN.essentials || {};
-    const essentialCards = Object.values(essentials).map(e =>
-      `<div class="essential-card">
-        <div class="essential-card__label">${esc(e.label?.split('·')[0] || e.label)}</div>
-        <div class="essential-card__value">${esc(e.label)}</div>
-        <div class="essential-card__note">${esc(e.note)}</div>
+    const letter = shortText(txWelcome('editorLetter', w.editorLetter), 2);
+
+    const essentialCards = Object.entries(essentials).map(([key, e]) =>
+      `<div class="home-essential">
+        <div class="home-essential__icon">${iconWrap(ESSENTIAL_ICONS[key] || 'pin')}</div>
+        <div class="home-essential__value">${esc(txEssential(key, 'label', e.label))}</div>
+        <div class="home-essential__note">${esc(txEssential(key, 'note', e.note))}</div>
       </div>`
     ).join('');
 
     const arrival = (PLAN.arrival || []).map(s =>
-      `<div class="arrival-step">
-        <div class="arrival-step__num">${esc(s.step)}</div>
-        <div>
-          <div class="arrival-step__title">${esc(s.title)}</div>
-          <div class="arrival-step__desc">${esc(s.desc)}</div>
-        </div>
+      `<div class="home-arrival-card">
+        <span class="home-arrival-card__step">${esc(s.step)}</span>
+        <div class="home-arrival-card__title">${esc(txArrival(s.step, 'title', s.title))}</div>
+        <div class="home-arrival-card__desc">${esc(txArrival(s.step, 'desc', s.desc))}</div>
       </div>`
     ).join('');
 
     const packing = PLAN.packing || {};
     const seasons = Object.keys(packing);
     const packingTabs = seasons.map(k =>
-      `<button type="button" class="packing-tab ${k === activePackingSeason ? 'active' : ''}" onclick="setPackingSeason('${k}')">${esc(packing[k].months || k)}</button>`
+      `<button type="button" class="home-packing__tab ${k === activePackingSeason ? 'active' : ''}" onclick="setPackingSeason('${k}')">${esc(txPacking(k, 'months', packing[k].months || k))}</button>`
     ).join('');
 
     const pk = packing[activePackingSeason] || packing[seasons[0]] || {};
-    const packingList = (pk.items || []).map(i => `<li>${esc(i)}</li>`).join('');
+    const packingItemsList = txPackingItems(activePackingSeason, pk.items || []);
+    const packingList = packingItemsList.map(i => `<li class="home-packing__item">${esc(i)}</li>`).join('');
 
-    const weatherRows = (PLAN.weatherTable?.rows || [])
-      .filter(r => HOME_WEATHER_MONTHS.includes(r.month))
-      .map(r =>
-      `<tr>
-        <td><strong>${esc(r.month)}</strong></td>
-        <td>${esc(r.avgTemp)}</td>
-        <td>${esc(r.rain)}</td>
-        <td>${esc(r.crowds)}</td>
-        <td>${esc(r.recommend)}</td>
-      </tr>`
-    ).join('');
+    const packingBody = `<div class="home-packing">
+      <div class="home-packing__tabs">${packingTabs}</div>
+      <div class="home-packing__panel">
+        <div class="home-packing__temp" dir="ltr">${esc(txPacking(activePackingSeason, 'temp', pk.temp))}</div>
+        <ul class="home-packing__list">${packingList}</ul>
+      </div>
+    </div>`;
 
-    const sweetSpot = PLAN.weatherTable?.sweetSpot;
-    const letter = shortText(w.editorLetter, 2);
+    const letterBody = `<blockquote class="home-letter">
+      <span class="home-letter__kicker">${esc(t('homeEditorKicker', 'From the Editor'))} · ${esc(m.edition || '2026')}</span>
+      <p class="home-letter__body">${esc(letter)}</p>
+    </blockquote>`;
 
-    return `${renderCoverHero(true)}
-      <div class="editor-letter">
-        <div class="editor-letter__kicker">From the Editor · ${esc(m.edition || '2026')}</div>
-        <div class="editor-letter__body">${esc(letter)}</div>
-      </div>
-      <div class="section-head section-head--tight"><h2>Essentials</h2><p>Everything you need before landing.</p></div>
-      <div class="essentials-grid">${essentialCards}</div>
-      <div class="section-head"><h2>Arrival playbook</h2><p>Seven steps from touchdown to tea.</p></div>
-      <div class="arrival-list">${arrival}</div>
-      <div class="section-head"><h2>Packing</h2><p>${esc(packing[activePackingSeason]?.months || 'Spring')} checklist.</p></div>
-      <div class="packing-panel">
-        <div class="packing-panel__temp">${esc(pk.temp)}</div>
-        <ul class="packing-list">${packingList}</ul>
-      </div>
-      <div class="section-head"><h2>Best months to visit</h2><p>Peak season at a glance — full table in More → Weather.</p></div>
-      <div class="weather-table-wrap">
-        <table class="weather-table">
-          <thead><tr><th>Month</th><th>Temp</th><th>Rain</th><th>Crowds</th><th>Best for</th></tr></thead>
-          <tbody>${weatherRows}</tbody>
-        </table>
-      </div>
-      ${sweetSpot ? `<div class="prose prose--highlight" style="margin:0 var(--pad) 32px">${esc(sweetSpot)}</div>` : ''}`;
+    const packingSeasonLabel = txPacking(activePackingSeason, 'months', packing[activePackingSeason]?.months || 'Spring');
+
+    return `<div class="home">
+      ${renderHomeHero()}
+      ${renderHomeSection(t('homeWelcomeKicker', 'Welcome'), t('homeWelcomeTitle', 'From the Editor'), t('homeWelcomeSub', 'Your pocket companion to London.'), letterBody)}
+      ${renderHomeSection(t('homeEssentialsKicker', 'Before you land'), t('homeEssentialsTitle', 'Essentials'), t('homeEssentialsSub', 'Everything you need before touchdown.'), `<div class="home-essentials">${essentialCards}</div>`)}
+      ${renderHomeSection(t('homeArrivalKicker', 'Day one'), t('homeArrivalTitle', 'Arrival playbook'), t('homeArrivalSub', 'Seven steps from touchdown to tea.'), `<div class="home-arrival">${arrival}</div>`)}
+      ${renderHomeSection(t('homePackingKicker', 'What to pack'), t('homePackingTitle', 'Packing'), t('homePackingSub', { season: packingSeasonLabel }, `${packingSeasonLabel} checklist.`), packingBody)}
+      ${renderHomeSection(t('homeWeatherKicker', 'When to go'), t('homeWeatherTitle', 'Best months to visit'), t('homeWeatherSub', 'Peak season at a glance — full table in More → Weather.'), renderHomeWeatherCards())}
+    </div>`;
   }
 
   function renderAttractions() {
@@ -345,9 +440,9 @@
       if (a) return renderDetailShell('sight', renderAttractionDetail(a));
     }
     const opener = renderChapterOpener(
-      'Chapter 01',
-      'Must-See Sights',
-      'Tap any sight for the full guide.',
+      t('chapter01', 'Chapter 01'),
+      t('sightsTitle', 'Must-See Sights'),
+      t('sightsSub', 'Tap any sight for the full guide.'),
       photoUrl(list[0]?.photos, 'hero', 'detail')
     );
     return opener + `<div class="place-list">${list.map((a, i) => renderAttractionListCard(a, i)).join('')}</div>`;
@@ -384,7 +479,7 @@
           <span class="chip">★ ${esc(h.rating)}</span>
         </div>
         <p class="place-list-card__meta">${esc(h.tube?.split('·')[0]?.trim() || h.tube)} · ${esc(h.room)}</p>
-        <span class="place-list-card__cta">View hotel →</span>
+        <span class="place-list-card__cta">${esc(t('viewHotel', 'View hotel →'))}</span>
       </div>
     </button>`;
   }
@@ -430,7 +525,7 @@
       const h = list[detailView.index];
       if (h) return renderDetailShell('stay', renderHotelDetail(h));
     }
-    const opener = renderChapterOpener('Chapter 02', 'Where to Stay', 'Tap a hotel for rooms, tips and booking.', list[0]?.photos?.exterior);
+    const opener = renderChapterOpener(t('chapter02', 'Chapter 02'), t('stayTitle', 'Where to Stay'), t('staySub', 'Tap a hotel for rooms, tips and booking.'), list[0]?.photos?.exterior);
     return opener + `<div class="place-list">${list.map((h, i) => renderHotelListCard(h, i)).join('')}</div>`;
   }
 
@@ -446,7 +541,7 @@
           <span class="chip chip--warn">${esc(d.wait)}</span>
         </div>
         ${d.famous ? `<p class="place-list-card__teaser">${esc(shortText(d.famous, 1))}</p>` : ''}
-        <span class="place-list-card__cta">View menu →</span>
+        <span class="place-list-card__cta">${esc(t('viewMenu', 'View menu →'))}</span>
       </div>
     </button>`;
   }
@@ -496,7 +591,7 @@
       const d = list[detailView.index];
       if (d) return renderDetailShell('eat', renderDiningDetail(d));
     }
-    const opener = renderChapterOpener('Chapter 03', 'Where to Eat', 'Tap a restaurant for dishes and booking.', list[0]?.photos?.signature);
+    const opener = renderChapterOpener(t('chapter03', 'Chapter 03'), t('eatTitle', 'Where to Eat'), t('eatSub', 'Tap a restaurant for dishes and booking.'), list[0]?.photos?.signature);
     return opener + `<div class="place-list">${list.map((d, i) => renderDiningListCard(d, i)).join('')}</div>`;
   }
 
@@ -519,9 +614,9 @@
   function renderPlan() {
     const days = PLAN.itineraries || [];
     const day = days.find(d => d.day === activeDay) || days[0];
-    if (!day) return renderChapterOpener('Chapter 04', 'Your Itinerary', 'No plans yet.');
+    if (!day) return renderChapterOpener(t('chapter04', 'Chapter 04'), t('planTitle', 'Your Itinerary'), t('planEmpty', 'No plans yet.'));
 
-    const opener = renderChapterOpener('Chapter 04', 'Your Itinerary', 'Hour-by-hour routes, ready to follow.', day.photos?.[0]);
+    const opener = renderChapterOpener(t('chapter04', 'Chapter 04'), t('planTitle', 'Your Itinerary'), t('planSub', 'Hour-by-hour routes, ready to follow.'), day.photos?.[0]);
 
     const dayTabs = days.map(d =>
       `<button type="button" class="day-tab ${d.day === activeDay ? 'active' : ''}" onclick="setDay(${d.day})">
@@ -550,7 +645,6 @@
       const photo = findStopPhoto(stop.name);
       const transitIcon = ICONS[stop.icon] || ICONS.walk;
       return `<div class="stop">
-        <div class="stop__dot"></div>
         <time class="stop__time">${esc(stop.time)}</time>
         <div class="stop__card ${cls}">
           ${photo ? `<div class="stop__photo">${img(photo, stop.name, '21/9', 'center 30%')}</div>` : ''}
@@ -570,7 +664,7 @@
       <div class="day-tabs">${dayTabs}</div>
       <div class="day-strip">${photoStrip}</div>
       ${routeBanner}
-      <div class="timeline"><div class="timeline__line"></div>${stops}</div>`;
+      <div class="timeline">${stops}</div>`;
   }
 
   function renderFullWeatherTable() {
@@ -767,14 +861,14 @@
   }
 
   const MORE_SECTIONS = {
-    transport: { label: 'Transport', render: renderTransport },
-    maps: { label: 'Maps', render: renderMaps },
-    weather: { label: 'Weather', render: () =>
+    transport: { labelKey: 'moreTransport', label: 'Transport', render: renderTransport },
+    maps: { labelKey: 'moreMaps', label: 'Maps', render: renderMaps },
+    weather: { labelKey: 'moreWeather', label: 'Weather', render: () =>
       `${renderFullWeatherTable()}
        <h3 style="font-size:13px;margin:24px 0 10px">Rainy day</h3><div class="weather-cards">${renderWeatherCards(PLAN.rainyDay)}</div>
        <h3 style="font-size:13px;margin:24px 0 10px">Sunny day</h3><div class="weather-cards">${renderWeatherCards(PLAN.sunnyDay)}</div>`
     },
-    gems: { label: 'Gems', render: () =>
+    gems: { labelKey: 'moreGems', label: 'Gems', render: () =>
       (PLAN.hiddenGems || []).map(g =>
         `<div class="gem-card">
           ${img(g.img, g.name, '16/9', 'center')}
@@ -786,7 +880,7 @@
         </div>`
       ).join('')
     },
-    shopping: { label: 'Shopping', render: () => {
+    shopping: { labelKey: 'moreShopping', label: 'Shopping', render: () => {
       const s = PLAN.shopping || {};
       const districts = (s.districts || []).map(d =>
         `<div class="gem-card">
@@ -804,27 +898,27 @@
         ${brands ? `<div class="chips" style="margin-top:16px">${brands}</div>` : ''}
         ${souvenirs ? `<ul style="margin-top:12px;font-size:12px;padding-left:20px">${souvenirs}</ul>` : ''}`;
     }},
-    warnings: { label: 'Warnings', render: () =>
+    warnings: { labelKey: 'moreWarnings', label: 'Warnings', render: () =>
       (PLAN.warnings || []).slice(0, 4).map(w =>
         `<div class="warning-card"><div class="warning-card__title">${esc(w.title)}</div><div class="warning-card__desc">${esc(w.desc)}</div></div>`
       ).join('')
     },
-    budget: { label: 'Budget', render: () => `<div class="budget-overview">${renderBudget()}</div>` },
-    family: { label: 'Family', render: renderFamily },
-    emergency: { label: 'Emergency', render: renderEmergency },
-    local: { label: 'Local tips', render: renderLocalTips },
-    cheat: { label: 'Cheat sheet', render: renderCheatSheet }
+    budget: { labelKey: 'moreBudget', label: 'Budget', render: () => `<div class="budget-overview">${renderBudget()}</div>` },
+    family: { labelKey: 'moreFamily', label: 'Family', render: renderFamily },
+    emergency: { labelKey: 'moreEmergency', label: 'Emergency', render: renderEmergency },
+    local: { labelKey: 'moreLocal', label: 'Local tips', render: renderLocalTips },
+    cheat: { labelKey: 'moreCheat', label: 'Cheat sheet', render: renderCheatSheet }
   };
 
   function renderMore() {
     const nav = Object.entries(MORE_SECTIONS).map(([id, sec]) =>
-      `<button type="button" class="more-nav__btn ${id === activeMoreSection ? 'active' : ''}" onclick="setMoreSection('${id}')">${esc(sec.label)}</button>`
+      `<button type="button" class="more-nav__btn ${id === activeMoreSection ? 'active' : ''}" onclick="setMoreSection('${id}')">${esc(t(sec.labelKey, sec.label))}</button>`
     ).join('');
 
     const section = MORE_SECTIONS[activeMoreSection] || MORE_SECTIONS.transport;
     const content = section.render();
 
-    return `${renderChapterOpener('Essentials', 'More to Know', 'Transport, emergency, budget & beyond.')}
+    return `${renderChapterOpener(t('moreChapter', 'Essentials'), t('moreTitle', 'More to Know'), t('moreSub', 'Transport, emergency, budget & beyond.'))}
       <nav class="more-nav">${nav}</nav>
       <div class="more-section">${content}</div>`;
   }
@@ -864,12 +958,12 @@
     };
 
     const tabs = [
-      { id: 'home', icon: 'home', label: 'Home' },
-      { id: 'sights', icon: 'camera', label: 'Sights' },
-      { id: 'stay', icon: 'bed', label: 'Stay' },
-      { id: 'eat', icon: 'utensils', label: 'Eat' },
-      { id: 'plan', icon: 'map', label: 'Plan' },
-      { id: 'more', icon: 'more', label: 'More' }
+      { id: 'home', icon: 'home', labelKey: 'tabHome', label: 'Home' },
+      { id: 'sights', icon: 'camera', labelKey: 'tabSights', label: 'Sights' },
+      { id: 'stay', icon: 'bed', labelKey: 'tabStay', label: 'Stay' },
+      { id: 'eat', icon: 'utensils', labelKey: 'tabEat', label: 'Eat' },
+      { id: 'plan', icon: 'map', labelKey: 'tabPlan', label: 'Plan' },
+      { id: 'more', icon: 'more', labelKey: 'tabMore', label: 'More' }
     ];
 
     const app = document.getElementById('app');
@@ -877,8 +971,8 @@
 
     app.innerHTML = `
       <main class="panel">${panels[activeTab] || ''}</main>
-      <nav class="bottom-nav" aria-label="Main navigation">${tabs.map(t =>
-        `<button type="button" class="nav-item ${activeTab === t.id ? 'active' : ''}" onclick="setTab('${t.id}')" aria-current="${activeTab === t.id ? 'page' : 'false'}">${ICONS[t.icon] || ''}<span>${t.label}</span></button>`
+      <nav class="bottom-nav" aria-label="${esc(t('navLabel', 'Main navigation'))}">${tabs.map(tab =>
+        `<button type="button" class="nav-item ${activeTab === tab.id ? 'active' : ''}" onclick="setTab('${tab.id}')" aria-current="${activeTab === tab.id ? 'page' : 'false'}">${ICONS[tab.icon] || ''}<span>${esc(t(tab.labelKey, tab.label))}</span></button>`
       ).join('')}</nav>`;
   }
 
@@ -889,6 +983,7 @@
     }
     if (global.DiscoverBrand) global.DiscoverBrand.apply(PLAN);
     else applyTheme(PLAN);
+    if (global.I18n) global.I18n.init(render);
     render();
   }
 

@@ -98,8 +98,19 @@ img {
 .pdf-back-cover__bg {
   position: absolute;
   inset: 0;
-  background: center / cover no-repeat;
   z-index: 0;
+  overflow: hidden;
+  background: #1a2744;
+}
+
+.pdf-cover__bg img,
+.pdf-back-cover__bg img,
+.pdf-chapter__bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .pdf-cover__overlay,
@@ -222,8 +233,9 @@ img {
 .pdf-chapter__bg {
   position: absolute;
   inset: 0;
-  background: center / cover no-repeat;
   z-index: 0;
+  overflow: hidden;
+  background: #1a2744;
 }
 
 .pdf-chapter__overlay {
@@ -436,11 +448,25 @@ img {
 
 .pdf-card__img {
   min-height: 32mm;
-  background: #ddd center / cover no-repeat;
+  background: #e8e4de;
+  overflow: hidden;
+  position: relative;
+}
+
+.pdf-card__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 32mm;
+  object-fit: cover;
+  object-position: center;
 }
 
 .pdf-card__body {
-  padding: 6px 8px;
+  padding: 8px 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .pdf-card__title {
@@ -454,6 +480,8 @@ img {
   margin-top: 3px;
   font-size: 7.5pt;
   color: var(--text-muted);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 /* ── Chips & meta ── */

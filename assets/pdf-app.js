@@ -50,10 +50,10 @@
   }
 
   function chapterOpener(label, title, subtitle, img) {
-    const bg = normalizeImageUrl(img || themeHero(), 1200);
+    const bg = img || themeHero();
     return (
       '<div class="pdf-chapter">' +
-        '<div class="pdf-chapter__bg" style="background-image:url(\'' + esc(bg) + '\')"></div>' +
+        pdfBgImg(bg, 'pdf-chapter__bg', title) +
         '<div class="pdf-chapter__overlay"></div>' +
         '<div class="pdf-chapter__content">' +
           '<div class="pdf-chapter__label">' + esc(label) + '</div>' +
@@ -218,7 +218,7 @@
     const m = meta();
     return (
       '<section class="pdf-cover">' +
-        '<div class="pdf-cover__bg" style="background-image:url(\'' + esc(normalizeImageUrl(themeHero(), 1200)) + '\')"></div>' +
+        pdfBgImg(themeHero(), 'pdf-cover__bg', cityName()) +
         '<div class="pdf-cover__overlay"></div>' +
         '<div class="pdf-cover__content">' +
           '<span class="pdf-cover__badge">' + esc(m.badge || 'Travel Guide') + ' · ' + esc(countryName()) + '</span>' +
@@ -655,7 +655,7 @@
           (items || []).map(function (item) {
             return (
               '<article class="pdf-card pdf-card--wide">' +
-                '<div class="pdf-card__img" style="background-image:url(\'' + esc(normalizeImageUrl(item.img, 600)) + '\')"></div>' +
+                pdfCardImg(item.img, item.name) +
                 '<div class="pdf-card__body">' +
                   '<div class="pdf-card__title">' + esc(item.name) + '</div>' +
                   '<div class="pdf-card__desc">' + esc(item.address) + ' · ' + esc(item.desc) + '</div>' +
@@ -677,7 +677,7 @@
           (PLAN.hiddenGems || []).map(function (g) {
             return (
               '<article class="pdf-card">' +
-                '<div class="pdf-card__img" style="background-image:url(\'' + esc(normalizeImageUrl(g.img, 600)) + '\')"></div>' +
+                pdfCardImg(g.img, g.name) +
                 '<div class="pdf-card__body">' +
                   '<div class="pdf-card__title">' + esc(g.name) + '</div>' +
                   '<div class="pdf-card__desc">' + esc(g.desc) + '</div>' +
@@ -716,7 +716,7 @@
           (s.districts || []).map(function (d) {
             return (
               '<article class="pdf-card">' +
-                '<div class="pdf-card__img" style="background-image:url(\'' + esc(normalizeImageUrl(d.img, 600)) + '\')"></div>' +
+                pdfCardImg(d.img, d.name) +
                 '<div class="pdf-card__body">' +
                   '<div class="pdf-card__title">' + esc(d.name) + '</div>' +
                   '<div class="pdf-card__desc">' + esc(d.desc) + '</div>' +
@@ -945,7 +945,7 @@
     const m = meta();
     return (
       '<section class="pdf-back-cover">' +
-        '<div class="pdf-back-cover__bg" style="background-image:url(\'' + esc(normalizeImageUrl(themeHero(), 1200)) + '\')"></div>' +
+        pdfBgImg(themeHero(), 'pdf-back-cover__bg', cityName() + '-back') +
         '<div class="pdf-back-cover__overlay"></div>' +
         '<div class="pdf-back-cover__content">' +
           '<h2 class="pdf-back-cover__title">' + esc(cityName()) + '</h2>' +

@@ -21,8 +21,13 @@ await page.waitForSelector('.bottom-nav', { timeout: 15000 });
 const home = await page.evaluate(() => ({
   overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
   title: document.title,
-  badge: document.querySelector('.hero__badge')?.textContent?.trim(),
-  wordmark: document.querySelector('.discover-wordmark')?.textContent?.trim(),
+  homeHero: !!document.querySelector('.home-hero'),
+  cityTitle: document.querySelector('.home-hero__title')?.textContent?.trim(),
+  packingTabs: document.querySelectorAll('.home-packing__tab').length,
+  sections: document.querySelectorAll('.home-section').length,
+  toolbar: !!document.querySelector('.app-toolbar'),
+  langBtn: !!document.getElementById('lang-toggle'),
+  themeBtn: !!document.getElementById('theme-toggle'),
   tabs: document.querySelectorAll('.bottom-nav .nav-item').length,
   appLen: document.getElementById('app')?.innerHTML?.length || 0,
 }));
@@ -41,6 +46,6 @@ const final = await page.evaluate(() => ({
 
 await browser.close();
 
-const ok = !errors.length && !home.overflow && !final.overflow && home.title.includes('Discover') && home.tabs === 6;
+const ok = !errors.length && !home.overflow && !final.overflow && home.title.includes('Discover') && home.tabs === 6 && home.homeHero && home.packingTabs >= 2 && home.sections >= 5 && home.toolbar && home.langBtn && home.themeBtn;
 console.log(JSON.stringify({ ok, url, errors, home, final }, null, 2));
 process.exit(ok ? 0 : 1);

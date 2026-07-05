@@ -32,7 +32,14 @@
     bike: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>',
     cab: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',
     uber: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>',
-    elizabeth: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/></svg>'
+    elizabeth: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/></svg>',
+    currency: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 0 1 0 4H8"/><path d="M12 18V6"/></svg>',
+    plug: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>',
+    sim: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/><path d="M9 8h6"/></svg>',
+    language: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>',
+    card: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>',
+    droplet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'
   };
 
   function themeOf(plan) {
@@ -161,11 +168,13 @@
   }
 
   function actionButtons(mapUrl, bookUrl, bookText) {
+    const mapLabel = global.I18n ? global.I18n.t('map', 'Map') : 'Map';
+    const bookLabel = bookText || (global.I18n ? global.I18n.t('book', 'Book') : 'Book');
     const map = mapUrl
-      ? `<a class="btn btn--ghost" href="${esc(mapUrl)}" target="_blank" rel="noopener">${iconWrap('pin')} Map</a>`
+      ? `<a class="btn btn--ghost" href="${esc(mapUrl)}" target="_blank" rel="noopener">${iconWrap('pin')} ${esc(mapLabel)}</a>`
       : '';
     const book = bookUrl
-      ? `<a class="btn btn--primary" href="${esc(bookUrl)}" target="_blank" rel="noopener">${iconWrap('ticket')} ${esc(bookText || 'Book')}</a>`
+      ? `<a class="btn btn--primary" href="${esc(bookUrl)}" target="_blank" rel="noopener">${iconWrap('ticket')} ${esc(bookLabel)}</a>`
       : '';
     if (!map && !book) return '';
     return `<div class="btn-row">${map}${book}</div>`;
@@ -220,12 +229,17 @@
       el.dataset.fb = '';
       return;
     }
+    if (el.dataset.ps && el.src !== el.dataset.ps) {
+      el.src = el.dataset.ps;
+      el.dataset.ps = '';
+      return;
+    }
     if (el.dataset.ph && el.src !== el.dataset.ph) {
       el.src = el.dataset.ph;
     }
   }
 
-  /** Responsive photo with controlled crop; optional fallback on load error */
+  /** Responsive photo with controlled crop; fallback chain: primary → fb → picsum → placeholder */
   function img(url, alt, ratio, focal, fallback) {
     const primary = normalizeImageUrl(url || fallback);
     if (!primary && !fallback) return '';
@@ -234,8 +248,11 @@
     const pos = focal || 'center';
     const fbRaw = fallback && normalizeImageUrl(fallback) !== src ? normalizeImageUrl(fallback) : '';
     const fb = fbRaw ? esc(fbRaw) : '';
+    const parts = String(r).split('/');
+    const h = parts.length === 2 ? Math.round(640 * (Number(parts[1]) / Number(parts[0]))) : 360;
+    const ps = esc(picsumFallback(alt || url || 'discover', 640, h));
     const ph = esc(IMAGE_PLACEHOLDER);
-    const err = ` onerror="handleImgError(this)"${fb ? ` data-fb="${fb}"` : ''} data-ph="${ph}"`;
+    const err = ` onerror="handleImgError(this)"${fb ? ` data-fb="${fb}"` : ''} data-ps="${ps}" data-ph="${ph}"`;
     return `<figure class="media" style="aspect-ratio:${esc(r)}">
       <img src="${esc(src)}" alt="${esc(alt || '')}" loading="lazy" decoding="async" style="object-position:${esc(pos)}"${err}>
     </figure>`;
@@ -252,12 +269,39 @@
     if (!src) return `<div class="pdf-photo ${extraClass || ''}"></div>`;
     const pos = focal || 'center';
     const ph = esc(IMAGE_PLACEHOLDER);
+    const ps = esc(picsumFallback(label || url || 'pdf', 800, 450));
     return (
       `<figure class="pdf-photo-wrap">` +
       `<div class="pdf-photo ${extraClass || ''}">` +
-      `<img src="${esc(src)}" alt="" decoding="sync" style="object-position:${esc(pos)}" onerror="handleImgError(this)" data-ph="${ph}">` +
+      `<img src="${esc(src)}" alt="" decoding="sync" style="object-position:${esc(pos)}" onerror="handleImgError(this)" data-ps="${ps}" data-ph="${ph}">` +
       (label ? `<span class="pdf-photo-label">${esc(label)}</span>` : '') +
       `</div></figure>`
+    );
+  }
+
+  /** PDF card thumbnail — real img tag so Puppeteer embeds reliably */
+  function pdfCardImg(url, seed) {
+    const src = normalizeImageUrl(url, 600);
+    if (!src) return '<div class="pdf-card__img pdf-card__img--empty"></div>';
+    const ph = esc(IMAGE_PLACEHOLDER);
+    const ps = esc(picsumFallback(seed || url || 'card', 600, 400));
+    return (
+      '<div class="pdf-card__img">' +
+      `<img src="${esc(src)}" alt="" decoding="sync" onerror="handleImgError(this)" data-ps="${ps}" data-ph="${ph}">` +
+      '</div>'
+    );
+  }
+
+  /** Full-bleed PDF background layer */
+  function pdfBgImg(url, className, seed) {
+    const src = normalizeImageUrl(url, 1200);
+    if (!src) return `<div class="${className} ${className}--empty"></div>`;
+    const ph = esc(IMAGE_PLACEHOLDER);
+    const ps = esc(picsumFallback(seed || url || 'bg', 1200, 800));
+    return (
+      `<div class="${className}">` +
+      `<img src="${esc(src)}" alt="" decoding="sync" onerror="handleImgError(this)" data-ps="${ps}" data-ph="${ph}">` +
+      '</div>'
     );
   }
 
@@ -284,6 +328,8 @@
     img,
     photoUrl,
     pdfPhoto,
+    pdfCardImg,
+    pdfBgImg,
     normalizeImageUrl,
     picsumFallback,
     handleImgError,
