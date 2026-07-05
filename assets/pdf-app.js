@@ -39,6 +39,59 @@
       .map(function (pair) { return { value: String(stats[pair[0]]), label: pair[1] }; });
   }
 
+  /* ── PDF navigation & photo cards ── */
+  const PDF_NAV = [
+    { id: 'pdf-welcome', label: 'Welcome' },
+    { id: 'pdf-essentials', label: 'Essentials' },
+    { id: 'pdf-attractions', label: 'Sights' },
+    { id: 'pdf-hotels', label: 'Hotels' },
+    { id: 'pdf-dining', label: 'Dining' },
+    { id: 'pdf-itinerary', label: 'Plan' },
+    { id: 'pdf-transport', label: 'Transport' },
+    { id: 'pdf-emergency', label: 'Emergency' },
+    { id: 'pdf-cheat', label: 'Cheat sheet' }
+  ];
+
+  function pdfNavBar(position) {
+    const mod = position === 'bottom' ? ' pdf-nav--bottom' : '';
+    return (
+      '<nav class="pdf-nav' + mod + '" aria-label="Jump to section">' +
+        PDF_NAV.map(function (item) {
+          return '<a href="#' + item.id + '">' + esc(item.label) + '</a>';
+        }).join('') +
+      '</nav>'
+    );
+  }
+
+  function photoInCard(url, photoClass, cardMod) {
+    cardMod = cardMod || 'hero';
+    return (
+      '<div class="pdf-media-card pdf-media-card--' + cardMod + '">' +
+        photoBg(url, photoClass || '') +
+      '</div>'
+    );
+  }
+
+  function labeledPhotoCard(url, label, photoClass, cardMod) {
+    if (!url) return '';
+    cardMod = cardMod || 'thumb';
+    return (
+      '<div class="pdf-media-card pdf-media-card--' + cardMod + '">' +
+        labeledPhoto(url, label, photoClass || 'pdf-photo--square') +
+      '</div>'
+    );
+  }
+
+  function sectionWithNav(id, className, inner) {
+    return (
+      '<section class="' + (className || 'pdf-section') + '" id="' + id + '">' +
+        pdfNavBar('top') +
+        inner +
+        pdfNavBar('bottom') +
+      '</section>'
+    );
+  }
+
   /* ── Layout helpers ── */
   function sectionHead(title, subtitle) {
     return (
@@ -49,10 +102,12 @@
     );
   }
 
-  function chapterOpener(label, title, subtitle, img) {
+  function chapterOpener(label, title, subtitle, img, opts) {
+    opts = opts || {};
+    const lead = opts.lead ? ' pdf-chapter--lead' : '';
     const bg = img || themeHero();
     return (
-      '<div class="pdf-chapter">' +
+      '<div class="pdf-chapter' + lead + '">' +
         pdfBgImg(bg, 'pdf-chapter__bg', title) +
         '<div class="pdf-chapter__overlay"></div>' +
         '<div class="pdf-chapter__content">' +
@@ -61,6 +116,16 @@
           (subtitle ? '<p class="pdf-chapter__subtitle">' + esc(subtitle) + '</p>' : '') +
         '</div>' +
       '</div>'
+    );
+  }
+
+  function chapterLeadPage(id, label, title, subtitle, img) {
+    return (
+      '<section class="pdf-chapter-page" id="' + id + '">' +
+        pdfNavBar('top') +
+        chapterOpener(label, title, subtitle, img, { lead: false }) +
+        pdfNavBar('bottom') +
+      '</section>'
     );
   }
 
@@ -245,42 +310,37 @@
   function renderWelcome() {
     const w = PLAN.welcome || {};
     const letter = (typeof shortText === 'function' ? shortText(w.editorLetter, 2) : (w.editorLetter || '').split('\n\n')[0]) || '';
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Editor\'s Letter', 'Discover ' + cityName(), 'Your visual-first companion for every day of the trip.') +
-        '<div class="pdf-prose pdf-prose--letter"><p>' + esc(letter) + '</p></div>' +
-      '</section>'
+    return sectionWithNav('pdf-welcome', 'pdf-section',
+      chapterOpener('Editor\'s Letter', 'Discover ' + cityName(), 'Your visual-first companion for every day of the trip.') +
+      '<div class="pdf-prose pdf-prose--letter"><p>' + esc(letter) + '</p></div>'
     );
   }
 
   function renderEssentials() {
     const e = PLAN.essentials || {};
     const keys = Object.keys(e);
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Before You Go', 'Essentials', 'Currency, power, connectivity and the numbers that matter.') +
-        '<div class="pdf-essentials">' +
-          keys.map(function (key) {
-            const item = e[key];
-            if (!item) return '';
-            return (
-              '<div class="pdf-essential">' +
-                '<div class="pdf-essential__icon">' + (ESSENTIAL_ICONS[key] || '●') + '</div>' +
-                '<div class="pdf-essential__label">' + esc(item.label) + '</div>' +
-                '<div class="pdf-essential__note">' + esc(item.note) + '</div>' +
-              '</div>'
-            );
-          }).join('') +
-        '</div>' +
-      '</section>'
+    return sectionWithNav('pdf-essentials', 'pdf-section',
+      chapterOpener('Before You Go', 'Essentials', 'Currency, power, connectivity and the numbers that matter.') +
+      '<div class="pdf-essentials">' +
+        keys.map(function (key) {
+          const item = e[key];
+          if (!item) return '';
+          return (
+            '<div class="pdf-essential">' +
+              '<div class="pdf-essential__icon">' + (ESSENTIAL_ICONS[key] || '●') + '</div>' +
+              '<div class="pdf-essential__label">' + esc(item.label) + '</div>' +
+              '<div class="pdf-essential__note">' + esc(item.note) + '</div>' +
+            '</div>'
+          );
+        }).join('') +
+      '</div>'
     );
   }
 
   function renderArrival() {
     const steps = PLAN.arrival || [];
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Arrival', 'First Hour in ' + cityName(), 'From border to first meal — the sequence that saves time and money.') +
+    return sectionWithNav('pdf-arrival', 'pdf-section',
+      chapterOpener('Arrival', 'First Hour in ' + cityName(), 'From border to first meal — the sequence that saves time and money.') +
         '<div class="pdf-steps">' +
           steps.map(function (s) {
             return (
@@ -291,17 +351,15 @@
               '</div>'
             );
           }).join('') +
-        '</div>' +
-      '</section>'
+        '</div>'
     );
   }
 
   function renderPacking() {
     const p = PLAN.packing || {};
     const seasons = ['spring', 'summer', 'autumn', 'winter'];
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Packing', 'Season by Season', 'What to bring for London\'s changeable weather.') +
+    return sectionWithNav('pdf-packing', 'pdf-section',
+      chapterOpener('Packing', 'Season by Season', 'What to bring for London\'s changeable weather.') +
         '<div class="pdf-packing">' +
           seasons.map(function (key) {
             const s = p[key];
@@ -318,17 +376,15 @@
               '</div>'
             );
           }).join('') +
-        '</div>' +
-      '</section>'
+        '</div>'
     );
   }
 
   function renderWeather() {
     const wt = PLAN.weatherTable || {};
     const rows = wt.rows || [];
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Weather', 'Month by Month', 'Temperature, rain, crowds and what to book.') +
+    return sectionWithNav('pdf-weather', 'pdf-section',
+      chapterOpener('Weather', 'Month by Month', 'Temperature, rain, crowds and what to book.') +
         '<div class="pdf-table-wrap">' +
           '<table class="pdf-table">' +
             '<thead><tr>' +
@@ -352,8 +408,7 @@
         '</div>' +
         (wt.sweetSpot
           ? '<div class="pdf-box pdf-box--tip" style="margin-top:4mm;"><strong>Sweet spot</strong>' + esc(wt.sweetSpot) + '</div>'
-          : '') +
-      '</section>'
+          : '')
     );
   }
 
@@ -361,36 +416,34 @@
     const t = PLAN.transport || {};
     const modes = t.modes || [];
     const tips = t.oysterTips || [];
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Getting Around', 'Transport', 'Tube, bus, river and the contactless cap that changes everything.') +
-        '<div class="pdf-transport-grid">' +
-          modes.map(function (m) {
-            const iconClass = TRANSPORT_ICONS[m.icon] ? ' pdf-transport-mode__icon--' + m.icon : '';
-            return (
-              '<div class="pdf-transport-mode">' +
-                '<div class="pdf-transport-mode__icon' + iconClass + '">' + (TRANSPORT_ICONS[m.icon] || '🚇') + '</div>' +
-                '<div class="pdf-transport-mode__name">' + esc(m.name) + '</div>' +
-                '<div class="pdf-transport-mode__price">' + esc(m.price) + '</div>' +
-                '<div class="pdf-transport-mode__desc">' + esc(m.desc) + '</div>' +
-              '</div>'
-            );
-          }).join('') +
-        '</div>' +
-        '<div class="pdf-oyster-tips">' +
-          tips.map(function (tip) {
-            return (
-              '<div class="pdf-box pdf-box--fact">' +
-                '<strong>' + esc(tip.title) + '</strong>' +
-                esc(tip.desc) +
-              '</div>'
-            );
-          }).join('') +
-        '</div>' +
-        (t.exit6Tip
-          ? '<div class="pdf-box pdf-box--secret" style="margin-top:4mm;"><strong>Local secret</strong>' + esc(t.exit6Tip) + '</div>'
-          : '') +
-      '</section>'
+    return sectionWithNav('pdf-transport', 'pdf-section',
+      chapterOpener('Getting Around', 'Transport', 'Tube, bus, river and the contactless cap that changes everything.') +
+      '<div class="pdf-transport-grid">' +
+        modes.map(function (m) {
+          const iconClass = TRANSPORT_ICONS[m.icon] ? ' pdf-transport-mode__icon--' + m.icon : '';
+          return (
+            '<div class="pdf-transport-mode">' +
+              '<div class="pdf-transport-mode__icon' + iconClass + '">' + (TRANSPORT_ICONS[m.icon] || '🚇') + '</div>' +
+              '<div class="pdf-transport-mode__name">' + esc(m.name) + '</div>' +
+              '<div class="pdf-transport-mode__price">' + esc(m.price) + '</div>' +
+              '<div class="pdf-transport-mode__desc">' + esc(m.desc) + '</div>' +
+            '</div>'
+          );
+        }).join('') +
+      '</div>' +
+      '<div class="pdf-oyster-tips">' +
+        tips.map(function (tip) {
+          return (
+            '<div class="pdf-box pdf-box--fact">' +
+              '<strong>' + esc(tip.title) + '</strong>' +
+              esc(tip.desc) +
+            '</div>'
+          );
+        }).join('') +
+      '</div>' +
+      (t.exit6Tip
+        ? '<div class="pdf-box pdf-box--secret" style="margin-top:4mm;"><strong>Local secret</strong>' + esc(t.exit6Tip) + '</div>'
+        : '')
     );
   }
 
@@ -402,9 +455,8 @@
       ? { lat: markers[0].lat, lng: markers[0].lng }
       : { lat: 51.5074, lng: -0.1278 };
     const mapUrl = staticMap(center.lat, center.lng, 640, 480);
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Maps', 'City Overview', overview.caption || 'Scan any QR in this guide for turn-by-turn directions.') +
+    return sectionWithNav('pdf-maps', 'pdf-section',
+      chapterOpener('Maps', 'City Overview', overview.caption || 'Scan any QR in this guide for turn-by-turn directions.') +
         '<div class="pdf-map-overview">' +
           '<div class="pdf-map-qr__map" style="height:70mm;">' +
             '<img src="' + esc(mapUrl) + '" alt="City overview map">' +
@@ -417,8 +469,7 @@
               }).join('') +
             '</ul>' +
           '</div>' +
-        '</div>' +
-      '</section>'
+        '</div>'
     );
   }
 
@@ -428,6 +479,7 @@
     const eatNearby = [a.nearbyCafes, a.nearbyRestaurants].filter(Boolean).join(' · ');
     return (
       '<section class="pdf-spread pdf-spread--attraction">' +
+        pdfNavBar('top') +
         '<div class="pdf-spread__header">' +
           '<div>' +
             '<h2 class="pdf-spread__title">' + esc(a.name) + '</h2>' +
@@ -436,11 +488,11 @@
           qrBlock(a.mapUrl, 'Directions', 72) +
         '</div>' +
 
-        photoBg(photos.hero || photos.detail, 'pdf-photo--hero') +
+        photoInCard(photos.hero || photos.detail, 'pdf-photo--hero', 'hero') +
 
-        '<div class="pdf-grid pdf-grid--2" style="margin-bottom:3mm;">' +
-          labeledPhoto(photos.detail, 'Detail', 'pdf-photo--square') +
-          labeledPhoto(photos.photoSpot, 'Photo spot', 'pdf-photo--square') +
+        '<div class="pdf-photo-grid">' +
+          labeledPhotoCard(photos.detail, 'Detail', 'pdf-photo--square', 'thumb') +
+          labeledPhotoCard(photos.photoSpot, 'Photo spot', 'pdf-photo--square', 'thumb') +
         '</div>' +
 
         '<div class="pdf-cols-2" style="margin-top:4mm;">' +
@@ -466,14 +518,16 @@
             pdfActionButtons(a.mapUrl, a.bookUrl, a.bookText || 'Book') +
           '</div>' +
         '</div>' +
+        pdfNavBar('bottom') +
       '</section>'
     );
   }
 
   function renderAttractionsSection() {
     const list = PLAN.attractions || [];
+    const hero = list[0] && list[0].photos ? (list[0].photos.hero || list[0].photos.detail) : themeHero();
     return (
-      chapterOpener('Must-See', 'Attractions', list.length + ' sights with photos, maps, crowd timing and QR codes.') +
+      chapterLeadPage('pdf-attractions', 'Must-See', 'Attractions', list.length + ' sights with photos, maps, crowd timing and QR codes.', hero) +
       list.map(renderAttraction).join('')
     );
   }
@@ -490,6 +544,7 @@
     const photoKeys = Object.keys(HOTEL_PHOTO_LABELS).filter(function (k) { return photos[k]; });
     return (
       '<section class="pdf-spread pdf-spread--hotel">' +
+        pdfNavBar('top') +
         '<div class="pdf-spread__header">' +
           '<div>' +
             '<h2 class="pdf-spread__title">' + esc(h.name) + '</h2>' +
@@ -500,7 +555,11 @@
 
         '<div class="pdf-hotel-gallery">' +
           photoKeys.map(function (key) {
-            return labeledPhoto(photos[key], HOTEL_PHOTO_LABELS[key], '');
+            return (
+              '<div class="pdf-media-card pdf-media-card--gallery">' +
+                labeledPhoto(photos[key], HOTEL_PHOTO_LABELS[key], '') +
+              '</div>'
+            );
           }).join('') +
         '</div>' +
 
@@ -529,14 +588,17 @@
             pdfActionButtons(h.mapUrl, h.bookUrl, 'Book') +
           '</div>' +
         '</div>' +
+        pdfNavBar('bottom') +
       '</section>'
     );
   }
 
   function renderHotelsSection() {
+    const list = PLAN.hotels || [];
+    const hero = list[0] && list[0].photos ? (list[0].photos.exterior || list[0].photos.room) : themeHero();
     return (
-      chapterOpener('Where to Stay', 'Hotels', 'Exterior, rooms, pools and rooftops — the full picture before you book.') +
-      (PLAN.hotels || []).map(renderHotel).join('')
+      chapterLeadPage('pdf-hotels', 'Where to Stay', 'Hotels', 'Exterior, rooms, pools and rooftops — the full picture before you book.', hero) +
+      list.map(renderHotel).join('')
     );
   }
 
@@ -545,6 +607,7 @@
     const photos = d.photos || {};
     return (
       '<section class="pdf-spread pdf-spread--dining">' +
+        pdfNavBar('top') +
         '<div class="pdf-spread__header">' +
           '<div>' +
             '<h2 class="pdf-spread__title">' + esc(d.name) + '</h2>' +
@@ -553,16 +616,18 @@
           qrBlock(d.mapUrl, 'Reserve / map', 72) +
         '</div>' +
 
-        (photos.signature ? photoBg(photos.signature, 'pdf-photo--hero') : '') +
+        (photos.signature ? photoInCard(photos.signature, 'pdf-photo--hero', 'hero') : '') +
 
         '<div class="pdf-dish-grid">' +
           dishes.slice(0, 3).map(function (dish) {
             return (
-              '<div class="pdf-dish">' +
-                photoBg(dish.img, 'pdf-photo--square') +
-                '<div class="pdf-dish__name">' + esc(dish.name) + '</div>' +
-                '<div class="pdf-dish__desc">' + esc(dish.desc) + '</div>' +
-              '</div>'
+              '<article class="pdf-dish-card">' +
+                photoInCard(dish.img, 'pdf-photo--square', 'dish') +
+                '<div class="pdf-dish-card__body">' +
+                  '<div class="pdf-dish__name">' + esc(dish.name) + '</div>' +
+                  '<div class="pdf-dish__desc">' + esc(dish.desc) + '</div>' +
+                '</div>' +
+              '</article>'
             );
           }).join('') +
         '</div>' +
@@ -588,20 +653,24 @@
             pdfActionButtons(d.mapUrl, d.bookUrl, 'Reserve') +
           '</div>' +
         '</div>' +
+        pdfNavBar('bottom') +
       '</section>'
     );
   }
 
   function renderDiningSection() {
+    const list = PLAN.dining || [];
+    const hero = list[0] && list[0].photos ? list[0].photos.signature : themeHero();
     return (
-      chapterOpener('Where to Eat', 'Dining', 'Signature dishes, interiors and every reservation link you need.') +
-      (PLAN.dining || []).map(renderDining).join('')
+      chapterLeadPage('pdf-dining', 'Where to Eat', 'Dining', 'Signature dishes, interiors and every reservation link you need.', hero) +
+      list.map(renderDining).join('')
     );
   }
 
   function renderDay(day) {
     return (
       '<section class="pdf-day" style="' + (day.color ? '--accent:' + day.color : '') + '">' +
+        pdfNavBar('top') +
         '<div class="pdf-day__head">' +
           '<span class="pdf-day__badge">Day ' + esc(String(day.day)) + '</span>' +
           '<h2 class="pdf-day__title">' + esc(day.title) + '</h2>' +
@@ -611,7 +680,7 @@
         (day.photos && day.photos.length
           ? '<div class="pdf-day-photos">' +
               day.photos.slice(0, 4).map(function (url) {
-                return photoBg(url, '');
+                return photoInCard(url, '', 'day');
               }).join('') +
             '</div>'
           : '') +
@@ -639,21 +708,27 @@
             );
           }).join('') +
         '</div>' +
+        pdfNavBar('bottom') +
       '</section>'
     );
   }
 
   function renderItinerariesSection() {
+    const days = PLAN.itineraries || [];
+    const hero = days[0] && days[0].photos && days[0].photos[0] ? days[0].photos[0] : themeHero();
     return (
-      chapterOpener('Your Itinerary', '5 Day Plans', 'Hour-by-hour routes with budgets, maps and time-of-day colour coding.') +
-      (PLAN.itineraries || []).map(renderDay).join('')
+      chapterLeadPage('pdf-itinerary', 'Your Itinerary', '5 Day Plans', 'Hour-by-hour routes with budgets, maps and time-of-day colour coding.', hero) +
+      days.map(renderDay).join('')
     );
   }
 
   function renderWeatherPlan(title, subtitle, items) {
+    const first = items && items[0];
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     return (
-      '<section class="pdf-section">' +
-        sectionHead(title, subtitle) +
+      '<section class="pdf-section" id="pdf-' + slug + '">' +
+        pdfNavBar('top') +
+        chapterOpener('Weather', title, subtitle, first && first.img) +
         '<div class="pdf-weather-cards">' +
           (items || []).map(function (item) {
             return (
@@ -668,16 +743,18 @@
             );
           }).join('') +
         '</div>' +
+        pdfNavBar('bottom') +
       '</section>'
     );
   }
 
   function renderHiddenGems() {
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Hidden Gems', 'Off the Beaten Path', 'Courtyards, ruins and neon — the London most visitors miss.') +
-        '<div class="pdf-grid pdf-grid--2">' +
-          (PLAN.hiddenGems || []).map(function (g) {
+    const gems = PLAN.hiddenGems || [];
+    const hero = gems[0] && gems[0].img ? gems[0].img : themeHero();
+    return sectionWithNav('pdf-gems', 'pdf-section',
+      chapterOpener('Hidden Gems', 'Off the Beaten Path', 'Courtyards, ruins and neon — the London most visitors miss.', hero) +
+      '<div class="pdf-grid pdf-grid--2">' +
+        gems.map(function (g) {
             return (
               '<article class="pdf-card">' +
                 pdfCardImg(g.img, g.name) +
@@ -689,32 +766,29 @@
               '</article>'
             );
           }).join('') +
-        '</div>' +
-      '</section>'
+      '</div>'
     );
   }
 
   function renderWarnings() {
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Warnings', 'Avoid These', 'The scams and traps that catch even experienced travellers.') +
-        (PLAN.warnings || []).slice(0, 4).map(function (w) {
-          return (
-            '<div class="pdf-box pdf-box--warn" style="margin-bottom:3mm;">' +
-              '<strong>' + esc(w.title) + '</strong>' +
-              esc(w.desc) +
-            '</div>'
-          );
-        }).join('') +
-      '</section>'
+    return sectionWithNav('pdf-warnings', 'pdf-section',
+      chapterOpener('Warnings', 'Avoid These', 'The scams and traps that catch even experienced travellers.') +
+      (PLAN.warnings || []).slice(0, 4).map(function (w) {
+        return (
+          '<div class="pdf-box pdf-box--warn" style="margin-bottom:3mm;">' +
+            '<strong>' + esc(w.title) + '</strong>' +
+            esc(w.desc) +
+          '</div>'
+        );
+      }).join('')
     );
   }
 
   function renderShopping() {
     const s = PLAN.shopping || {};
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Shopping', 'Districts & Souvenirs', 'From Bond Street to Bicester Village.') +
+    const hero = s.districts && s.districts[0] ? s.districts[0].img : themeHero();
+    return sectionWithNav('pdf-shopping', 'pdf-section',
+      chapterOpener('Shopping', 'Districts & Souvenirs', 'From Bond Street to Bicester Village.', hero) +
         '<div class="pdf-shopping-districts">' +
           (s.districts || []).map(function (d) {
             return (
@@ -747,8 +821,7 @@
                   '</ul></div>'
                 : '') +
             '</div>'
-          : '') +
-      '</section>'
+          : '')
     );
   }
 
@@ -759,9 +832,8 @@
       ['mid', 'Mid-range', 'pdf-budget-card--mid'],
       ['luxury', 'Luxury', 'pdf-budget-card--luxury']
     ];
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Budget', 'Daily Costs', 'What to expect per person, per day — three tiers.') +
+    return sectionWithNav('pdf-budget', 'pdf-section',
+      chapterOpener('Budget', 'Daily Costs', 'What to expect per person, per day — three tiers.') +
         '<div class="pdf-budget-page">' +
           tiers.map(function (t) {
             const tier = b[t[0]];
@@ -778,16 +850,14 @@
               '</div>'
             );
           }).join('') +
-        '</div>' +
-      '</section>'
+        '</div>'
     );
   }
 
   function renderFamily() {
     const f = PLAN.family || {};
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Family', 'Travelling with Kids', f.tip || 'Child-friendly attractions and practical notes.') +
+    return sectionWithNav('pdf-family', 'pdf-section',
+      chapterOpener('Family', 'Travelling with Kids', 'Child-friendly attractions and practical notes.') +
         (f.tip ? '<div class="pdf-box pdf-box--tip" style="margin-bottom:4mm;"><strong>Transport tip</strong>' + esc(f.tip) + '</div>' : '') +
         '<div class="pdf-table-wrap pdf-family-table">' +
           '<table class="pdf-table">' +
@@ -812,69 +882,65 @@
               }).join('') +
             '</tbody>' +
           '</table>' +
-        '</div>' +
-      '</section>'
+        '</div>'
     );
   }
 
   function renderEmergency() {
     const e = PLAN.emergency || {};
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Emergency', 'Numbers & Embassies', 'Save this page — hope you never need it.') +
-        '<div class="pdf-emergency-grid">' +
-          (e.numbers || []).map(function (n) {
-            return (
-              '<div class="pdf-emergency-card">' +
-                '<div class="pdf-emergency-card__icon">' + (EMERGENCY_ICONS[n.icon] || '📞') + '</div>' +
-                '<div class="pdf-emergency-card__label">' + esc(n.label) + '</div>' +
-                '<div class="pdf-emergency-card__desc">' + esc(n.desc) + '</div>' +
-              '</div>'
-            );
-          }).join('') +
-        '</div>' +
-        sectionHead('Hospitals', 'Major A&E departments') +
-        '<div class="pdf-grid pdf-grid--3" style="margin-bottom:4mm;">' +
-          (e.hospitals || []).map(function (h) {
-            return (
-              '<div class="pdf-card" style="grid-template-columns:1fr;">' +
-                '<div class="pdf-card__body">' +
-                  '<div class="pdf-card__title">' + esc(h.name) + '</div>' +
-                  '<div class="pdf-card__desc">' + esc(h.address) + '</div>' +
-                  pdfActionButtons(h.mapUrl, null, null) +
-                '</div>' +
-              '</div>'
-            );
-          }).join('') +
-        '</div>' +
-        sectionHead('Embassies', 'GCC & regional missions') +
-        '<div class="pdf-table-wrap">' +
-          '<table class="pdf-table">' +
-            '<thead><tr><th>Country</th><th>Address</th><th>Map</th></tr></thead>' +
-            '<tbody>' +
-              (e.embassies || []).map(function (emb) {
-                return (
-                  '<tr>' +
-                    '<td><strong>' + esc(emb.country) + '</strong></td>' +
-                    '<td>' + esc(emb.address) + '</td>' +
-                    '<td><a href="' + esc(emb.mapUrl) + '">Open map</a></td>' +
-                  '</tr>'
-                );
-              }).join('') +
-            '</tbody>' +
-          '</table>' +
-        '</div>' +
-        (e.lostPassport
-          ? '<div class="pdf-box pdf-box--warn" style="margin-top:4mm;"><strong>Lost passport</strong>' + esc(e.lostPassport) + '</div>'
-          : '') +
-      '</section>'
+    return sectionWithNav('pdf-emergency', 'pdf-section',
+      chapterOpener('Emergency', 'Numbers & Embassies', 'Save this page — hope you never need it.') +
+      '<div class="pdf-emergency-grid">' +
+        (e.numbers || []).map(function (n) {
+          return (
+            '<div class="pdf-emergency-card">' +
+              '<div class="pdf-emergency-card__icon">' + (EMERGENCY_ICONS[n.icon] || '📞') + '</div>' +
+              '<div class="pdf-emergency-card__label">' + esc(n.label) + '</div>' +
+              '<div class="pdf-emergency-card__desc">' + esc(n.desc) + '</div>' +
+            '</div>'
+          );
+        }).join('') +
+      '</div>' +
+      sectionHead('Hospitals', 'Major A&E departments') +
+      '<div class="pdf-grid pdf-grid--3" style="margin-bottom:4mm;">' +
+        (e.hospitals || []).map(function (h) {
+          return (
+            '<div class="pdf-card" style="grid-template-columns:1fr;">' +
+              '<div class="pdf-card__body">' +
+                '<div class="pdf-card__title">' + esc(h.name) + '</div>' +
+                '<div class="pdf-card__desc">' + esc(h.address) + '</div>' +
+                pdfActionButtons(h.mapUrl, null, null) +
+              '</div>' +
+            '</div>'
+          );
+        }).join('') +
+      '</div>' +
+      sectionHead('Embassies', 'GCC & regional missions') +
+      '<div class="pdf-table-wrap">' +
+        '<table class="pdf-table">' +
+          '<thead><tr><th>Country</th><th>Address</th><th>Map</th></tr></thead>' +
+          '<tbody>' +
+            (e.embassies || []).map(function (emb) {
+              return (
+                '<tr>' +
+                  '<td><strong>' + esc(emb.country) + '</strong></td>' +
+                  '<td>' + esc(emb.address) + '</td>' +
+                  '<td><a href="' + esc(emb.mapUrl) + '">Open map</a></td>' +
+                '</tr>'
+              );
+            }).join('') +
+          '</tbody>' +
+        '</table>' +
+      '</div>' +
+      (e.lostPassport
+        ? '<div class="pdf-box pdf-box--warn" style="margin-top:4mm;"><strong>Lost passport</strong>' + esc(e.lostPassport) + '</div>'
+        : '')
     );
   }
 
   function renderLocalTips() {
-    return (
-      '<section class="pdf-section">' +
-        chapterOpener('Local Tips', 'Phrases & Etiquette', 'Useful English and unwritten rules.') +
+    return sectionWithNav('pdf-tips', 'pdf-section',
+      chapterOpener('Local Tips', 'Phrases & Etiquette', 'Useful English and unwritten rules.') +
         '<div class="pdf-phrases">' +
           (PLAN.phrases || []).map(function (p) {
             return (
@@ -894,8 +960,7 @@
               '</div>'
             );
           }).join('') +
-        '</div>' +
-      '</section>'
+        '</div>'
     );
   }
 
@@ -919,7 +984,8 @@
       );
     }
     return (
-      '<section class="pdf-cheat-sheet">' +
+      '<section class="pdf-cheat-sheet" id="pdf-cheat">' +
+        pdfNavBar('top') +
         '<div class="pdf-cheat-sheet__head">' +
           '<h2 class="pdf-cheat-sheet__title">' + esc(cs.title || 'One-Page Cheat Sheet') + '</h2>' +
           '<p class="pdf-cheat-sheet__subtitle">' + esc(cs.subtitle || '') + '</p>' +
@@ -940,6 +1006,7 @@
             );
           }).join('') +
         '</div>' +
+        pdfNavBar('bottom') +
       '</section>'
     );
   }

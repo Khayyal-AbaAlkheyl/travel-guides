@@ -74,7 +74,17 @@ a {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+}
+
+.pdf-photo img,
+.pdf-card__img img,
+.pdf-media-card img,
+.pdf-map-qr__map img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ── Document shell ── */
@@ -235,20 +245,35 @@ img {
 }
 
 .pdf-chapter {
-  page-break-before: always;
-  break-before: page;
   page-break-after: avoid;
   break-after: avoid;
-  width: 210mm;
-  max-width: 100%;
-  margin: 0 auto 6mm;
-  min-height: 52mm;
+  width: 100%;
+  height: 56mm;
+  min-height: 56mm;
+  max-height: 56mm;
+  margin: 0 0 5mm;
   position: relative;
   display: flex;
   align-items: flex-end;
   color: #fff;
   overflow: hidden;
   box-sizing: border-box;
+  border-radius: 4px;
+}
+
+/* Full-bleed chapter band inside padded sections (screen + print content area) */
+.pdf-section > .pdf-chapter,
+.pdf-chapter-page > .pdf-chapter {
+  width: calc(100% + 2 * var(--page-margin-x));
+  max-width: calc(100% + 2 * var(--page-margin-x));
+  margin-left: calc(-1 * var(--page-margin-x));
+  margin-right: calc(-1 * var(--page-margin-x));
+  border-radius: 0;
+}
+
+.pdf-chapter--lead {
+  page-break-before: always;
+  break-before: page;
 }
 
 .pdf-chapter__bg {
@@ -269,8 +294,10 @@ img {
 .pdf-chapter__content {
   position: relative;
   z-index: 2;
-  padding: 10mm var(--page-margin-x) 8mm;
+  padding: 7mm var(--page-margin-x) 6mm;
   width: 100%;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .pdf-chapter__label {
@@ -279,21 +306,40 @@ img {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0.75;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .pdf-chapter__title {
   font-family: var(--font-display);
-  font-size: 22pt;
+  font-size: 20pt;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .pdf-chapter__subtitle {
-  margin-top: 4px;
-  font-size: 9.5pt;
-  max-width: 48ch;
+  margin-top: 3px;
+  font-size: 9pt;
+  max-width: 52ch;
   opacity: 0.88;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Dedicated lead page wrapper (Attractions, Hotels, Dining, Plan) */
+.pdf-chapter-page {
+  page-break-before: always;
+  break-before: page;
+  page-break-after: always;
+  break-after: page;
+  width: 100%;
+  max-width: 210mm;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom: 2mm;
 }
 
 .pdf-section-head {
@@ -371,6 +417,117 @@ img {
   gap: 4mm;
 }
 
+/* ── Section navigation (top & bottom of each page) ── */
+.pdf-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5mm;
+  padding: 2mm 0;
+  margin-bottom: 2.5mm;
+  border-bottom: 1px solid var(--border);
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+.pdf-nav--bottom {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 2.5mm;
+  border-bottom: none;
+  border-top: 1px solid var(--border);
+}
+
+.pdf-nav a {
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 5.5pt;
+  font-weight: 600;
+  color: var(--accent-deep);
+  white-space: nowrap;
+}
+
+.pdf-nav a:hover {
+  background: var(--accent-soft);
+}
+
+/* ── Photo cards (images stay inside bounds) ── */
+.pdf-media-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-media-card .pdf-photo-wrap,
+.pdf-media-card .pdf-photo {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  height: 100%;
+  max-height: 100%;
+}
+
+.pdf-media-card--hero {
+  height: 48mm;
+  max-height: 48mm;
+  margin-bottom: 3mm;
+}
+
+.pdf-media-card--hero .pdf-photo--hero {
+  height: 100%;
+  max-height: 100%;
+  margin-bottom: 0;
+}
+
+.pdf-media-card--thumb {
+  height: 28mm;
+  max-height: 28mm;
+}
+
+.pdf-media-card--thumb .pdf-photo--square {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.pdf-media-card--gallery {
+  height: 28mm;
+  max-height: 28mm;
+}
+
+.pdf-media-card--gallery .pdf-photo {
+  height: 100%;
+}
+
+.pdf-media-card--dish {
+  height: 24mm;
+  max-height: 24mm;
+}
+
+.pdf-media-card--dish .pdf-photo {
+  height: 100%;
+}
+
+.pdf-media-card--day {
+  height: 22mm;
+  max-height: 22mm;
+}
+
+.pdf-media-card--day .pdf-photo {
+  height: 100%;
+}
+
+.pdf-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5mm;
+  margin-bottom: 3mm;
+}
+
 /* ── Photos & captions ── */
 .pdf-photo {
   position: relative;
@@ -389,15 +546,17 @@ img {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 100%;
+  min-height: 0;
+  max-height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
 .pdf-photo--hero {
-  height: 58mm;
-  border-radius: 6px;
-  margin-bottom: 3mm;
+  height: 100%;
+  max-height: 48mm;
+  border-radius: 0;
+  margin-bottom: 0;
 }
 
 .pdf-photo--tall {
@@ -469,6 +628,8 @@ img {
 
 .pdf-card__img {
   min-height: 32mm;
+  max-height: 36mm;
+  height: 36mm;
   background: #e8e4de;
   overflow: hidden;
   position: relative;
@@ -478,7 +639,8 @@ img {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 32mm;
+  max-height: 100%;
+  min-height: 0;
   object-fit: cover;
   object-position: center;
 }
@@ -874,6 +1036,9 @@ img {
   max-width: 210mm;
   overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .pdf-spread__header {
@@ -949,16 +1114,30 @@ img {
   margin-bottom: 4mm;
 }
 
-.pdf-hotel-gallery .pdf-photo {
+.pdf-hotel-gallery .pdf-media-card {
   height: 28mm;
 }
 
 /* ── Dish grid ── */
 .pdf-dish-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2mm;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5mm;
   margin-bottom: 3mm;
+}
+
+.pdf-dish-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface);
+  page-break-inside: avoid;
+  break-inside: avoid;
+  text-align: center;
+}
+
+.pdf-dish-card__body {
+  padding: 2mm 2mm 2.5mm;
 }
 
 .pdf-dish {
@@ -991,6 +1170,9 @@ img {
   max-width: 210mm;
   overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .pdf-day__head {
@@ -1050,7 +1232,7 @@ img {
   margin-bottom: 4mm;
 }
 
-.pdf-day-photos .pdf-photo {
+.pdf-day-photos .pdf-media-card {
   height: 22mm;
 }
 
@@ -1473,7 +1655,8 @@ img {
   .pdf-section,
   .pdf-spread,
   .pdf-day,
-  .pdf-cheat-sheet {
+  .pdf-cheat-sheet,
+  .pdf-chapter-page {
     background: #fff;
     width: 210mm;
     max-width: min(210mm, calc(100vw - 24px));
@@ -1496,7 +1679,8 @@ img {
   .pdf-section,
   .pdf-spread,
   .pdf-day,
-  .pdf-cheat-sheet {
+  .pdf-cheat-sheet,
+  .pdf-chapter-page {
     padding: 0;
     margin: 0;
     width: auto;

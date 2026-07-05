@@ -191,6 +191,9 @@ body {
   position: relative;
   min-height: 280px;
   overflow: hidden;
+  margin: 8px var(--pad) 0;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
 }
 
 .hero .media {
@@ -270,9 +273,13 @@ body {
   line-height: 1.45;
 }
 
-/* Tab chapter headers — same shell as home hero */
-.hero--chapter {
+/* Tab chapter headers — uniform size on every tab */
+.hero.hero--chapter,
+.hero.hero--cover.hero--chapter {
   margin-bottom: 4px;
+  min-height: 240px;
+  height: 240px;
+  max-height: 240px;
 }
 
 .hero--chapter .hero__title {
@@ -370,10 +377,11 @@ body {
   position: relative;
   height: 240px;
   background: #ddd center / cover no-repeat;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
-.photo-hero--full { border-radius: 0; }
+.photo-hero--full { border-radius: var(--radius-sm); }
 
 .photo-grid {
   display: grid;
@@ -383,7 +391,8 @@ body {
 }
 
 .photo-grid .media {
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
 /* Hotel 2×2 gallery */
@@ -397,11 +406,12 @@ body {
 .hotel-grid__cell {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
 }
 
 .hotel-grid__cell .media {
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
 .photo-caption {
@@ -465,7 +475,8 @@ body {
 }
 
 .dish-card .media {
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
 .dish-card__body {
@@ -1248,7 +1259,8 @@ body {
 .stop__card--night .stop__transit { color: var(--night-text); }
 
 .stop__photo .media {
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
 .stop__photo {
@@ -1502,7 +1514,8 @@ body {
 }
 
 .weather-card .media {
-  border-radius: 0;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  overflow: hidden;
 }
 
 .weather-card__body {
@@ -2049,12 +2062,14 @@ html[dir="rtl"] .pdf-fab {
 
 .place-list-card__media {
   width: 100%;
+  overflow: hidden;
 }
 
 .place-list-card__media .media {
-  border-radius: 0;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   aspect-ratio: 16 / 9;
   min-height: 180px;
+  overflow: hidden;
 }
 
 .place-list-card__body {
@@ -2142,6 +2157,23 @@ html[dir="rtl"] .pdf-fab {
   padding: 0 4px;
 }
 
+.detail-page__content > .media {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.detail-page__content .photo-grid .media,
+.detail-page__content .hotel-grid .media {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.gem-card .media {
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  overflow: hidden;
+}
+
 .detail-page__content .photo-caption,
 .detail-page__content .chips,
 .detail-page__content .crowd-bars,
@@ -2194,7 +2226,10 @@ html[dir="rtl"] .pdf-fab {
 }
 
 .home-hero {
-  margin-bottom: 8px;
+  margin: 12px var(--pad) 8px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
 .home-hero__photo {
