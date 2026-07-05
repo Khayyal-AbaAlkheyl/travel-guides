@@ -1194,11 +1194,37 @@
       ).join('')}</nav>`;
   }
 
+  function pdfPageHref() {
+    const file = (window.location.pathname.split('/').pop() || 'london.html').replace(/\?.*$/, '');
+    if (/\.html$/i.test(file)) return file.replace(/\.html$/i, '-pdf.html');
+    return 'london-pdf.html';
+  }
+
+  function ensureAppChrome() {
+    if (document.getElementById('app-chrome')) return;
+
+    const chrome = document.createElement('div');
+    chrome.id = 'app-chrome';
+    chrome.className = 'app-chrome';
+    chrome.setAttribute('aria-label', 'App settings');
+    chrome.innerHTML =
+      '<div class="app-chrome__start">' +
+        '<button type="button" class="app-toolbar__btn" id="lang-toggle">عربي</button>' +
+        '<button type="button" class="app-toolbar__btn app-toolbar__btn--theme" id="theme-toggle" aria-label="Toggle dark mode"></button>' +
+      '</div>' +
+      '<a class="pdf-fab" id="pdf-fab" href="' + esc(pdfPageHref()) + '" target="_blank" rel="noopener">PDF</a>';
+
+    const app = document.getElementById('app');
+    if (app) document.body.insertBefore(chrome, app);
+    else document.body.appendChild(chrome);
+  }
+
   function init() {
     if (typeof PLAN === 'undefined') {
       console.error('PLAN not loaded — include data/london.js before app.js');
       return;
     }
+    ensureAppChrome();
     if (global.DiscoverBrand) global.DiscoverBrand.apply(PLAN);
     else applyTheme(PLAN);
     if (global.I18n) global.I18n.init(render);
