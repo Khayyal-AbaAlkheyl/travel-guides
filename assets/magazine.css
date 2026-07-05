@@ -31,6 +31,8 @@
   --radius: 20px;
   --radius-sm: 14px;
   --nav-h: 68px;
+  --hero-margin-top: 12px;
+  --hero-toolbar-inset: 12px;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 
@@ -273,23 +275,24 @@ body {
   line-height: 1.45;
 }
 
-/* Tab chapter headers — uniform size on every tab */
-.hero.hero--chapter,
-.hero.hero--cover.hero--chapter {
-  margin-bottom: 4px;
-  min-height: 240px;
-  height: 240px;
-  max-height: 240px;
-}
-
-.hero--chapter .hero__title {
-  font-size: 2rem;
-}
-
-.hero--chapter + .place-list,
-.hero--chapter + .day-tabs,
-.hero--chapter + .more-nav {
+/* Tab chapter headers — same shell as home hero */
+.home-hero--chapter + .place-list,
+.home-hero--chapter + .day-tabs,
+.home-hero--chapter + .more-nav {
   padding-top: 8px;
+}
+
+.home-hero--chapter .home-hero__chapter {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.home-hero--chapter .home-hero__title {
+  font-size: 2.15rem;
+}
+
+.home-hero--chapter .home-hero__tagline {
+  margin-bottom: 0;
 }
 
 /* ── Stats ribbon ── */
@@ -1916,11 +1919,14 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Fixed toolbar (lang + theme) ── */
+/* ── Fixed toolbar (lang + theme) — inset inside hero card ── */
 .app-toolbar {
   position: fixed;
-  top: calc(12px + var(--safe-top));
-  left: max(12px, calc(50% - var(--max-w) / 2 + 12px));
+  top: calc(var(--hero-margin-top) + var(--hero-toolbar-inset) + var(--safe-top));
+  left: max(
+    calc(var(--pad) + var(--hero-toolbar-inset)),
+    calc(50% - var(--max-w) / 2 + var(--pad) + var(--hero-toolbar-inset))
+  );
   z-index: 210;
   display: flex;
   gap: 8px;
@@ -1928,7 +1934,10 @@ body {
 
 html[dir="rtl"] .app-toolbar {
   left: auto;
-  right: max(12px, calc(50% - var(--max-w) / 2 + 12px));
+  right: max(
+    calc(var(--pad) + var(--hero-toolbar-inset)),
+    calc(50% - var(--max-w) / 2 + var(--pad) + var(--hero-toolbar-inset))
+  );
 }
 
 .app-toolbar__btn {
@@ -1972,14 +1981,20 @@ html[data-theme="dark"] .app-toolbar__btn {
 
 html[dir="rtl"] .pdf-fab {
   right: auto;
-  left: max(12px, calc(50% - var(--max-w) / 2 + 12px));
+  left: max(
+    calc(var(--pad) + var(--hero-toolbar-inset)),
+    calc(50% - var(--max-w) / 2 + var(--pad) + var(--hero-toolbar-inset))
+  );
 }
 
 /* ── PDF FAB ── */
 .pdf-fab {
   position: fixed;
-  top: calc(12px + var(--safe-top));
-  right: max(12px, calc(50% - 215px + 12px));
+  top: calc(var(--hero-margin-top) + var(--hero-toolbar-inset) + var(--safe-top));
+  right: max(
+    calc(var(--pad) + var(--hero-toolbar-inset)),
+    calc(50% - var(--max-w) / 2 + var(--pad) + var(--hero-toolbar-inset))
+  );
   z-index: 200;
   display: inline-flex;
   align-items: center;
@@ -2226,10 +2241,11 @@ html[dir="rtl"] .pdf-fab {
 }
 
 .home-hero {
-  margin: 12px var(--pad) 8px;
+  margin: var(--hero-margin-top) var(--pad) 8px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: var(--shadow);
+  position: relative;
 }
 
 .home-hero__photo {

@@ -332,15 +332,17 @@
 
   function renderChapterOpener(num, title, subtitle, bg) {
     const image = bg || theme().heroImage;
-    return `<div class="hero hero--cover hero--chapter">
-      ${img(image, title, '16/9', 'center 35%')}
-      <div class="hero__content">
-        <span class="discover-wordmark">${esc(t('discover', 'Discover'))}</span>
-        <span class="hero__badge">${esc(num)}</span>
-        <h2 class="hero__title">${esc(title)}</h2>
-        ${subtitle ? `<p class="hero__subtitle">${esc(subtitle)}</p>` : ''}
+    return `<header class="home-hero home-hero--chapter">
+      <div class="home-hero__photo">
+        ${img(image, title, '16/9', 'center 35%')}
       </div>
-    </div>`;
+      <div class="home-hero__panel">
+        <span class="home-hero__wordmark">${esc(t('discover', 'Discover'))}</span>
+        <p class="home-hero__edition home-hero__chapter">${esc(num)}</p>
+        <h2 class="home-hero__title">${esc(title)}</h2>
+        ${subtitle ? `<p class="home-hero__tagline">${esc(subtitle)}</p>` : ''}
+      </div>
+    </header>`;
   }
 
   function renderCrowdBars(crowd) {
