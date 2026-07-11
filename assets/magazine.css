@@ -1855,7 +1855,7 @@ body {
 
   .bottom-nav,
   .more-nav,
-  .app-chrome { display: none !important; }
+  .app-chrome-sticky { display: none !important; }
 
   body { padding-bottom: 0; }
 }
@@ -1918,21 +1918,27 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Fixed app chrome (lang + theme + PDF) — locked to hero card insets ── */
-.app-chrome {
+/* ── Fixed app chrome — pinned to hero card (no transform; iOS-safe) ── */
+.app-chrome-sticky {
   position: fixed;
-  top: calc(var(--hero-margin-top) + var(--hero-toolbar-inset) + var(--safe-top));
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(100vw, var(--max-w));
-  padding-left: calc(var(--pad) + var(--hero-toolbar-inset));
-  padding-right: calc(var(--pad) + var(--hero-toolbar-inset));
-  box-sizing: border-box;
-  z-index: 210;
+  top: calc(var(--safe-top) + var(--hero-margin-top) + var(--hero-toolbar-inset));
+  left: 0;
+  right: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.app-chrome {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-left: calc(var(--pad) + var(--hero-toolbar-inset));
+  padding-right: calc(var(--pad) + var(--hero-toolbar-inset));
+  box-sizing: border-box;
   pointer-events: none;
 }
 

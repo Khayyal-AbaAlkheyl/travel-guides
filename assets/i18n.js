@@ -516,15 +516,18 @@
   }
 
   function bindToolbar() {
-    const langBtn = document.getElementById('lang-toggle');
-    const themeBtn = document.getElementById('theme-toggle');
-    if (langBtn && !langBtn.dataset.bound) {
-      langBtn.dataset.bound = '1';
-      langBtn.addEventListener('click', toggleLang);
-    }
-    if (themeBtn && !themeBtn.dataset.bound) {
-      themeBtn.dataset.bound = '1';
-      themeBtn.addEventListener('click', toggleDark);
+    if (!document.documentElement.dataset.toolbarBound) {
+      document.documentElement.dataset.toolbarBound = '1';
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('#lang-toggle')) {
+          e.preventDefault();
+          toggleLang();
+        }
+        if (e.target.closest('#theme-toggle')) {
+          e.preventDefault();
+          toggleDark();
+        }
+      });
     }
     updateToolbar();
   }

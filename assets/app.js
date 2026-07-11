@@ -1187,36 +1187,39 @@
     const app = document.getElementById('app');
     if (!app) return;
 
-    app.innerHTML = `
-      <main class="panel">${panels[activeTab] || ''}</main>
-      <nav class="bottom-nav" aria-label="${esc(t('navLabel', 'Main navigation'))}">${tabs.map(tab =>
+    app.innerHTML =
+      `<main class="panel">${panels[activeTab] || ''}</main>` +
+      `<nav class="bottom-nav" aria-label="${esc(t('navLabel', 'Main navigation'))}">${tabs.map(tab =>
         `<button type="button" class="nav-item ${activeTab === tab.id ? 'active' : ''}" onclick="setTab('${tab.id}')" aria-current="${activeTab === tab.id ? 'page' : 'false'}">${ICONS[tab.icon] || ''}<span>${esc(t(tab.labelKey, tab.label))}</span></button>`
       ).join('')}</nav>`;
+
+    if (global.I18n) global.I18n.bindToolbar();
+  }
+
+  function ensureAppChrome() {
+    if (document.getElementById('app-chrome-sticky')) return;
+
+    const sticky = document.createElement('div');
+    sticky.id = 'app-chrome-sticky';
+    sticky.className = 'app-chrome-sticky';
+    sticky.innerHTML =
+      '<div class="app-chrome" aria-label="App settings">' +
+        '<div class="app-chrome__start">' +
+          '<button type="button" class="app-toolbar__btn" id="lang-toggle">عربي</button>' +
+          '<button type="button" class="app-toolbar__btn app-toolbar__btn--theme" id="theme-toggle" aria-label="Toggle dark mode"></button>' +
+        '</div>' +
+        '<a class="pdf-fab" id="pdf-fab" href="' + esc(pdfPageHref()) + '" target="_blank" rel="noopener">PDF</a>' +
+      '</div>';
+
+    const app = document.getElementById('app');
+    if (app) document.body.insertBefore(sticky, app);
+    else document.body.appendChild(sticky);
   }
 
   function pdfPageHref() {
     const file = (window.location.pathname.split('/').pop() || 'london.html').replace(/\?.*$/, '');
     if (/\.html$/i.test(file)) return file.replace(/\.html$/i, '-pdf.html');
     return 'london-pdf.html';
-  }
-
-  function ensureAppChrome() {
-    if (document.getElementById('app-chrome')) return;
-
-    const chrome = document.createElement('div');
-    chrome.id = 'app-chrome';
-    chrome.className = 'app-chrome';
-    chrome.setAttribute('aria-label', 'App settings');
-    chrome.innerHTML =
-      '<div class="app-chrome__start">' +
-        '<button type="button" class="app-toolbar__btn" id="lang-toggle">عربي</button>' +
-        '<button type="button" class="app-toolbar__btn app-toolbar__btn--theme" id="theme-toggle" aria-label="Toggle dark mode"></button>' +
-      '</div>' +
-      '<a class="pdf-fab" id="pdf-fab" href="' + esc(pdfPageHref()) + '" target="_blank" rel="noopener">PDF</a>';
-
-    const app = document.getElementById('app');
-    if (app) document.body.insertBefore(chrome, app);
-    else document.body.appendChild(chrome);
   }
 
   function init() {
