@@ -1855,7 +1855,7 @@ body {
 
   .bottom-nav,
   .more-nav,
-  .app-chrome-sticky { display: none !important; }
+  .home-hero__toolbar { display: none !important; }
 
   body { padding-bottom: 0; }
 }
@@ -1918,26 +1918,29 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Fixed app chrome — pinned to hero card (no transform; iOS-safe) ── */
-.app-chrome-sticky {
-  position: fixed;
-  top: calc(var(--safe-top) + var(--hero-margin-top) + var(--hero-toolbar-inset));
-  left: 0;
-  right: 0;
-  z-index: 999;
+/* ── Hero toolbar — scrolls with hero card (not fixed to viewport) ── */
+.home-hero__toolbar {
+  position: absolute;
+  top: var(--hero-toolbar-inset);
+  left: var(--hero-toolbar-inset);
+  right: var(--hero-toolbar-inset);
+  z-index: 3;
   pointer-events: none;
 }
 
-.app-chrome {
+.home-hero__toolbar > * {
+  pointer-events: auto;
+}
+
+.home-hero__toolbar .app-chrome {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
   width: 100%;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding-left: calc(var(--pad) + var(--hero-toolbar-inset));
-  padding-right: calc(var(--pad) + var(--hero-toolbar-inset));
+  max-width: none;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   pointer-events: none;
 }

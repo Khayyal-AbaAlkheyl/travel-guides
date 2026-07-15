@@ -280,6 +280,24 @@
     timezone: 'clock'
   };
 
+  function pdfPageHref() {
+    const file = (window.location.pathname.split('/').pop() || 'london.html').replace(/\?.*$/, '');
+    if (/\.html$/i.test(file)) return file.replace(/\.html$/i, '-pdf.html');
+    return 'london-pdf.html';
+  }
+
+  function renderHeroToolbar() {
+    return `<div class="home-hero__toolbar">
+      <div class="app-chrome" aria-label="App settings">
+        <div class="app-chrome__start">
+          <button type="button" class="app-toolbar__btn" id="lang-toggle">عربي</button>
+          <button type="button" class="app-toolbar__btn app-toolbar__btn--theme" id="theme-toggle" aria-label="Toggle dark mode"></button>
+        </div>
+        <a class="pdf-fab" id="pdf-fab" href="${esc(pdfPageHref())}" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>`;
+  }
+
   function renderHomeHero() {
     const m = meta();
     const stats = statsArray().slice(0, 4);
@@ -292,6 +310,7 @@
 
     return `<header class="home-hero">
       <div class="home-hero__photo">
+        ${renderHeroToolbar()}
         ${img(theme().heroImage, m.city + ' skyline', '16/9', 'center 35%', null, { eager: true })}
       </div>
       <div class="home-hero__panel">
@@ -335,6 +354,7 @@
     const image = bg || theme().heroImage;
     return `<header class="home-hero home-hero--chapter">
       <div class="home-hero__photo">
+        ${renderHeroToolbar()}
         ${img(image, title, '16/9', 'center 35%', null)}
       </div>
       <div class="home-hero__panel">
@@ -1197,38 +1217,12 @@
     if (global.I18n) global.I18n.bindToolbar();
   }
 
-  function ensureAppChrome() {
-    if (document.getElementById('app-chrome-sticky')) return;
-
-    const sticky = document.createElement('div');
-    sticky.id = 'app-chrome-sticky';
-    sticky.className = 'app-chrome-sticky';
-    sticky.innerHTML =
-      '<div class="app-chrome" aria-label="App settings">' +
-        '<div class="app-chrome__start">' +
-          '<button type="button" class="app-toolbar__btn" id="lang-toggle">عربي</button>' +
-          '<button type="button" class="app-toolbar__btn app-toolbar__btn--theme" id="theme-toggle" aria-label="Toggle dark mode"></button>' +
-        '</div>' +
-        '<a class="pdf-fab" id="pdf-fab" href="' + esc(pdfPageHref()) + '" target="_blank" rel="noopener">PDF</a>' +
-      '</div>';
-
-    const app = document.getElementById('app');
-    if (app) document.body.insertBefore(sticky, app);
-    else document.body.appendChild(sticky);
-  }
-
-  function pdfPageHref() {
-    const file = (window.location.pathname.split('/').pop() || 'london.html').replace(/\?.*$/, '');
-    if (/\.html$/i.test(file)) return file.replace(/\.html$/i, '-pdf.html');
-    return 'london-pdf.html';
-  }
-
   function init() {
     if (typeof PLAN === 'undefined') {
       console.error('PLAN not loaded — include data/london.js before app.js');
       return;
     }
-    ensureAppChrome();
+    document.getElementById('app-chrome-sticky')?.remove();
     if (global.DiscoverBrand) global.DiscoverBrand.apply(PLAN);
     else applyTheme(PLAN);
     if (global.I18n) global.I18n.init(render);
