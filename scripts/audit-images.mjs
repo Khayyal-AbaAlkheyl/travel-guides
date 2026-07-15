@@ -13,16 +13,36 @@ const urls = [...new Set([
   ...(text.match(/https?:\/\/api\.qrserver\.com\/[^"\s]+/g) || []),
 ])];
 
-async function check(url) {
-  try {
-    const res = await fetch(url, { method: 'HEAD', redirect: 'follow' });
-    return { url, ok: res.ok, status: res.status };
-  } catch (e) {
-    return { url, ok: false, status: e.message };
-  }
-}
+// upload.wikimedia.org blocks empty/bot User-Agents (403) and throttles
+// unpaced requests (429), so send a browser UA and back off on 429.
+const HEADERS = {
+  'User-Agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
+    '(KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+  Accept: 'image/avif,image/webp,image/*,*/*;q=0.8',
+};
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function check(url, tries = 4) {
+  for (let i = 0; i < tries; i++) {
+    try {
+      const res = await fetch(url, { method: 'GET', headers: HEADERS, redirect: 'follow' });
+      if (res.status === 429 && i < tries - 1) {
+        await sleep(1500 * (i + 1));
+        continue;
+      }
+      return { url, ok: res.ok, status: res.status };
+    } catch (e) {
+      if (i < tries - 1) {
+        await sleep(1000);
+        continue;
+      }
+      return { url, ok: false, status: e.message };
+    }
+  }
+  return { url, ok: false, status: 429 };
+}
 
 console.log(`Checking ${urls.length} image URLs in ${path.basename(dataPath)}...\n`);
 

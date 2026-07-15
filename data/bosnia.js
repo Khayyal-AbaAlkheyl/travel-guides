@@ -21,7 +21,7 @@ const PLAN = {
       "accent": "#047857",
       "accentSoft": "#d1fae5",
       "accentDeep": "#065f46",
-      "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+      "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg",
       "transitLabel": "Car",
       "tube": "#047857",
       "parks": "#059669",
@@ -388,17 +388,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sarajevo_-_view_from_Ba%C5%A1%C4%8Dar%C5%A1ija.JPG/960px-Sarajevo_-_view_from_Ba%C5%A1%C4%8Dar%C5%A1ija.JPG",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Sarajevo%2C_Ba%C5%A1%C4%8Dar%C5%A1ija%2C_kopce.jpg/960px-Sarajevo%2C_Ba%C5%A1%C4%8Dar%C5%A1ija%2C_kopce.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sarajevo_%E2%80%93_Ba%C5%A1%C4%8Dar%C5%A1ija_mosque.jpg/960px-Sarajevo_%E2%80%93_Ba%C5%A1%C4%8Dar%C5%A1ija_mosque.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ba%C5%A1%C4%8Dar%C5%A1ija_2006.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_2006.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sarajevo_-_view_from_Ba%C5%A1%C4%8Dar%C5%A1ija.JPG/960px-Sarajevo_-_view_from_Ba%C5%A1%C4%8Dar%C5%A1ija.JPG",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Sarajevo%2C_Ba%C5%A1%C4%8Dar%C5%A1ija%2C_kopce.jpg/960px-Sarajevo%2C_Ba%C5%A1%C4%8Dar%C5%A1ija%2C_kopce.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sarajevo_%E2%80%93_Ba%C5%A1%C4%8Dar%C5%A1ija_mosque.jpg/960px-Sarajevo_%E2%80%93_Ba%C5%A1%C4%8Dar%C5%A1ija_mosque.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ba%C5%A1%C4%8Dar%C5%A1ija_2006.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_2006.jpg"
       }
     },
     {
@@ -436,17 +436,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Gazi_Husrev-beg%27s_Mosque_01.jpg/960px-Gazi_Husrev-beg%27s_Mosque_01.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Gazi_Husrev-beg%27s_Mosque_02.jpg/960px-Gazi_Husrev-beg%27s_Mosque_02.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Gazi_H%C3%BCsrev_Bey_Camii_%2846015%29.jpg/960px-Gazi_H%C3%BCsrev_Bey_Camii_%2846015%29.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Gazi_H%C3%BCsrev_Bey_Camii.jpg/960px-Gazi_H%C3%BCsrev_Bey_Camii.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Gazi_Husrev-beg%27s_Mosque_01.jpg/960px-Gazi_Husrev-beg%27s_Mosque_01.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Gazi_Husrev-beg%27s_Mosque_02.jpg/960px-Gazi_Husrev-beg%27s_Mosque_02.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Gazi_H%C3%BCsrev_Bey_Camii_%2846015%29.jpg/960px-Gazi_H%C3%BCsrev_Bey_Camii_%2846015%29.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Gazi_H%C3%BCsrev_Bey_Camii.jpg/960px-Gazi_H%C3%BCsrev_Bey_Camii.jpg"
       }
     },
     {
@@ -484,17 +484,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Latin_Bridge_2023.jpg/960px-Latin_Bridge_2023.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/The_Latin_Bridge%2C_Sarajevo.jpg/960px-The_Latin_Bridge%2C_Sarajevo.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Latin_Bridge_in_Sarajevo_%2806.2025%29.jpg/960px-Latin_Bridge_in_Sarajevo_%2806.2025%29.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Latin_Bridge_2023.jpg/960px-Latin_Bridge_2023.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/The_Latin_Bridge%2C_Sarajevo.jpg/960px-The_Latin_Bridge%2C_Sarajevo.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Latin_Bridge_in_Sarajevo_%2806.2025%29.jpg/960px-Latin_Bridge_in_Sarajevo_%2806.2025%29.jpg"
       }
     },
     {
@@ -531,17 +531,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Sarajevo_cable_car_%281%29.jpg/960px-Sarajevo_cable_car_%281%29.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Trebevi%C4%87_CC_%2842065596011%29.jpg/960px-Trebevi%C4%87_CC_%2842065596011%29.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sarajevska_%C5%BEi%C4%8Dara_%28Oslobodjenje_05.V.1959%29.jpg/960px-Sarajevska_%C5%BEi%C4%8Dara_%28Oslobodjenje_05.V.1959%29.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Sarajevo_Trebevic_Ruinen.JPG/960px-Sarajevo_Trebevic_Ruinen.JPG",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Sarajevo_cable_car_%281%29.jpg/960px-Sarajevo_cable_car_%281%29.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Trebevi%C4%87_CC_%2842065596011%29.jpg/960px-Trebevi%C4%87_CC_%2842065596011%29.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sarajevska_%C5%BEi%C4%8Dara_%28Oslobodjenje_05.V.1959%29.jpg/960px-Sarajevska_%C5%BEi%C4%8Dara_%28Oslobodjenje_05.V.1959%29.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Sarajevo_Trebevic_Ruinen.JPG/960px-Sarajevo_Trebevic_Ruinen.JPG"
       }
     },
     {
@@ -579,17 +579,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/%C5%BDuta_Tabija%2C_Sarajevo.jpg/960px-%C5%BDuta_Tabija%2C_Sarajevo.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023.01.22_%C5%BDuta_Tabija.jpg/960px-2023.01.22_%C5%BDuta_Tabija.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Sarajevo_-_%C5%BDuta_Tabija_%2849126647296%29.jpg/960px-Sarajevo_-_%C5%BDuta_Tabija_%2849126647296%29.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zuta_tabija.jpg/960px-Zuta_tabija.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/%C5%BDuta_Tabija%2C_Sarajevo.jpg/960px-%C5%BDuta_Tabija%2C_Sarajevo.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023.01.22_%C5%BDuta_Tabija.jpg/960px-2023.01.22_%C5%BDuta_Tabija.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Sarajevo_-_%C5%BDuta_Tabija_%2849126647296%29.jpg/960px-Sarajevo_-_%C5%BDuta_Tabija_%2849126647296%29.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zuta_tabija.jpg/960px-Zuta_tabija.jpg"
       }
     },
     {
@@ -628,16 +628,16 @@ const PLAN = {
       },
       "photos": {
         "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Mostar%2C_Stari_Most_at_night.jpg/960px-Mostar%2C_Stari_Most_at_night.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mostar_Stari_Most_BW_2024-10-01_12-58-38.jpg/960px-Mostar_Stari_Most_BW_2024-10-01_12-58-38.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mostar_Stari_Most_BW_2024-10-01_13-00-05.jpg/960px-Mostar_Stari_Most_BW_2024-10-01_13-00-05.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
         "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Mostar%2C_Stari_Most_at_night.jpg/960px-Mostar%2C_Stari_Most_at_night.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mostar_Stari_Most_BW_2024-10-01_12-58-38.jpg/960px-Mostar_Stari_Most_BW_2024-10-01_12-58-38.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mostar_Stari_Most_BW_2024-10-01_13-00-05.jpg/960px-Mostar_Stari_Most_BW_2024-10-01_13-00-05.jpg"
       }
     },
     {
@@ -674,17 +674,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mostar_BW_2024-10-01_12-51-16.jpg/960px-Mostar_BW_2024-10-01_12-51-16.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Kujundziluk_Mostar_09.jpg/960px-Kujundziluk_Mostar_09.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Mostar_BW_2024-10-01_12-40-05.jpg/960px-Mostar_BW_2024-10-01_12-40-05.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mostar_BE_2024-10-01_12-51-24.jpg/960px-Mostar_BE_2024-10-01_12-51-24.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mostar_BW_2024-10-01_12-51-16.jpg/960px-Mostar_BW_2024-10-01_12-51-16.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Kujundziluk_Mostar_09.jpg/960px-Kujundziluk_Mostar_09.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Mostar_BW_2024-10-01_12-40-05.jpg/960px-Mostar_BW_2024-10-01_12-40-05.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mostar_BE_2024-10-01_12-51-24.jpg/960px-Mostar_BE_2024-10-01_12-51-24.jpg"
       }
     },
     {
@@ -721,17 +721,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg/960px-Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Old_Bridge%2C_Stara_%C4%86uprija_bridge%2C_Konjic.jpg/960px-Old_Bridge%2C_Stara_%C4%86uprija_bridge%2C_Konjic.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Konjic_old_bridge_wide_view.jpg/960px-Konjic_old_bridge_wide_view.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Konjic_old_bridge.jpg/960px-Konjic_old_bridge.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg/960px-Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Old_Bridge%2C_Stara_%C4%86uprija_bridge%2C_Konjic.jpg/960px-Old_Bridge%2C_Stara_%C4%86uprija_bridge%2C_Konjic.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Konjic_old_bridge_wide_view.jpg/960px-Konjic_old_bridge_wide_view.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Konjic_old_bridge.jpg/960px-Konjic_old_bridge.jpg"
       }
     },
     {
@@ -769,17 +769,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Blagaj_%E2%80%93_Vrelo_Bune_3.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_3.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Blagaj_%E2%80%93_Vrelo_Bune_6.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_6.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Blagaj_%E2%80%93_Vrelo_Bune_5.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_5.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Blagaj_%E2%80%93_Vrelo_Bune_1.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_1.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Blagaj_%E2%80%93_Vrelo_Bune_3.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_3.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Blagaj_%E2%80%93_Vrelo_Bune_6.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_6.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Blagaj_%E2%80%93_Vrelo_Bune_5.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_5.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Blagaj_%E2%80%93_Vrelo_Bune_1.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_1.jpg"
       }
     },
     {
@@ -818,16 +818,16 @@ const PLAN = {
       },
       "photos": {
         "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Kravica_waterfall_%28204058333%29.jpg/960px-Kravica_waterfall_%28204058333%29.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Kravica_waterfall_july_2012.jpg/960px-Kravica_waterfall_july_2012.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Kravica-waterval.jpg/960px-Kravica-waterval.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
         "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg"
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Kravica_waterfall_%28204058333%29.jpg/960px-Kravica_waterfall_%28204058333%29.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Kravica_waterfall_july_2012.jpg/960px-Kravica_waterfall_july_2012.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Kravica-waterval.jpg/960px-Kravica-waterval.jpg"
       }
     },
     {
@@ -865,17 +865,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Po%C4%8Ditelj.00441.JPG/960px-Po%C4%8Ditelj.00441.JPG",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Steps_to_the_Castle_-_Pocitelj.jpg/960px-Steps_to_the_Castle_-_Pocitelj.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/E73-Mostar-DSCN1117.JPG/960px-E73-Mostar-DSCN1117.JPG",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Kri%C5%BE_u_Po%C4%8Ditelju06509.JPG/960px-Kri%C5%BE_u_Po%C4%8Ditelju06509.JPG",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Po%C4%8Ditelj.00441.JPG/960px-Po%C4%8Ditelj.00441.JPG",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Steps_to_the_Castle_-_Pocitelj.jpg/960px-Steps_to_the_Castle_-_Pocitelj.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/E73-Mostar-DSCN1117.JPG/960px-E73-Mostar-DSCN1117.JPG",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Kri%C5%BE_u_Po%C4%8Ditelju06509.JPG/960px-Kri%C5%BE_u_Po%C4%8Ditelju06509.JPG"
       }
     },
     {
@@ -912,17 +912,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/%D0%A2%D1%80%D0%B5%D0%B1%D0%B8%D1%9A%D0%B5.jpg/960px-%D0%A2%D1%80%D0%B5%D0%B1%D0%B8%D1%9A%D0%B5.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Prostorna_i_kulturno-istorijska_celina_Trebinje_04.jpg/960px-Prostorna_i_kulturno-istorijska_celina_Trebinje_04.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Prostorna_i_kulturno-istorijska_celina_Trebinje_03.jpg/960px-Prostorna_i_kulturno-istorijska_celina_Trebinje_03.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/2/22/Trebinje15.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/%D0%A2%D1%80%D0%B5%D0%B1%D0%B8%D1%9A%D0%B5.jpg/960px-%D0%A2%D1%80%D0%B5%D0%B1%D0%B8%D1%9A%D0%B5.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Prostorna_i_kulturno-istorijska_celina_Trebinje_04.jpg/960px-Prostorna_i_kulturno-istorijska_celina_Trebinje_04.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Prostorna_i_kulturno-istorijska_celina_Trebinje_03.jpg/960px-Prostorna_i_kulturno-istorijska_celina_Trebinje_03.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/2/22/Trebinje15.jpg"
       }
     },
     {
@@ -959,17 +959,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_24.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_24.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_27.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_27.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_25.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_25.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_24.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_24.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_27.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_27.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_25.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_25.jpg"
       }
     },
     {
@@ -1007,17 +1007,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Np_sutjeska_prasuma_perucica_vodopad_skakavac.JPG/960px-Np_sutjeska_prasuma_perucica_vodopad_skakavac.JPG",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Sutjeska_national_park_in_1987.jpg/960px-Sutjeska_national_park_in_1987.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/National_Park_Sutjeska_05.jpg/960px-National_Park_Sutjeska_05.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/National_Park_Sutjeska_09.jpg/960px-National_Park_Sutjeska_09.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Np_sutjeska_prasuma_perucica_vodopad_skakavac.JPG/960px-Np_sutjeska_prasuma_perucica_vodopad_skakavac.JPG",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Sutjeska_national_park_in_1987.jpg/960px-Sutjeska_national_park_in_1987.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/National_Park_Sutjeska_05.jpg/960px-National_Park_Sutjeska_05.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/National_Park_Sutjeska_09.jpg/960px-National_Park_Sutjeska_09.jpg"
       }
     },
     {
@@ -1055,17 +1055,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jajce_%E2%80%93_Pliva_waterfall.jpg/960px-Jajce_%E2%80%93_Pliva_waterfall.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Pliva_Waterfall_in_Jajce_02.jpg/960px-Pliva_Waterfall_in_Jajce_02.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Pliva_Waterfall%2C_Jajce%2C_2022.jpg/960px-Pliva_Waterfall%2C_Jajce%2C_2022.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Pliva_Waterfall_in_Jajce.jpg/960px-Pliva_Waterfall_in_Jajce.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jajce_%E2%80%93_Pliva_waterfall.jpg/960px-Jajce_%E2%80%93_Pliva_waterfall.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Pliva_Waterfall_in_Jajce_02.jpg/960px-Pliva_Waterfall_in_Jajce_02.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Pliva_Waterfall%2C_Jajce%2C_2022.jpg/960px-Pliva_Waterfall%2C_Jajce%2C_2022.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Pliva_Waterfall_in_Jajce.jpg/960px-Pliva_Waterfall_in_Jajce.jpg"
       }
     },
     {
@@ -1102,17 +1102,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Lake_near_Jajce.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Plivske_jezero_u_Jajcu.jpg/960px-Plivske_jezero_u_Jajcu.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Veliko_jezero.jpg/960px-Veliko_jezero.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/7/7a/1906_B-H_35h_PlivaLake_Mi38.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Lake_near_Jajce.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Plivske_jezero_u_Jajcu.jpg/960px-Plivske_jezero_u_Jajcu.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Veliko_jezero.jpg/960px-Veliko_jezero.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/7/7a/1906_B-H_35h_PlivaLake_Mi38.jpg"
       }
     },
     {
@@ -1150,17 +1150,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sarajevo_tunnel_museum_%281%29.jpg/960px-Sarajevo_tunnel_museum_%281%29.jpg",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sarajevo_tunnel_museum_%281%29.jpg/960px-Sarajevo_tunnel_museum_%281%29.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sarajevo_War_Tunnel_01.jpg/960px-Sarajevo_War_Tunnel_01.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Sarajevo_War_Tunnel.jpg/960px-Sarajevo_War_Tunnel.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Tunnel_gallery_-_Sarajevo_Tunnel_Museum.jpg/960px-Tunnel_gallery_-_Sarajevo_Tunnel_Museum.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Exterior_house_-_Sarajevo_Tunnel_Museum.jpg/960px-Exterior_house_-_Sarajevo_Tunnel_Museum.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sarajevo_tunnel_museum_%281%29.jpg/960px-Sarajevo_tunnel_museum_%281%29.jpg",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sarajevo_tunnel_museum_%281%29.jpg/960px-Sarajevo_tunnel_museum_%281%29.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sarajevo_War_Tunnel_01.jpg/960px-Sarajevo_War_Tunnel_01.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Sarajevo_War_Tunnel.jpg/960px-Sarajevo_War_Tunnel.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Tunnel_gallery_-_Sarajevo_Tunnel_Museum.jpg/960px-Tunnel_gallery_-_Sarajevo_Tunnel_Museum.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Exterior_house_-_Sarajevo_Tunnel_Museum.jpg/960px-Exterior_house_-_Sarajevo_Tunnel_Museum.jpg"
       }
     },
     {
@@ -1198,17 +1198,17 @@ const PLAN = {
         "settings": "f/8 · ISO 200 · 24–70mm"
       },
       "photos": {
-        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
-        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
-        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
-        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+        "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg",
+        "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ilidza_Vrelo-Bosne_2010-07-05_%2821%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2821%29.jpg",
+        "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Ilidza_Vrelo-Bosne_Ugostiteljsko-Preduzece-Banja-Ilidza_%282%29.jpg/960px-Ilidza_Vrelo-Bosne_Ugostiteljsko-Preduzece-Banja-Ilidza_%282%29.jpg",
+        "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ilidza_Vrelo-Bosne_2010-07-05_%2838%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2838%29.jpg",
         "heroPosition": "center 40%"
       },
       "seasonalPhotos": {
-        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
-        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
-        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
-        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg"
+        "spring": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg",
+        "summer": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ilidza_Vrelo-Bosne_2010-07-05_%2821%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2821%29.jpg",
+        "autumn": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Ilidza_Vrelo-Bosne_Ugostiteljsko-Preduzece-Banja-Ilidza_%282%29.jpg/960px-Ilidza_Vrelo-Bosne_Ugostiteljsko-Preduzece-Banja-Ilidza_%282%29.jpg",
+        "christmas": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ilidza_Vrelo-Bosne_2010-07-05_%2838%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2838%29.jpg"
       }
     }
   ],
@@ -1236,16 +1236,16 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Swiss%C3%B4tel%20Sarajevo",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Swiss%C3%B4tel%20Sarajevo",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Skenderija_u_Sarajevu%2C_2023.02.04.jpg/960px-Skenderija_u_Sarajevu%2C_2023.02.04.jpg",
+        "lobby": "https://upload.wikimedia.org/wikipedia/commons/0/07/Neboder_Rapid%2C_Sarajevo.jpg",
+        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Marijin_dvor%2C_Sarajevo_panorama_2010.jpg/960px-Marijin_dvor%2C_Sarajevo_panorama_2010.jpg",
+        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Marijin_dvor%2C_Sarajevo_panorama_2010.jpg/960px-Marijin_dvor%2C_Sarajevo_panorama_2010.jpg",
+        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/0/07/Neboder_Rapid%2C_Sarajevo.jpg",
+        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Technical_High_School_%28Marijin_dvor%2C_Sarajevo%2C_img_center%29.JPG/960px-Technical_High_School_%28Marijin_dvor%2C_Sarajevo%2C_img_center%29.JPG",
+        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Marijin_dvor%2C_Sarajevo_panorama_2010.jpg/960px-Marijin_dvor%2C_Sarajevo_panorama_2010.jpg",
+        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/0/07/Neboder_Rapid%2C_Sarajevo.jpg",
+        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Technical_High_School_%28Marijin_dvor%2C_Sarajevo%2C_img_center%29.JPG/960px-Technical_High_School_%28Marijin_dvor%2C_Sarajevo%2C_img_center%29.JPG",
+        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Marijin_dvor%2C_Sarajevo_panorama_2010.jpg/960px-Marijin_dvor%2C_Sarajevo_panorama_2010.jpg"
       }
     },
     {
@@ -1271,16 +1271,16 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Europe%20Sarajevo",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Europe%20Sarajevo",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG"
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Hotel_Europe.JPG/960px-Hotel_Europe.JPG",
+        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hotel_Europe_Sarajevo.jpg/960px-Hotel_Europe_Sarajevo.jpg",
+        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hotel_Europe_-_panoramio_%281%29.jpg/960px-Hotel_Europe_-_panoramio_%281%29.jpg",
+        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hotel_Europe_-_panoramio_%281%29.jpg/960px-Hotel_Europe_-_panoramio_%281%29.jpg",
+        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hotel_Europe_Sarajevo.jpg/960px-Hotel_Europe_Sarajevo.jpg",
+        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Hotel_Evropa%2C_Sarajevo.JPG/960px-Hotel_Evropa%2C_Sarajevo.JPG",
+        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hotel_Europe_-_panoramio_%281%29.jpg/960px-Hotel_Europe_-_panoramio_%281%29.jpg",
+        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hotel_Europe_Sarajevo.jpg/960px-Hotel_Europe_Sarajevo.jpg",
+        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Hotel_Evropa%2C_Sarajevo.JPG/960px-Hotel_Evropa%2C_Sarajevo.JPG",
+        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hotel_Europe_-_panoramio_%281%29.jpg/960px-Hotel_Europe_-_panoramio_%281%29.jpg"
       }
     },
     {
@@ -1306,16 +1306,16 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Mepas%20Bosnia%20Herzegovina",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Mepas%20Bosnia%20Herzegovina",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Mepas_Mall_Mostar%2C_Konzum%2C_September_2024.jpg/960px-Mepas_Mall_Mostar%2C_Konzum%2C_September_2024.jpg",
+        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Mepas_Mall_Mostar%2C_September_2024.jpg/960px-Mepas_Mall_Mostar%2C_September_2024.jpg",
+        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg/960px-Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg",
+        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg/960px-Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg",
+        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Mepas_Mall_Mostar%2C_September_2024.jpg/960px-Mepas_Mall_Mostar%2C_September_2024.jpg",
+        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mepas_Mall_Mostar.jpg/960px-Mepas_Mall_Mostar.jpg",
+        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg/960px-Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg",
+        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Mepas_Mall_Mostar%2C_September_2024.jpg/960px-Mepas_Mall_Mostar%2C_September_2024.jpg",
+        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mepas_Mall_Mostar.jpg/960px-Mepas_Mall_Mostar.jpg",
+        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg/960px-Mostar%2C_Bosnia_and_Herzegovina_2022-08_-_Mepas_Mall.jpg"
       }
     },
     {
@@ -1341,16 +1341,16 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Malak%20Regency%20Hotel%20Bosnia%20Herzegovina",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Malak%20Regency%20Hotel%20Bosnia%20Herzegovina",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Miljacka_river_sarajevo_IMG_1333.JPG/960px-Miljacka_river_sarajevo_IMG_1333.JPG",
+        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pansion_Stari_Grad_Sarajevo.jpg/960px-Pansion_Stari_Grad_Sarajevo.jpg",
+        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Marriott_Sarajevo_-_Dean_room.jpg/960px-Marriott_Sarajevo_-_Dean_room.jpg",
+        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Marriott_Sarajevo_-_Dean_room.jpg/960px-Marriott_Sarajevo_-_Dean_room.jpg",
+        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pansion_Stari_Grad_Sarajevo.jpg/960px-Pansion_Stari_Grad_Sarajevo.jpg",
+        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Hotel_Latinski_most_-_panoramio.jpg/960px-Hotel_Latinski_most_-_panoramio.jpg",
+        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Marriott_Sarajevo_-_Dean_room.jpg/960px-Marriott_Sarajevo_-_Dean_room.jpg",
+        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pansion_Stari_Grad_Sarajevo.jpg/960px-Pansion_Stari_Grad_Sarajevo.jpg",
+        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Hotel_Latinski_most_-_panoramio.jpg/960px-Hotel_Latinski_most_-_panoramio.jpg",
+        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Marriott_Sarajevo_-_Dean_room.jpg/960px-Marriott_Sarajevo_-_Dean_room.jpg"
       }
     },
     {
@@ -1376,16 +1376,16 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Courtyard%20by%20Marriott%20Sarajevo",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Courtyard%20by%20Marriott%20Sarajevo",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Sarajevo_%E2%80%93_Avaz_Twist_Tower_construction.jpg/960px-Sarajevo_%E2%80%93_Avaz_Twist_Tower_construction.jpg",
+        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Sarajevo_-_View_from_Avaz_twist_tower_-_panoramio.jpg/960px-Sarajevo_-_View_from_Avaz_twist_tower_-_panoramio.jpg",
+        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg/960px-Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg",
+        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg/960px-Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg",
+        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Sarajevo_-_View_from_Avaz_twist_tower_-_panoramio.jpg/960px-Sarajevo_-_View_from_Avaz_twist_tower_-_panoramio.jpg",
+        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Sarajevo_seen_from_the_Avaz_Twist_Tower.jpg/960px-Sarajevo_seen_from_the_Avaz_Twist_Tower.jpg",
+        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg/960px-Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg",
+        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Sarajevo_-_View_from_Avaz_twist_tower_-_panoramio.jpg/960px-Sarajevo_-_View_from_Avaz_twist_tower_-_panoramio.jpg",
+        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Sarajevo_seen_from_the_Avaz_Twist_Tower.jpg/960px-Sarajevo_seen_from_the_Avaz_Twist_Tower.jpg",
+        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg/960px-Sarajevo_Avaz_Twist_Trebevi%C4%87.jpg"
       }
     },
     {
@@ -1411,16 +1411,16 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Story%20Sarajevo",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Story%20Sarajevo",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG"
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Gatan_Ferhadija_i_Sarajevo_24_juli_2023.jpg/960px-Gatan_Ferhadija_i_Sarajevo_24_juli_2023.jpg",
+        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ferhadija%2C_Sarajevo%2C_2023.01.22_2.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_2.jpg",
+        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg",
+        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg",
+        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ferhadija%2C_Sarajevo%2C_2023.01.22_2.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_2.jpg",
+        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ferhadija%2C_Sarajevo%2C_2023.01.22_3.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_3.jpg",
+        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg",
+        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Ferhadija%2C_Sarajevo%2C_2023.01.22_2.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_2.jpg",
+        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ferhadija%2C_Sarajevo%2C_2023.01.22_3.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_3.jpg",
+        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg/960px-Ferhadija%2C_Sarajevo%2C_2023.01.22_4.jpg"
       }
     },
     {
@@ -1446,16 +1446,16 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel-Restaurant%20Kriva%20%C4%86uprija%20Bosnia%20Herzegovina",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Hotel-Restaurant%20Kriva%20%C4%86uprija%20Bosnia%20Herzegovina",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mostar_BW_2024-10-01_13-12-23.jpg/960px-Mostar_BW_2024-10-01_13-12-23.jpg",
+        "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Mostar_BW_2024-10-01_11-32-31.jpg/960px-Mostar_BW_2024-10-01_11-32-31.jpg",
+        "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg/960px-Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg",
+        "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg/960px-Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg",
+        "restaurant": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Mostar_BW_2024-10-01_11-32-31.jpg/960px-Mostar_BW_2024-10-01_11-32-31.jpg",
+        "pool": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/20201220_Mostar%2C_Kriva_%C4%87uprija_2.jpg/960px-20201220_Mostar%2C_Kriva_%C4%87uprija_2.jpg",
+        "rooftop": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg/960px-Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg",
+        "breakfast": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Mostar_BW_2024-10-01_11-32-31.jpg/960px-Mostar_BW_2024-10-01_11-32-31.jpg",
+        "spa": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/20201220_Mostar%2C_Kriva_%C4%87uprija_2.jpg/960px-20201220_Mostar%2C_Kriva_%C4%87uprija_2.jpg",
+        "view": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg/960px-Crooked_Bridge%2C_Mostar%2C_before_1558_%282%29_%2829228743913%29.jpg"
       }
     }
   ],
@@ -1479,36 +1479,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Bosnian Coffee & Fresh Burek",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Set_za_kafu_01.jpg/960px-Set_za_kafu_01.jpg",
           "desc": "House specialty."
         },
         {
           "name": "Bosnian Coffee",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Set_za_kafu_03.jpg/960px-Set_za_kafu_03.jpg",
           "desc": "Thick, strong, served in a džezva with lokum."
         },
         {
           "name": "Burek",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Set_za_kafu_04.jpg/960px-Set_za_kafu_04.jpg",
           "desc": "Flaky pastry — meat, cheese or spinach."
         },
         {
           "name": "Baklava",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Set_za_kafu_02.jpg/960px-Set_za_kafu_02.jpg",
           "desc": "Honey-soaked layers with walnuts."
         },
         {
           "name": "Turkish Tea",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Set_za_kafu_01.jpg/960px-Set_za_kafu_01.jpg",
           "desc": "Refills without asking."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Set_za_kafu_01.jpg/960px-Set_za_kafu_01.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Set_za_kafu_03.jpg/960px-Set_za_kafu_03.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Set_za_kafu_04.jpg/960px-Set_za_kafu_04.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Set_za_kafu_02.jpg/960px-Set_za_kafu_02.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Set_za_kafu_03.jpg/960px-Set_za_kafu_03.jpg"
       }
     },
     {
@@ -1530,36 +1530,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Traditional Bosnian Coffee",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Suho_meso_%28Dry_meat%29.JPG/960px-Suho_meso_%28Dry_meat%29.JPG",
           "desc": "House specialty."
         },
         {
           "name": "Bosnian Coffee",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Ra%C5%A1tika_%28Bosnian%29.jpg/960px-Ra%C5%A1tika_%28Bosnian%29.jpg",
           "desc": "Thick, strong, served in a džezva with lokum."
         },
         {
           "name": "Burek",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
           "desc": "Flaky pastry — meat, cheese or spinach."
         },
         {
           "name": "Baklava",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bamje_ingredients_before_cutting.JPG/960px-Bamje_ingredients_before_cutting.JPG",
           "desc": "Honey-soaked layers with walnuts."
         },
         {
           "name": "Turkish Tea",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Suho_meso_%28Dry_meat%29.JPG/960px-Suho_meso_%28Dry_meat%29.JPG",
           "desc": "Refills without asking."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Suho_meso_%28Dry_meat%29.JPG/960px-Suho_meso_%28Dry_meat%29.JPG",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Ra%C5%A1tika_%28Bosnian%29.jpg/960px-Ra%C5%A1tika_%28Bosnian%29.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Bamje_ingredients_before_cutting.JPG/960px-Bamje_ingredients_before_cutting.JPG",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Ra%C5%A1tika_%28Bosnian%29.jpg/960px-Ra%C5%A1tika_%28Bosnian%29.jpg"
       }
     },
     {
@@ -1581,36 +1581,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Ćevapi",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sarajevo_%C4%86evapi_%281%29.JPG/960px-Sarajevo_%C4%86evapi_%281%29.JPG",
           "desc": "Ten pieces of grilled minced meat — the national dish."
         },
         {
           "name": "Somun Bread",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sarajevo_%C4%86evapi_%282%29.JPG/960px-Sarajevo_%C4%86evapi_%282%29.JPG",
           "desc": "Soft flatbread baked for ćevapi."
         },
         {
           "name": "Ayran",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Cevapcici_Bosnia_%2810675837796%29.jpg/960px-Cevapcici_Bosnia_%2810675837796%29.jpg",
           "desc": "Salty yoghurt drink — essential pairing."
         },
         {
           "name": "Onion & Ajvar",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Cevapcici_in_somun.jpg/960px-Cevapcici_in_somun.jpg",
           "desc": "Raw onion and roasted pepper relish."
         },
         {
           "name": "Baklava",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sarajevo_%C4%86evapi_%281%29.JPG/960px-Sarajevo_%C4%86evapi_%281%29.JPG",
           "desc": "Sweet finish if room remains."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sarajevo_%C4%86evapi_%281%29.JPG/960px-Sarajevo_%C4%86evapi_%281%29.JPG",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sarajevo_%C4%86evapi_%282%29.JPG/960px-Sarajevo_%C4%86evapi_%282%29.JPG",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Cevapcici_Bosnia_%2810675837796%29.jpg/960px-Cevapcici_Bosnia_%2810675837796%29.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Cevapcici_in_somun.jpg/960px-Cevapcici_in_somun.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sarajevo_%C4%86evapi_%282%29.JPG/960px-Sarajevo_%C4%86evapi_%282%29.JPG"
       }
     },
     {
@@ -1632,36 +1632,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Begova Čorba & Bosnian lamb",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sarajevo_jidelnicek.jpg/960px-Sarajevo_jidelnicek.jpg",
           "desc": "Signature at Dveri Restaurant."
         },
         {
           "name": "Seasonal Special",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Morica_Han_%281%29.jpg/960px-Morica_Han_%281%29.jpg",
           "desc": "Ask your server for today's recommendation."
         },
         {
           "name": "Bosnian Starter",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%283%29.jpg/960px-Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%283%29.jpg",
           "desc": "Fresh local produce."
         },
         {
           "name": "Main Course",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%284%29.jpg/960px-Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%284%29.jpg",
           "desc": "Hearty Balkan cooking."
         },
         {
           "name": "Dessert",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sarajevo_jidelnicek.jpg/960px-Sarajevo_jidelnicek.jpg",
           "desc": "Tufahija or baklava if available."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sarajevo_jidelnicek.jpg/960px-Sarajevo_jidelnicek.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Morica_Han_%281%29.jpg/960px-Morica_Han_%281%29.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%283%29.jpg/960px-Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%283%29.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%284%29.jpg/960px-Sarajevo_Cevabdzinica-Zmaj-Stanica-Sarajevo_2011-10-31_%284%29.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Morica_Han_%281%29.jpg/960px-Morica_Han_%281%29.jpg"
       }
     },
     {
@@ -1683,36 +1683,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Herzegovinian specialities",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Mostar%2C_casco_antiguo_15.jpg/960px-Mostar%2C_casco_antiguo_15.jpg",
           "desc": "Signature at Šadrvan Restaurant."
         },
         {
           "name": "Seasonal Special",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sadrvan_-_panoramio.jpg/960px-Sadrvan_-_panoramio.jpg",
           "desc": "Ask your server for today's recommendation."
         },
         {
           "name": "Bosnian Starter",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Restaurant_Sadrvan_%E6%A9%8B%E5%AE%88%E4%BA%BA%E9%A4%90%E5%BB%B3_-_panoramio.jpg/960px-Restaurant_Sadrvan_%E6%A9%8B%E5%AE%88%E4%BA%BA%E9%A4%90%E5%BB%B3_-_panoramio.jpg",
           "desc": "Fresh local produce."
         },
         {
           "name": "Main Course",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Mostar_17_BIH1.jpg/960px-Mostar_17_BIH1.jpg",
           "desc": "Hearty Balkan cooking."
         },
         {
           "name": "Dessert",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Mostar%2C_casco_antiguo_15.jpg/960px-Mostar%2C_casco_antiguo_15.jpg",
           "desc": "Tufahija or baklava if available."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Mostar%2C_casco_antiguo_15.jpg/960px-Mostar%2C_casco_antiguo_15.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sadrvan_-_panoramio.jpg/960px-Sadrvan_-_panoramio.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Restaurant_Sadrvan_%E6%A9%8B%E5%AE%88%E4%BA%BA%E9%A4%90%E5%BB%B3_-_panoramio.jpg/960px-Restaurant_Sadrvan_%E6%A9%8B%E5%AE%88%E4%BA%BA%E9%A4%90%E5%BB%B3_-_panoramio.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Mostar_17_BIH1.jpg/960px-Mostar_17_BIH1.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Sadrvan_-_panoramio.jpg/960px-Sadrvan_-_panoramio.jpg"
       }
     },
     {
@@ -1734,36 +1734,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Ćevapi & klepe",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Somun_bread_%28Sarajevski_%C4%86evapi%29.JPG/960px-Somun_bread_%28Sarajevski_%C4%86evapi%29.JPG",
           "desc": "Signature at National Restaurant Cevabdzinica Tima-Irma."
         },
         {
           "name": "Seasonal Special",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Original_Bosnian_Cevapcici.JPG/960px-Original_Bosnian_Cevapcici.JPG",
           "desc": "Ask your server for today's recommendation."
         },
         {
           "name": "Bosnian Starter",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Catering_%C4%87evapi_u_somunu_s_pomfrijem.jpg/960px-Catering_%C4%87evapi_u_somunu_s_pomfrijem.jpg",
           "desc": "Fresh local produce."
         },
         {
           "name": "Main Course",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Bosnian_traditional_food.jpg",
           "desc": "Hearty Balkan cooking."
         },
         {
           "name": "Dessert",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Somun_bread_%28Sarajevski_%C4%86evapi%29.JPG/960px-Somun_bread_%28Sarajevski_%C4%86evapi%29.JPG",
           "desc": "Tufahija or baklava if available."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Somun_bread_%28Sarajevski_%C4%86evapi%29.JPG/960px-Somun_bread_%28Sarajevski_%C4%86evapi%29.JPG",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Original_Bosnian_Cevapcici.JPG/960px-Original_Bosnian_Cevapcici.JPG",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Catering_%C4%87evapi_u_somunu_s_pomfrijem.jpg/960px-Catering_%C4%87evapi_u_somunu_s_pomfrijem.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Bosnian_traditional_food.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Original_Bosnian_Cevapcici.JPG/960px-Original_Bosnian_Cevapcici.JPG"
       }
     },
     {
@@ -1785,36 +1785,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Fresh trout from the Buna",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/140531_Forellen_auf_dem_Grill.jpg/960px-140531_Forellen_auf_dem_Grill.jpg",
           "desc": "Signature at Restaurant Vrelo."
         },
         {
           "name": "Seasonal Special",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Grilled_Trout_Fish_with_roast_potatoes_and_vegetables.JPG/960px-Grilled_Trout_Fish_with_roast_potatoes_and_vegetables.JPG",
           "desc": "Ask your server for today's recommendation."
         },
         {
           "name": "Bosnian Starter",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Grilled_trout_fish.jpg/960px-Grilled_trout_fish.jpg",
           "desc": "Fresh local produce."
         },
         {
           "name": "Main Course",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/5/59/Grilled_Japanese_Trout.jpg",
           "desc": "Hearty Balkan cooking."
         },
         {
           "name": "Dessert",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/140531_Forellen_auf_dem_Grill.jpg/960px-140531_Forellen_auf_dem_Grill.jpg",
           "desc": "Tufahija or baklava if available."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/140531_Forellen_auf_dem_Grill.jpg/960px-140531_Forellen_auf_dem_Grill.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Grilled_Trout_Fish_with_roast_potatoes_and_vegetables.JPG/960px-Grilled_Trout_Fish_with_roast_potatoes_and_vegetables.JPG",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Grilled_trout_fish.jpg/960px-Grilled_trout_fish.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/5/59/Grilled_Japanese_Trout.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Grilled_Trout_Fish_with_roast_potatoes_and_vegetables.JPG/960px-Grilled_Trout_Fish_with_roast_potatoes_and_vegetables.JPG"
       }
     },
     {
@@ -1836,36 +1836,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Herzegovina grill & wine",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Mixed_grill_-_Khan_el-Khalili_-_Cairo%2C_Egypt.jpg/960px-Mixed_grill_-_Khan_el-Khalili_-_Cairo%2C_Egypt.jpg",
           "desc": "Signature at Studenac Restaurant."
         },
         {
           "name": "Seasonal Special",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Rice_with_mixed_meats_served_with_soy_sauce_and_soup%3B_April_2016.jpg/960px-Rice_with_mixed_meats_served_with_soy_sauce_and_soup%3B_April_2016.jpg",
           "desc": "Ask your server for today's recommendation."
         },
         {
           "name": "Bosnian Starter",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg",
           "desc": "Fresh local produce."
         },
         {
           "name": "Main Course",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg",
           "desc": "Hearty Balkan cooking."
         },
         {
           "name": "Dessert",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Mixed_grill_-_Khan_el-Khalili_-_Cairo%2C_Egypt.jpg/960px-Mixed_grill_-_Khan_el-Khalili_-_Cairo%2C_Egypt.jpg",
           "desc": "Tufahija or baklava if available."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Mixed_grill_-_Khan_el-Khalili_-_Cairo%2C_Egypt.jpg/960px-Mixed_grill_-_Khan_el-Khalili_-_Cairo%2C_Egypt.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Rice_with_mixed_meats_served_with_soy_sauce_and_soup%3B_April_2016.jpg/960px-Rice_with_mixed_meats_served_with_soy_sauce_and_soup%3B_April_2016.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Stuffed_Cabbage_with_Meat_and_Quinoa.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Rice_with_mixed_meats_served_with_soy_sauce_and_soup%3B_April_2016.jpg/960px-Rice_with_mixed_meats_served_with_soy_sauce_and_soup%3B_April_2016.jpg"
       }
     },
     {
@@ -1887,36 +1887,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Pliva trout & local plates",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Profiteroles_-_Annie_Smithers_Bistrot.jpg/960px-Profiteroles_-_Annie_Smithers_Bistrot.jpg",
           "desc": "Signature at Kod Asima."
         },
         {
           "name": "Seasonal Special",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/TroutDishXolyTenango.JPG/960px-TroutDishXolyTenango.JPG",
           "desc": "Ask your server for today's recommendation."
         },
         {
           "name": "Bosnian Starter",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Tequila_Jalapeno_Quesadillas_with_Ocean_Trout_and_Corn_-_Bluecorn_Mexican_Restaurant.jpg/960px-Tequila_Jalapeno_Quesadillas_with_Ocean_Trout_and_Corn_-_Bluecorn_Mexican_Restaurant.jpg",
           "desc": "Fresh local produce."
         },
         {
           "name": "Main Course",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dinner_at_Hi%C5%A1a_Franko%2C_summer_2022_03.jpg/960px-Dinner_at_Hi%C5%A1a_Franko%2C_summer_2022_03.jpg",
           "desc": "Hearty Balkan cooking."
         },
         {
           "name": "Dessert",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Profiteroles_-_Annie_Smithers_Bistrot.jpg/960px-Profiteroles_-_Annie_Smithers_Bistrot.jpg",
           "desc": "Tufahija or baklava if available."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Profiteroles_-_Annie_Smithers_Bistrot.jpg/960px-Profiteroles_-_Annie_Smithers_Bistrot.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/TroutDishXolyTenango.JPG/960px-TroutDishXolyTenango.JPG",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Tequila_Jalapeno_Quesadillas_with_Ocean_Trout_and_Corn_-_Bluecorn_Mexican_Restaurant.jpg/960px-Tequila_Jalapeno_Quesadillas_with_Ocean_Trout_and_Corn_-_Bluecorn_Mexican_Restaurant.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dinner_at_Hi%C5%A1a_Franko%2C_summer_2022_03.jpg/960px-Dinner_at_Hi%C5%A1a_Franko%2C_summer_2022_03.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/TroutDishXolyTenango.JPG/960px-TroutDishXolyTenango.JPG"
       }
     },
     {
@@ -1938,36 +1938,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Bosnian home cooking",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sarma_-_cabbage_rolls.jpg/960px-Sarma_-_cabbage_rolls.jpg",
           "desc": "Signature at Avlija Restaurant."
         },
         {
           "name": "Seasonal Special",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Delicious_stuffed_cabbage_rolls_prepared_in_a_pot.jpg/960px-Delicious_stuffed_cabbage_rolls_prepared_in_a_pot.jpg",
           "desc": "Ask your server for today's recommendation."
         },
         {
           "name": "Bosnian Starter",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/02022_Hungarian_stuffed_cabbage_rolls_in_pickled_cabbage_leaves_with_veal_and_deer_meat.jpg/960px-02022_Hungarian_stuffed_cabbage_rolls_in_pickled_cabbage_leaves_with_veal_and_deer_meat.jpg",
           "desc": "Fresh local produce."
         },
         {
           "name": "Main Course",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Freshly_cooked_stuffed_cabbage_rolls_in_a_pot_on_a_wooden_table_ready_to_be_served_with_a_spoon.jpg/960px-Freshly_cooked_stuffed_cabbage_rolls_in_a_pot_on_a_wooden_table_ready_to_be_served_with_a_spoon.jpg",
           "desc": "Hearty Balkan cooking."
         },
         {
           "name": "Dessert",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sarma_-_cabbage_rolls.jpg/960px-Sarma_-_cabbage_rolls.jpg",
           "desc": "Tufahija or baklava if available."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sarma_-_cabbage_rolls.jpg/960px-Sarma_-_cabbage_rolls.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Delicious_stuffed_cabbage_rolls_prepared_in_a_pot.jpg/960px-Delicious_stuffed_cabbage_rolls_prepared_in_a_pot.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/02022_Hungarian_stuffed_cabbage_rolls_in_pickled_cabbage_leaves_with_veal_and_deer_meat.jpg/960px-02022_Hungarian_stuffed_cabbage_rolls_in_pickled_cabbage_leaves_with_veal_and_deer_meat.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Freshly_cooked_stuffed_cabbage_rolls_in_a_pot_on_a_wooden_table_ready_to_be_served_with_a_spoon.jpg/960px-Freshly_cooked_stuffed_cabbage_rolls_in_a_pot_on_a_wooden_table_ready_to_be_served_with_a_spoon.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Delicious_stuffed_cabbage_rolls_prepared_in_a_pot.jpg/960px-Delicious_stuffed_cabbage_rolls_prepared_in_a_pot.jpg"
       }
     },
     {
@@ -1989,36 +1989,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Specialty Coffee",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg/960px-Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg",
           "desc": "House specialty."
         },
         {
           "name": "Bosnian Coffee",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg/960px-Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg",
           "desc": "Thick, strong, served in a džezva with lokum."
         },
         {
           "name": "Burek",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_07.jpg/960px-Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_07.jpg",
           "desc": "Flaky pastry — meat, cheese or spinach."
         },
         {
           "name": "Baklava",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Macy%27s_Coffeehouse_Interior.jpg",
           "desc": "Honey-soaked layers with walnuts."
         },
         {
           "name": "Turkish Tea",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg/960px-Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg",
           "desc": "Refills without asking."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg/960px-Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg/960px-Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_07.jpg/960px-Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_07.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Macy%27s_Coffeehouse_Interior.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg/960px-Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg"
       }
     },
     {
@@ -2040,36 +2040,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Bosnian Coffee & Cakes",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/4/41/Dzezva_kafa_fildzan.jpg",
           "desc": "House specialty."
         },
         {
           "name": "Bosnian Coffee",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Making_greek_%28turkish%29_coffee_%284611048929%29.jpg",
           "desc": "Thick, strong, served in a džezva with lokum."
         },
         {
           "name": "Burek",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Kahve_tepsisi%2C_fincan_ve_tabak.jpg/960px-Kahve_tepsisi%2C_fincan_ve_tabak.jpg",
           "desc": "Flaky pastry — meat, cheese or spinach."
         },
         {
           "name": "Baklava",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Collection_of_Ottoman_zarfs._.jpg/960px-Collection_of_Ottoman_zarfs._.jpg",
           "desc": "Honey-soaked layers with walnuts."
         },
         {
           "name": "Turkish Tea",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/4/41/Dzezva_kafa_fildzan.jpg",
           "desc": "Refills without asking."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/4/41/Dzezva_kafa_fildzan.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Making_greek_%28turkish%29_coffee_%284611048929%29.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Kahve_tepsisi%2C_fincan_ve_tabak.jpg/960px-Kahve_tepsisi%2C_fincan_ve_tabak.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Collection_of_Ottoman_zarfs._.jpg/960px-Collection_of_Ottoman_zarfs._.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Making_greek_%28turkish%29_coffee_%284611048929%29.jpg"
       }
     },
     {
@@ -2091,36 +2091,36 @@ const PLAN = {
       "dishes": [
         {
           "name": "Modern Coffee & Brunch",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/NOT_avocado_on_toast_with_fried_egg_-_Black_Mocha_2025-08-12.jpg/960px-NOT_avocado_on_toast_with_fried_egg_-_Black_Mocha_2025-08-12.jpg",
           "desc": "House specialty."
         },
         {
           "name": "Bosnian Coffee",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Rosella_Coffeeshop_Avocado_Toast_with_Cumin_-_North_River_District%2C_San_Antonio%2C_Texas_%282015-03-22_by_Nan_Palmero%29.jpg/960px-Rosella_Coffeeshop_Avocado_Toast_with_Cumin_-_North_River_District%2C_San_Antonio%2C_Texas_%282015-03-22_by_Nan_Palmero%29.jpg",
           "desc": "Thick, strong, served in a džezva with lokum."
         },
         {
           "name": "Burek",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Caravan%2C_Clerkenwell%2C_London_%285624758902%29.jpg/960px-Caravan%2C_Clerkenwell%2C_London_%285624758902%29.jpg",
           "desc": "Flaky pastry — meat, cheese or spinach."
         },
         {
           "name": "Baklava",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Sausage_Emporium_-_July_2022_-_Sarah_Stierch_04.jpg/960px-Sausage_Emporium_-_July_2022_-_Sarah_Stierch_04.jpg",
           "desc": "Honey-soaked layers with walnuts."
         },
         {
           "name": "Turkish Tea",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/NOT_avocado_on_toast_with_fried_egg_-_Black_Mocha_2025-08-12.jpg/960px-NOT_avocado_on_toast_with_fried_egg_-_Black_Mocha_2025-08-12.jpg",
           "desc": "Refills without asking."
         }
       ],
       "photos": {
-        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
-        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/NOT_avocado_on_toast_with_fried_egg_-_Black_Mocha_2025-08-12.jpg/960px-NOT_avocado_on_toast_with_fried_egg_-_Black_Mocha_2025-08-12.jpg",
+        "interior": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Rosella_Coffeeshop_Avocado_Toast_with_Cumin_-_North_River_District%2C_San_Antonio%2C_Texas_%282015-03-22_by_Nan_Palmero%29.jpg/960px-Rosella_Coffeeshop_Avocado_Toast_with_Cumin_-_North_River_District%2C_San_Antonio%2C_Texas_%282015-03-22_by_Nan_Palmero%29.jpg",
+        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Caravan%2C_Clerkenwell%2C_London_%285624758902%29.jpg/960px-Caravan%2C_Clerkenwell%2C_London_%285624758902%29.jpg",
+        "dessert": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Sausage_Emporium_-_July_2022_-_Sarah_Stierch_04.jpg/960px-Sausage_Emporium_-_July_2022_-_Sarah_Stierch_04.jpg",
+        "coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Rosella_Coffeeshop_Avocado_Toast_with_Cumin_-_North_River_District%2C_San_Antonio%2C_Texas_%282015-03-22_by_Nan_Palmero%29.jpg/960px-Rosella_Coffeeshop_Avocado_Toast_with_Cumin_-_North_River_District%2C_San_Antonio%2C_Texas_%282015-03-22_by_Nan_Palmero%29.jpg"
       }
     }
   ],
@@ -2161,10 +2161,10 @@ const PLAN = {
         }
       },
       "photos": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Set_za_kafu_01.jpg/960px-Set_za_kafu_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sarajevo_-_view_from_Ba%C5%A1%C4%8Dar%C5%A1ija.JPG/960px-Sarajevo_-_view_from_Ba%C5%A1%C4%8Dar%C5%A1ija.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Suho_meso_%28Dry_meat%29.JPG/960px-Suho_meso_%28Dry_meat%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Gazi_Husrev-beg%27s_Mosque_01.jpg/960px-Gazi_Husrev-beg%27s_Mosque_01.jpg"
       ],
       "stops": [
         {
@@ -2286,10 +2286,10 @@ const PLAN = {
         }
       },
       "photos": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg/960px-Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Mostar%2C_casco_antiguo_15.jpg/960px-Mostar%2C_casco_antiguo_15.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg"
       ],
       "stops": [
         {
@@ -2393,10 +2393,10 @@ const PLAN = {
         }
       },
       "photos": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Blagaj_%E2%80%93_Vrelo_Bune_3.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_3.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/140531_Forellen_auf_dem_Grill.jpg/960px-140531_Forellen_auf_dem_Grill.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg"
       ],
       "stops": [
         {
@@ -2473,10 +2473,10 @@ const PLAN = {
         }
       },
       "photos": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Po%C4%8Ditelj.00441.JPG/960px-Po%C4%8Ditelj.00441.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/%D0%A2%D1%80%D0%B5%D0%B1%D0%B8%D1%9A%D0%B5.jpg/960px-%D0%A2%D1%80%D0%B5%D0%B1%D0%B8%D1%9A%D0%B5.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg"
       ],
       "stops": [
         {
@@ -2562,10 +2562,10 @@ const PLAN = {
         }
       },
       "photos": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "https://upload.wikimedia.org/wikipedia/commons/9/98/%D0%9F%D0%B5%D1%80%D1%83%D1%87%D0%B8%D1%86%D0%B0_2.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg"
       ],
       "stops": [
         {
@@ -2651,10 +2651,10 @@ const PLAN = {
         }
       },
       "photos": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jajce_%E2%80%93_Pliva_waterfall.jpg/960px-Jajce_%E2%80%93_Pliva_waterfall.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Catacombes_de_Jajce.jpg/960px-Catacombes_de_Jajce.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1f/Lake_near_Jajce.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Latin_Bridge_02_%2822757259615%29.jpg/960px-Latin_Bridge_02_%2822757259615%29.jpg"
       ],
       "stops": [
         {
@@ -2740,10 +2740,10 @@ const PLAN = {
         }
       },
       "photos": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sarajevo_War_Tunnel_01.jpg/960px-Sarajevo_War_Tunnel_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sarma_-_cabbage_rolls.jpg/960px-Sarma_-_cabbage_rolls.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sarajevo_City_Center.jpg/960px-Sarajevo_City_Center.jpg"
       ],
       "stops": [
         {
@@ -2808,35 +2808,35 @@ const PLAN = {
       "name": "Tunnel of Hope Museum",
       "address": "Butmir",
       "desc": "Siege history · indoor",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sarajevo_War_Tunnel_01.jpg/960px-Sarajevo_War_Tunnel_01.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Tunnel%20of%20Hope%20Museum%20Bosnia%20Herzegovina"
     },
     {
       "name": "Gazi Husrev-beg Mosque",
       "address": "Baščaršija",
       "desc": "Ottoman architecture · courtyard",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Gazi_Husrev-beg%27s_Mosque_01.jpg/960px-Gazi_Husrev-beg%27s_Mosque_01.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Gazi%20Husrev-beg%20Mosque%20Bosnia%20Herzegovina"
     },
     {
       "name": "SCC Mall",
       "address": "Sarajevo",
       "desc": "Shopping · cafés · cinema",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sarajevo_City_Center.jpg/960px-Sarajevo_City_Center.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=SCC%20Mall%20Sarajevo"
     },
     {
       "name": "Miris Dunja",
       "address": "Baščaršija",
       "desc": "Bosnian coffee · cosy interior",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Suho_meso_%28Dry_meat%29.JPG/960px-Suho_meso_%28Dry_meat%29.JPG",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Miris%20Dunja%20Bosnia%20Herzegovina"
     },
     {
       "name": "Fabrika Coffee",
       "address": "Sarajevo",
       "desc": "Specialty coffee · rainy afternoon",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg/960px-Hideout_Theater_and_Coffeehouse_interior%2C_Austin%2C_Texas%2C_2009.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Fabrika%20Coffee%20Bosnia%20Herzegovina"
     }
   ],
@@ -2859,28 +2859,28 @@ const PLAN = {
       "name": "Blagaj Tekke",
       "address": "Blagaj",
       "desc": "Cliff monastery · Buna spring",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Blagaj_%E2%80%93_Vrelo_Bune_3.jpg/960px-Blagaj_%E2%80%93_Vrelo_Bune_3.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Blagaj%20Tekke"
     },
     {
       "name": "Yellow Fortress",
       "address": "Sarajevo",
       "desc": "Sunset over the city",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/%C5%BDuta_Tabija%2C_Sarajevo.jpg/960px-%C5%BDuta_Tabija%2C_Sarajevo.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Yellow%20Fortress%20Bosnia%20Herzegovina"
     },
     {
       "name": "Vrelo Bosne",
       "address": "Ilidža",
       "desc": "Horse carriage · river source",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg/960px-Ilidza_Vrelo-Bosne_2010-07-05_%2823%29.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Vrelo%20Bosne%20Bosnia%20Herzegovina"
     },
     {
       "name": "Pliva Lakes",
       "address": "Jajce",
       "desc": "Watermills · emerald water",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Lake_near_Jajce.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pliva%20Lakes%20Bosnia%20Herzegovina"
     }
   ],
@@ -2888,37 +2888,37 @@ const PLAN = {
     {
       "name": "Konjic Old Stone Bridge",
       "desc": "Coffee stop on the Neretva — few tourists pause here",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg/960px-Konjic_and_its_Stara_%C4%86uprija%2C_Old_Bridge.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Konjic%20Old%20Stone%20Bridge"
     },
     {
       "name": "Arslanagić Bridge",
       "desc": "Quiet Ottoman bridge near Trebinje",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg/960px-Puente_Arslanagi%C4%87%2C_Trebinje%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_28.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Arslanagi%C4%87%20Bridge%20Bosnia%20Herzegovina"
     },
     {
       "name": "Počitelj",
       "desc": "Hillside Ottoman village frozen in time",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Po%C4%8Ditelj.00441.JPG/960px-Po%C4%8Ditelj.00441.JPG",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Po%C4%8Ditelj%20Bosnia%20Herzegovina"
     },
     {
       "name": "Kujundžiluk Bazaar",
       "desc": "Mostar copper lanes — less crowded than Sarajevo",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mostar_BW_2024-10-01_12-51-16.jpg/960px-Mostar_BW_2024-10-01_12-51-16.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Kujund%C5%BEiluk%20Bazaar%20Bosnia%20Herzegovina"
     },
     {
       "name": "Perućica Primeval Forest",
       "desc": "Ancient trees in Sutjeska — Europe's hidden wilderness",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/98/%D0%9F%D0%B5%D1%80%D1%83%D1%87%D0%B8%D1%86%D0%B0_2.JPG",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Sutjeska%20National%20Park%20Bosnia%20Herzegovina"
     },
     {
       "name": "Jajce Catacombs",
       "desc": "Royal tombs beneath the fortress",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Catacombes_de_Jajce.jpg/960px-Catacombes_de_Jajce.jpg",
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jajce%20Catacombs"
     }
   ],
@@ -2953,25 +2953,25 @@ const PLAN = {
       {
         "name": "Baščaršija Copper Market",
         "desc": "Handmade copper coffee sets · crafts",
-        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Antiques_and_Souvenirs_%2847637628531%29.jpg/960px-Antiques_and_Souvenirs_%2847637628531%29.jpg",
         "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ba%C5%A1%C4%8Dar%C5%A1ija%20Bosnia%20Herzegovina"
       },
       {
         "name": "Kujundžiluk Bazaar",
         "desc": "Mostar textiles · souvenirs",
-        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mostar_BW_2024-10-01_12-51-16.jpg/960px-Mostar_BW_2024-10-01_12-51-16.jpg",
         "mapUrl": "https://www.google.com/maps/search/?api=1&query=Kujund%C5%BEiluk%20Bazaar%20Bosnia%20Herzegovina"
       },
       {
         "name": "SCC Mall",
         "desc": "Modern shopping · international brands",
-        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Sarajevo_City_Center.jpg/960px-Sarajevo_City_Center.jpg",
         "mapUrl": "https://www.google.com/maps/search/?api=1&query=SCC%20Mall%20Sarajevo"
       },
       {
         "name": "Old Bazaar Sarajevo",
         "desc": "Traditional crafts · lokum · coffee sets",
-        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Shops_in_Ba%C5%A1%C4%8Dar%C5%A1ija%2C_September%2C_2017.jpg/960px-Shops_in_Ba%C5%A1%C4%8Dar%C5%A1ija%2C_September%2C_2017.jpg",
         "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ba%C5%A1%C4%8Dar%C5%A1ija%20Bosnia%20Herzegovina"
       }
     ],
