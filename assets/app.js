@@ -9,6 +9,7 @@
   const {
     applyTheme,
     qr,
+    qrImg,
     stars,
     staticMap,
     getCoords,
@@ -258,7 +259,7 @@
       : '';
 
     return `<div class="hero ${tall ? 'hero--cover' : ''}">
-      ${img(theme().heroImage, m.city + ' skyline', '16/9', 'center 35%')}
+      ${img(theme().heroImage, m.city + ' skyline', '16/9', 'center 35%', null, { eager: true })}
       <div class="hero__content">
         <span class="discover-wordmark">${esc(t('discover', 'Discover'))}</span>
         <span class="hero__badge">${esc(m.badge)} · ${esc(m.country)}</span>
@@ -291,7 +292,7 @@
 
     return `<header class="home-hero">
       <div class="home-hero__photo">
-        ${img(theme().heroImage, m.city + ' skyline', '16/9', 'center 35%')}
+        ${img(theme().heroImage, m.city + ' skyline', '16/9', 'center 35%', null, { eager: true })}
       </div>
       <div class="home-hero__panel">
         <span class="home-hero__wordmark">${esc(t('discover', 'Discover'))}</span>
@@ -334,7 +335,7 @@
     const image = bg || theme().heroImage;
     return `<header class="home-hero home-hero--chapter">
       <div class="home-hero__photo">
-        ${img(image, title, '16/9', 'center 35%')}
+        ${img(image, title, '16/9', 'center 35%', null)}
       </div>
       <div class="home-hero__panel">
         <span class="home-hero__wordmark">${esc(t('discover', 'Discover'))}</span>
@@ -399,7 +400,7 @@
     return `<div class="map-qr-row">
       ${mapEl}
       <div class="map-qr-row__qr">
-        <img src="${esc(qr(mapUrl, 88))}" width="88" height="88" alt="QR code for ${esc(name)}">
+        ${qrImg(mapUrl, 88, `QR code for ${name}`)}
         <span>${esc(t('scanMap', 'Scan for map'))}</span>
       </div>
     </div>`;
@@ -483,7 +484,7 @@
 
     return `<article class="magazine-page detail-page__content">
       <h1 class="page-title">${esc(placeName)}</h1>
-      ${img(hero, placeName, '16/9', focal, hero)}
+      ${img(hero, placeName, '16/9', focal, hero, { eager: true })}
       ${caption(photoSpot, a.lens ? `${t('labelLens', 'Lens')}: ${a.lens}` : '')}
       ${photoGrid}
       ${renderHighlights([
@@ -636,7 +637,7 @@
 
     return `<article class="magazine-page detail-page__content">
       <h1 class="page-title">${esc(hotelName)}</h1>
-      ${cover ? img(cover, hotelName, '16/9', 'center', cover) : ''}
+      ${cover ? img(cover, hotelName, '16/9', 'center', cover, { eager: true }) : ''}
       ${renderHighlights([
         { label: t('labelPrice', 'Price'), value: h.price },
         { label: t('labelRating', 'Rating'), value: `★ ${h.rating}` },
@@ -716,7 +717,7 @@
 
     return `<article class="magazine-page detail-page__content">
       <h1 class="page-title">${esc(restaurantName)}</h1>
-      ${signature ? img(signature, famous || restaurantName, '16/9', 'center', signature) : ''}
+      ${signature ? img(signature, famous || restaurantName, '16/9', 'center', signature, { eager: true }) : ''}
       ${renderHighlights([
         { label: t('labelPrice', 'Price'), value: d.price },
         { label: t('labelWait', 'Wait'), value: wait },
@@ -782,7 +783,7 @@
     ).join('');
 
     const photoStrip = (day.photos || []).slice(0, 4).map(url =>
-      `<div class="day-strip__item">${img(url, dayTitle, '4/3', 'center 35%')}</div>`
+      `<div class="day-strip__item">${img(url, dayTitle, '4/3', 'center 35%', null)}</div>`
     ).join('');
 
     const routeBanner = `<div class="route-banner">
@@ -791,7 +792,7 @@
         <p>${esc(routePreview)}</p>
       </div>
       <div class="map-qr-row__qr">
-        <img src="${esc(qr(day.mapUrl, 72))}" width="72" height="72" alt="Route QR">
+        ${qrImg(day.mapUrl, 72, 'Route QR')}
         <span>${esc(t('fullRoute', 'Full route'))}</span>
       </div>
     </div>`;
@@ -806,7 +807,7 @@
       return `<div class="stop">
         <time class="stop__time">${esc(stop.time)}</time>
         <div class="stop__card ${cls}">
-          ${photo ? `<div class="stop__photo">${img(photo, stopName, '21/9', 'center 30%')}</div>` : ''}
+          ${photo ? `<div class="stop__photo">${img(photo, stopName, '21/9', 'center 30%', null)}</div>` : ''}
           <div class="stop__body">
             <div class="stop__name">${esc(stopName)}</div>
             <div class="stop__desc">${esc(desc)}</div>
@@ -868,7 +869,7 @@
   function renderWeatherCards(items, section) {
     return (items || []).map((item, i) =>
       `<div class="weather-card">
-        ${item.img ? img(item.img, txC(section, i, 'name', item.name), '16/9', 'center') : ''}
+        ${item.img ? img(item.img, txC(section, i, 'name', item.name), '16/9', 'center', null) : ''}
         <div class="weather-card__body">
           <div class="weather-card__name">${esc(txC(section, i, 'name', item.name))}</div>
           ${item.address ? `<div class="weather-card__addr">${esc(txC(section, i, 'address', item.address))}</div>` : ''}
@@ -1047,7 +1048,7 @@
 
     const qrGrid = (cs.topQrCodes || []).map((q, i) =>
       `<div class="cheat-sheet__qr-item">
-        <img src="${esc(qr(q.mapUrl, 56))}" alt="">
+        ${qrImg(q.mapUrl, 56, txCheatQr(i, 'name', q.name))}
         <span>${esc(txCheatQr(i, 'name', q.name))}</span>
       </div>`
     ).join('');
@@ -1078,7 +1079,7 @@
     gems: { labelKey: 'moreGems', label: 'Gems', render: () =>
       (PLAN.hiddenGems || []).map((g, i) =>
         `<div class="gem-card">
-          ${img(g.img, txName('hiddenGems', i, g.name), '16/9', 'center')}
+          ${img(g.img, txName('hiddenGems', i, g.name), '16/9', 'center', null)}
           <div class="gem-card__body">
             <div class="gem-card__name">${esc(txName('hiddenGems', i, g.name))}</div>
             <div class="gem-card__desc">${esc(txC('hiddenGems', i, 'desc', g.desc))}</div>
@@ -1093,7 +1094,7 @@
         const name = txShoppingDistrict(i, 'name', d.name);
         const desc = txShoppingDistrict(i, 'desc', d.desc);
         return `<div class="gem-card">
-          ${img(d.img, name, '16/9', 'center')}
+          ${img(d.img, name, '16/9', 'center', null)}
           <div class="gem-card__body">
             <div class="gem-card__name">${esc(name)}</div>
             <div class="gem-card__desc">${esc(desc)}</div>

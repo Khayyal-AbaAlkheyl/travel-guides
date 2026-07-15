@@ -541,6 +541,7 @@
 
   global.I18n = {
     init,
+    bindToolbar,
     t,
     isAr,
     isDark,

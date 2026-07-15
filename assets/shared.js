@@ -61,7 +61,7 @@
     set('--navy', t.navy);
 
     if (t.heroImage) {
-      root.style.setProperty('--hero-image', `url('${normalizeImageUrl(t.heroImage, 1200)}')`);
+      root.style.setProperty('--hero-image', `url('${normalizeImageUrl(t.heroImage, 800)}')`);
     }
 
     const meta = plan?.meta || plan;
@@ -92,8 +92,8 @@
 
   function qrImg(url, size, alt) {
     const s = size || 100;
-    const src = qr(url, s);
-    return `<img src="${esc(src)}" width="${s}" height="${s}" alt="${esc(alt || 'QR code')}" loading="lazy" decoding="async">`;
+    if (!url) return '';
+    return `<img src="${esc(qr(url, s))}" width="${s}" height="${s}" alt="${esc(alt || 'QR code')}" decoding="async">`;
   }
 
   function stars(n) {
@@ -235,18 +235,14 @@
       el.dataset.fb = '';
       return;
     }
-    if (el.dataset.ps && el.src !== el.dataset.ps) {
-      el.src = el.dataset.ps;
-      el.dataset.ps = '';
-      return;
-    }
     if (el.dataset.ph && el.src !== el.dataset.ph) {
       el.src = el.dataset.ph;
     }
   }
 
-  /** Responsive photo with controlled crop; fallback chain: primary → fb → picsum → placeholder */
-  function img(url, alt, ratio, focal, fallback) {
+  /** Responsive photo with controlled crop; optional fallback on load error. Pass { eager: true } for hero/detail covers. */
+  function img(url, alt, ratio, focal, fallback, opts) {
+    const options = opts && typeof opts === 'object' ? opts : {};
     const primary = normalizeImageUrl(url || fallback);
     if (!primary && !fallback) return '';
     const src = primary || normalizeImageUrl(fallback);
@@ -254,13 +250,13 @@
     const pos = focal || 'center';
     const fbRaw = fallback && normalizeImageUrl(fallback) !== src ? normalizeImageUrl(fallback) : '';
     const fb = fbRaw ? esc(fbRaw) : '';
-    const parts = String(r).split('/');
-    const h = parts.length === 2 ? Math.round(640 * (Number(parts[1]) / Number(parts[0]))) : 360;
-    const ps = esc(picsumFallback(alt || url || 'discover', 640, h));
     const ph = esc(IMAGE_PLACEHOLDER);
-    const err = ` onerror="handleImgError(this)"${fb ? ` data-fb="${fb}"` : ''} data-ps="${ps}" data-ph="${ph}"`;
+    const err = ` onerror="handleImgError(this)"${fb ? ` data-fb="${fb}"` : ''} data-ph="${ph}"`;
+    const eager = !!options.eager;
+    const loading = eager ? 'eager' : 'lazy';
+    const priority = eager ? ' fetchpriority="high"' : '';
     return `<figure class="media" style="aspect-ratio:${esc(r)}">
-      <img src="${esc(src)}" alt="${esc(alt || '')}" loading="lazy" decoding="async" style="object-position:${esc(pos)}"${err}>
+      <img src="${esc(src)}" alt="${esc(alt || '')}" loading="${loading}"${priority} decoding="async" style="object-position:${esc(pos)}"${err}>
     </figure>`;
   }
 
@@ -275,11 +271,10 @@
     if (!src) return `<div class="pdf-photo ${extraClass || ''}"></div>`;
     const pos = focal || 'center';
     const ph = esc(IMAGE_PLACEHOLDER);
-    const ps = esc(picsumFallback(label || url || 'pdf', 800, 450));
     return (
       `<figure class="pdf-photo-wrap">` +
       `<div class="pdf-photo ${extraClass || ''}">` +
-      `<img src="${esc(src)}" alt="" decoding="sync" style="object-position:${esc(pos)}" onerror="handleImgError(this)" data-ps="${ps}" data-ph="${ph}">` +
+      `<img src="${esc(src)}" alt="" decoding="sync" style="object-position:${esc(pos)}" onerror="handleImgError(this)" data-ph="${ph}">` +
       (label ? `<span class="pdf-photo-label">${esc(label)}</span>` : '') +
       `</div></figure>`
     );
@@ -290,10 +285,9 @@
     const src = normalizeImageUrl(url, 600);
     if (!src) return '<div class="pdf-card__img pdf-card__img--empty"></div>';
     const ph = esc(IMAGE_PLACEHOLDER);
-    const ps = esc(picsumFallback(seed || url || 'card', 600, 400));
     return (
       '<div class="pdf-card__img">' +
-      `<img src="${esc(src)}" alt="" decoding="sync" onerror="handleImgError(this)" data-ps="${ps}" data-ph="${ph}">` +
+      `<img src="${esc(src)}" alt="" decoding="sync" onerror="handleImgError(this)" data-ph="${ph}">` +
       '</div>'
     );
   }
@@ -303,10 +297,9 @@
     const src = normalizeImageUrl(url, 1200);
     if (!src) return `<div class="${className} ${className}--empty"></div>`;
     const ph = esc(IMAGE_PLACEHOLDER);
-    const ps = esc(picsumFallback(seed || url || 'bg', 1200, 800));
     return (
       `<div class="${className}">` +
-      `<img src="${esc(src)}" alt="" decoding="sync" onerror="handleImgError(this)" data-ps="${ps}" data-ph="${ph}">` +
+      `<img src="${esc(src)}" alt="" decoding="sync" onerror="handleImgError(this)" data-ph="${ph}">` +
       '</div>'
     );
   }

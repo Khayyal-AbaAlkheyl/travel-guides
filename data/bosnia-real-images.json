@@ -1,0 +1,260 @@
+{
+  "Baščaršija": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG"
+  },
+  "Gazi Husrev-beg Mosque": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg/960px-Gazi_Husrev-beg%27s_Mosque_IMG_9523_sarajevo.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Latin Bridge": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Sarajevo Cable Car": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+  },
+  "Yellow Fortress": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+  },
+  "Stari Most": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Kujundžiluk Bazaar": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Konjic Old Stone Bridge": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg"
+  },
+  "Blagaj Tekke": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Kravica Waterfalls": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg"
+  },
+  "Počitelj": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Trebinje Old Town": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Arslanagić Bridge": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Sutjeska National Park": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+  },
+  "Jajce Waterfall": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+  },
+  "Pliva Lakes": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+  },
+  "Tunnel of Hope Museum": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sarajevo_tunnel_museum_%281%29.jpg/960px-Sarajevo_tunnel_museum_%281%29.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Sarajevo_tunnel.jpg/960px-Sarajevo_tunnel.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sarajevo_tunnel_museum_%281%29.jpg/960px-Sarajevo_tunnel_museum_%281%29.jpg"
+  },
+  "Vrelo Bosne": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg"
+  },
+  "Jajce Catacombs": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+  },
+  "Swissôtel Sarajevo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Hotel Europe Sarajevo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+  },
+  "Hotel Mepas": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Malak Regency Hotel": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Courtyard by Marriott Sarajevo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg"
+  },
+  "Hotel Story Sarajevo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+  },
+  "Hotel-Restaurant Kriva Ćuprija": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Ministry of Ćejf": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Miris Dunja": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Ćevabdžinica Željo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG"
+  },
+  "Dveri Restaurant": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG"
+  },
+  "Šadrvan Restaurant": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "National Restaurant Cevabdzinica Tima-Irma": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Restaurant Vrelo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Studenac Restaurant": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/960px-Mostar_Old_Town_Panorama_2007.jpg"
+  },
+  "Kod Asima": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+  },
+  "Avlija Restaurant": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bridge_on_Vrelo_Bosne.jpg/960px-Bridge_on_Vrelo_Bosne.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vrelo_Bosne_2.JPG/960px-Vrelo_Bosne_2.JPG"
+  },
+  "Fabrika Coffee": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Café de Alma": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg"
+  },
+  "Urban Café Sarajevo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+  },
+  "Baščaršija Copper Market": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg"
+  },
+  "Old Bazaar Sarajevo": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg/960px-Ba%C5%A1%C4%8Dar%C5%A1ija_%286086230081%29.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Caf%C3%A9_House_at_Bascarsija.jpg/960px-Caf%C3%A9_House_at_Bascarsija.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG/960px-Begova_%C4%8Corba_%28Ba%C5%A1%C4%8Dar%C5%A1ija_in_Sarajevo%2C_Bosnia%29.JPG"
+  },
+  "Perućica Primeval Forest": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg/960px-Waterfalls_Kravica_5%2C_Bosnia_and_Herzegovina.jpg",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Jajce_Total_View.jpg/960px-Jajce_Total_View.jpg"
+  },
+  "SCC Mall": {
+    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sarajevo_Bascarsija_from_Trebevic.JPG/960px-Sarajevo_Bascarsija_from_Trebevic.JPG",
+    "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG",
+    "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG"
+  }
+}

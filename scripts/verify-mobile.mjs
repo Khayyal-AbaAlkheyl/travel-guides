@@ -25,7 +25,7 @@ const home = await page.evaluate(() => ({
   cityTitle: document.querySelector('.home-hero__title')?.textContent?.trim(),
   packingTabs: document.querySelectorAll('.home-packing__tab').length,
   sections: document.querySelectorAll('.home-section').length,
-  toolbar: !!document.querySelector('.app-toolbar'),
+  toolbar: !!document.querySelector('.app-chrome, .app-toolbar'),
   langBtn: !!document.getElementById('lang-toggle'),
   themeBtn: !!document.getElementById('theme-toggle'),
   tabs: document.querySelectorAll('.bottom-nav .nav-item').length,
@@ -37,6 +37,17 @@ for (const tab of ['sights', 'stay', 'eat', 'plan', 'more']) {
   await new Promise((r) => setTimeout(r, 300));
 }
 
+const sightsMedia = await page.evaluate(() => {
+  globalThis.setTab('sights');
+  const imgs = [...document.querySelectorAll('.place-list-card__media img, .media img')];
+  return {
+    count: imgs.length,
+    lazyDataSrc: imgs.filter((i) => i.hasAttribute('data-src')).length,
+    wikimedia: imgs.filter((i) => (i.getAttribute('src') || '').includes('wikimedia')).length,
+    picsum: imgs.filter((i) => (i.getAttribute('src') || '').includes('picsum')).length,
+  };
+});
+
 const final = await page.evaluate(() => ({
   overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
   scrollWidth: document.documentElement.scrollWidth,
@@ -46,6 +57,6 @@ const final = await page.evaluate(() => ({
 
 await browser.close();
 
-const ok = !errors.length && !home.overflow && !final.overflow && home.title.includes('Discover') && home.tabs === 6 && home.homeHero && home.packingTabs >= 2 && home.sections >= 5 && home.toolbar && home.langBtn && home.themeBtn;
-console.log(JSON.stringify({ ok, url, errors, home, final }, null, 2));
+const ok = !errors.length && !home.overflow && !final.overflow && home.title.includes('Discover') && home.tabs === 6 && home.homeHero && home.packingTabs >= 2 && home.sections >= 5 && home.toolbar && home.langBtn && home.themeBtn && sightsMedia.lazyDataSrc === 0 && sightsMedia.picsum === 0;
+console.log(JSON.stringify({ ok, url, errors, home, sightsMedia, final }, null, 2));
 process.exit(ok ? 0 : 1);
