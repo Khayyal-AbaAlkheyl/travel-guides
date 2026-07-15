@@ -120,7 +120,7 @@
     "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Trabzon%2CKizlar1.jpg/960px-Trabzon%2CKizlar1.jpg"
   },
   "Zorlu Grand Hotel": {
-    "hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Trabzon_City_Centre.jpg/960px-Trabzon_City_Centre.jpg",
+    "hero": "../assets/hotels/zorlu-grand-hotel.png",
     "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Panoromik_Trabzon.jpg/960px-Panoromik_Trabzon.jpg",
     "photoSpot": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Trabzon_aqueduct.JPG/960px-Trabzon_aqueduct.JPG",
     "map": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Trabzon_City_walls_and_Aquaduct.JPG/960px-Trabzon_City_walls_and_Aquaduct.JPG"

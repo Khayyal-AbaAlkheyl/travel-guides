@@ -1403,7 +1403,7 @@ const PLAN = {
       "mapUrl": "https://www.google.com/maps/search/?api=1&query=Zorlu%20Grand%20Hotel%20Trabzon",
       "bookUrl": "https://www.google.com/maps/search/?api=1&query=Zorlu%20Grand%20Hotel%20Trabzon",
       "photos": {
-        "exterior": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Trabzon_City_Centre.jpg/960px-Trabzon_City_Centre.jpg",
+        "exterior": "../assets/hotels/zorlu-grand-hotel.png",
         "lobby": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Panoromik_Trabzon.jpg/960px-Panoromik_Trabzon.jpg",
         "room": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Trabzon_aqueduct.JPG/960px-Trabzon_aqueduct.JPG",
         "luxuryRoom": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Trabzon_aqueduct.JPG/960px-Trabzon_aqueduct.JPG",
