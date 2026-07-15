@@ -27,7 +27,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function check(url, tries = 4) {
   for (let i = 0; i < tries; i++) {
     try {
-      const res = await fetch(url, { method: 'GET', headers: HEADERS, redirect: 'follow' });
+      const res = await fetch(url, { method: 'HEAD', headers: HEADERS, redirect: 'follow' });
       if (res.status === 429 && i < tries - 1) {
         await sleep(1500 * (i + 1));
         continue;
@@ -49,7 +49,7 @@ console.log(`Checking ${urls.length} image URLs in ${path.basename(dataPath)}...
 const results = [];
 for (const url of urls) {
   results.push(await check(url));
-  if (url.includes('upload.wikimedia.org')) await sleep(400);
+  if (url.includes('upload.wikimedia.org')) await sleep(700);
 }
 
 const bad = results.filter((r) => !r.ok);
