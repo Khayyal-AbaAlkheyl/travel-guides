@@ -82,14 +82,42 @@
   }
 
   function pdfNavBar(position) {
-    const mod = position === 'bottom' ? ' pdf-nav--bottom' : '';
+    // Jump nav only on section openers — repeating it on every spread crowded phone PDFs.
+    return '';
+  }
+
+  function pdfSectionNav() {
     return (
-      '<nav class="pdf-nav' + mod + '" aria-label="' + esc(tx('pdfJumpNav')) + '">' +
+      '<nav class="pdf-nav" aria-label="' + esc(tx('pdfJumpNav')) + '">' +
         pdfNavItems().map(function (item) {
           return '<a href="#' + item.id + '">' + esc(item.label) + '</a>';
         }).join('') +
       '</nav>'
     );
+  }
+
+  function enPlan() {
+    return typeof PLAN !== 'undefined' ? PLAN : plan();
+  }
+
+  function normalizeName(str) {
+    return String(str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+
+  function findStopPhoto(stopName) {
+    const needle = normalizeName(stopName);
+    if (!needle) return null;
+    const source = enPlan();
+    const match = function (name) {
+      const n = normalizeName(name);
+      return n && (n === needle || needle.includes(n) || n.includes(needle));
+    };
+    const a = (source.attractions || []).find(function (x) { return match(x.name); });
+    if (a && a.photos && a.photos.hero) return a.photos.hero;
+    const d = (source.dining || []).find(function (x) { return match(x.name); });
+    if (d && d.photos && d.photos.signature) return d.photos.signature;
+    const gem = (source.hiddenGems || []).find(function (x) { return match(x.name); });
+    return gem && gem.img ? gem.img : null;
   }
 
   function photoInCard(url, photoClass, cardMod) {
@@ -114,9 +142,8 @@
   function sectionWithNav(id, className, inner) {
     return (
       '<section class="' + (className || 'pdf-section') + '" id="' + id + '">' +
-        pdfNavBar('top') +
+        pdfSectionNav() +
         inner +
-        pdfNavBar('bottom') +
       '</section>'
     );
   }
@@ -151,9 +178,8 @@
   function chapterLeadPage(id, label, title, subtitle, img) {
     return (
       '<section class="pdf-chapter-page" id="' + id + '">' +
-        pdfNavBar('top') +
+        pdfSectionNav() +
         chapterOpener(label, title, subtitle, img, { lead: false }) +
-        pdfNavBar('bottom') +
       '</section>'
     );
   }
@@ -251,7 +277,8 @@
     if (mapUrl) {
       parts.push('<a class="pdf-btn pdf-btn--map" href="' + esc(mapUrl) + '">' + esc(tx('pdfOpenMap')) + '</a>');
     }
-    if (bookUrl) {
+    // Skip second button when it is the same link as the map (avoids duplicate CTAs).
+    if (bookUrl && bookUrl !== mapUrl) {
       parts.push('<a class="pdf-btn pdf-btn--book" href="' + esc(bookUrl) + '">' + esc(bookText || tx('book')) + '</a>');
     }
     return parts.length ? '<div class="pdf-actions">' + parts.join('') + '</div>' : '';
@@ -263,18 +290,11 @@
   }
 
   function mapQrBlock(name, mapUrl) {
-    const coords = getCoords(name);
-    const mapImg = coords
-      ? staticMap(coords.lat, coords.lng, 480, 240)
-      : '';
+    if (!mapUrl) return '';
     return (
-      '<div class="pdf-map-qr">' +
-        '<div class="pdf-map-qr__map">' +
-          (coords
-            ? '<img src="' + esc(mapImg) + '" alt="' + esc(tx('pdfMap')) + '">'
-            : '<div style="height:100%;background:#e8e4de;display:flex;align-items:center;justify-content:center;font-size:7pt;color:#6b6560;">' + esc(tx('pdfMapScanQr')) + '</div>') +
-        '</div>' +
-        qrBlock(mapUrl, tx('pdfGoogleMaps'), 64) +
+      '<div class="pdf-map-qr pdf-map-qr--simple">' +
+        qrBlock(mapUrl, tx('pdfGoogleMaps'), 72) +
+        '<div class="pdf-day__route-text"><strong>' + esc(tx('pdfScanQrMaps')) + '</strong></div>' +
       '</div>'
     );
   }
@@ -505,7 +525,7 @@
   function renderAttraction(a) {
     const photos = a.photos || {};
     const insider = [a.didYouKnow, a.localSecret].filter(Boolean).join(' ');
-    const eatNearby = [a.nearbyCafes, a.nearbyRestaurants].filter(Boolean).join(' · ');
+    const eatNearby = Array.from(new Set([a.nearbyCafes, a.nearbyRestaurants].filter(Boolean))).join(' · ');
     return (
       '<section class="pdf-spread pdf-spread--attraction">' +
         pdfNavBar('top') +
@@ -520,34 +540,25 @@
         photoInCard(photos.hero || photos.detail, 'pdf-photo--hero', 'hero') +
 
         '<div class="pdf-photo-grid">' +
-          labeledPhotoCard(photos.detail, tx('pdfDetail'), 'pdf-photo--square', 'thumb') +
-          labeledPhotoCard(photos.photoSpot, tx('pdfPhotoSpot'), 'pdf-photo--square', 'thumb') +
+          labeledPhotoCard(photos.detail, '', 'pdf-photo--square', 'thumb') +
+          labeledPhotoCard(photos.photoSpot, '', 'pdf-photo--square', 'thumb') +
         '</div>' +
 
-        '<div class="pdf-cols-2" style="margin-top:4mm;">' +
-          '<div>' +
-            chipsHtml([
-              chip(a.ticket, 'accent'),
-              chip(a.hours),
-              chip(tx('pdfTube') + ': ' + a.tube),
-              chip(tx('pdfWaitSummer') + ': ' + a.waitSummer, 'warn'),
-              chip(tx('pdfVisit') + ': ' + a.avgVisit)
-            ]) +
-            crowdHtml(a.crowd) +
-            '<div style="margin-top:3mm;font-size:7pt;"><strong>' + esc(tx('pdfNearbyWalk')) + '</strong></div>' +
-            nearbyHtml(a.nearby) +
-            (eatNearby ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfEatNearby')) + '</strong><span>' + esc(eatNearby) + '</span></div>' : '') +
-            (a.nearbyTube ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfGettingThere')) + '</strong><span>' + esc(a.nearbyTube) + '</span></div>' : '') +
-          '</div>' +
-          '<div>' +
-            (insider ? '<div class="pdf-box pdf-box--fact"><strong>' + esc(tx('pdfInsider')) + '</strong>' + esc(insider) + '</div>' : '') +
-            (a.photoSpot ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfBestPhotoSpot')) + '</strong>' + esc(a.photoSpot) + '</div>' : '') +
-            (a.tip ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfTip')) + '</strong>' + esc(a.tip) + '</div>' : '') +
-            mapQrBlock(a.name, a.mapUrl) +
-            pdfActionButtons(a.mapUrl, a.bookUrl, a.bookText || tx('book')) +
-          '</div>' +
+        '<div class="pdf-stack" style="margin-top:4mm;">' +
+          chipsHtml([
+            chip(a.ticket, 'accent'),
+            chip(a.hours),
+            chip(a.avgVisit ? tx('pdfVisit') + ': ' + a.avgVisit : ''),
+            chip(a.tube ? tx('pdfTube') + ': ' + a.tube : '')
+          ]) +
+          crowdHtml(a.crowd) +
+          (insider ? '<div class="pdf-box pdf-box--fact"><strong>' + esc(tx('pdfInsider')) + '</strong>' + esc(insider) + '</div>' : '') +
+          (a.photoSpot ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfBestPhotoSpot')) + '</strong>' + esc(a.photoSpot) + '</div>' : '') +
+          (a.tip ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfTip')) + '</strong>' + esc(a.tip) + '</div>' : '') +
+          (eatNearby ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfEatNearby')) + '</strong><span>' + esc(eatNearby) + '</span></div>' : '') +
+          mapQrBlock(a.name, a.mapUrl) +
+          pdfActionButtons(a.mapUrl, a.bookUrl, a.bookText || tx('book')) +
         '</div>' +
-        pdfNavBar('bottom') +
       '</section>'
     );
   }
@@ -595,32 +606,24 @@
           }).join('') +
         '</div>' +
 
-        '<div class="pdf-cols-2">' +
-          '<div>' +
-            chipsHtml([
-              chip(h.category, 'accent'),
-              chip(h.price, 'gold'),
-              chip(tx('pdfRating') + ' ' + h.rating),
-              chip(tx('pdfGoogle') + ' ' + h.googleRating, 'ok'),
-              chip(h.room),
-              chip(h.cancellation),
-              chip(h.breakfast)
-            ]) +
-            '<div class="pdf-meta-row"><strong>' + esc(tx('pdfTube')) + '</strong><span>' + esc(h.tube) + '</span></div>' +
-            '<div class="pdf-meta-row"><strong>' + esc(tx('labelAirport')) + '</strong><span>' + esc(h.airport) + '</span></div>' +
-            '<div class="pdf-meta-row"><strong>' + esc(tx('labelNearby')) + '</strong><span>' + esc(h.nearbyAttractions) + '</span></div>' +
-            '<div class="pdf-meta-row"><strong>' + esc(tx('pdfWalkScore')) + '</strong><span>' + esc(h.walkingScore) + '</span></div>' +
-            (h.idealFor && (Array.isArray(h.idealFor) ? h.idealFor.length : String(h.idealFor).trim())
-              ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfIdealFor')) + '</strong><span>' + esc(Array.isArray(h.idealFor) ? h.idealFor.join(' · ') : h.idealFor) + '</span></div>'
-              : '') +
-          '</div>' +
-          '<div>' +
-            (h.tip ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfInsiderTip')) + '</strong>' + esc(h.tip) + '</div>' : '') +
-            mapQrBlock(h.name, h.mapUrl) +
-            pdfActionButtons(h.mapUrl, h.bookUrl, tx('book')) +
-          '</div>' +
+        '<div class="pdf-stack">' +
+          chipsHtml([
+            chip(h.category, 'accent'),
+            chip(h.price, 'gold'),
+            chip(h.rating ? tx('pdfRating') + ' ' + h.rating : ''),
+            chip(h.breakfast)
+          ]) +
+          '<div class="pdf-meta-row"><strong>' + esc(tx('pdfTube')) + '</strong><span>' + esc(h.tube) + '</span></div>' +
+          (h.nearbyAttractions
+            ? '<div class="pdf-meta-row"><strong>' + esc(tx('labelNearby')) + '</strong><span>' + esc(h.nearbyAttractions) + '</span></div>'
+            : '') +
+          (h.idealFor && (Array.isArray(h.idealFor) ? h.idealFor.length : String(h.idealFor).trim())
+            ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfIdealFor')) + '</strong><span>' + esc(Array.isArray(h.idealFor) ? h.idealFor.join(' · ') : h.idealFor) + '</span></div>'
+            : '') +
+          (h.tip ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfInsiderTip')) + '</strong>' + esc(h.tip) + '</div>' : '') +
+          mapQrBlock(h.name, h.mapUrl) +
+          pdfActionButtons(h.mapUrl, h.bookUrl, tx('book')) +
         '</div>' +
-        pdfNavBar('bottom') +
       '</section>'
     );
   }
@@ -664,28 +667,18 @@
           }).join('') +
         '</div>' +
 
-        '<div class="pdf-cols-2">' +
-          '<div>' +
-            chipsHtml([
-              chip(d.category, 'accent'),
-              chip(d.price, 'gold'),
-              chip(d.famous),
-              chip(d.michelin, 'gold'),
-              chip(d.reservation, 'warn'),
-              chip(d.wait, 'warn'),
-              d.halal ? chip(tx('pdfHalal'), 'ok') : '',
-              d.vegetarian ? chip(tx('pdfVegetarian'), 'ok') : '',
-              chip(d.dressCode),
-              chip(d.kidsFriendly)
-            ]) +
-            (d.tip ? '<div class="pdf-box pdf-box--tip" style="margin-top:3mm;"><strong>' + esc(tx('pdfTip')) + '</strong>' + esc(d.tip) + '</div>' : '') +
-          '</div>' +
-          '<div>' +
-            mapQrBlock(d.name, d.mapUrl) +
-            pdfActionButtons(d.mapUrl, d.bookUrl, tx('reserve')) +
-          '</div>' +
+        '<div class="pdf-stack">' +
+          chipsHtml([
+            chip(d.category, 'accent'),
+            chip(d.price, 'gold'),
+            chip(d.famous),
+            d.halal ? chip(tx('pdfHalal'), 'ok') : '',
+            d.reservation ? chip(d.reservation, 'warn') : ''
+          ]) +
+          (d.tip ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfTip')) + '</strong>' + esc(d.tip) + '</div>' : '') +
+          mapQrBlock(d.name, d.mapUrl) +
+          pdfActionButtons(d.mapUrl, d.bookUrl, tx('reserve')) +
         '</div>' +
-        pdfNavBar('bottom') +
       '</section>'
     );
   }
@@ -699,7 +692,9 @@
     );
   }
 
-  function renderDay(day) {
+  function renderDay(day, dayIdx) {
+    const enDays = enPlan().itineraries || [];
+    const enStops = (enDays[dayIdx || 0] && enDays[dayIdx || 0].stops) || [];
     return (
       '<section class="pdf-day" style="' + (day.color ? '--accent:' + day.color : '') + '">' +
         pdfNavBar('top') +
@@ -711,7 +706,7 @@
 
         (day.photos && day.photos.length
           ? '<div class="pdf-day-photos">' +
-              day.photos.slice(0, 4).map(function (url) {
+              day.photos.slice(0, 2).map(function (url) {
                 return photoInCard(url, '', 'day');
               }).join('') +
             '</div>'
@@ -719,17 +714,20 @@
 
         (day.mapUrl
           ? '<div class="pdf-day__route-row">' +
-              qrBlock(day.mapUrl, tx('pdfFullRouteMap'), 56) +
+              qrBlock(day.mapUrl, tx('pdfFullRouteMap'), 64) +
               '<div class="pdf-day__route-text"><strong>' + esc(tx('pdfRouteMap')) + '</strong><br>' + esc(tx('pdfScanQrMaps')) + '</div>' +
             '</div>'
           : '') +
 
-        '<div class="pdf-timeline' + ((day.stops || []).length > 5 ? ' pdf-timeline--compact' : '') + '">' +
-          (day.stops || []).map(function (stop) {
+        '<div class="pdf-timeline">' +
+          (day.stops || []).map(function (stop, si) {
+            const enName = (enStops[si] && enStops[si].name) || stop.name;
+            const photo = findStopPhoto(enName);
             return (
               '<div class="pdf-stop">' +
                 '<div class="pdf-stop__time">' + esc(stop.time) + '</div>' +
                 '<div class="' + stopCardClass(stop.timeOfDay) + '">' +
+                  (photo ? '<div class="pdf-stop__photo">' + photoBg(photo, 'pdf-photo--wide') + '</div>' : '') +
                   '<div class="pdf-stop__name">' + esc(stop.name) + '</div>' +
                   '<div class="pdf-stop__desc">' + esc(stop.desc) + '</div>' +
                   '<div class="pdf-stop__meta">' + esc(stop.transit) +
@@ -740,7 +738,6 @@
             );
           }).join('') +
         '</div>' +
-        pdfNavBar('bottom') +
       '</section>'
     );
   }
@@ -750,7 +747,7 @@
     const hero = days[0] && days[0].photos && days[0].photos[0] ? days[0].photos[0] : themeHero();
     return (
       chapterLeadPage('pdf-itinerary', tx('pdfYourItinerary'), tx('pdfDayPlans', { count: String(days.length) }), tx('pdfItinerarySub'), hero) +
-      days.map(renderDay).join('')
+      days.map(function (day, i) { return renderDay(day, i); }).join('')
     );
   }
 

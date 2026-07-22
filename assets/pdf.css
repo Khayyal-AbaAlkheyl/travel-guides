@@ -29,7 +29,7 @@
   --font-display: 'Fraunces', Georgia, serif;
   --font-ar: 'Noto Sans Arabic', 'DM Sans', system-ui, sans-serif;
 
-  --page-margin-x: 12mm;
+  --page-margin-x: 14mm;
   --page-margin-top: 14mm;
   --page-margin-bottom: 16mm;
 }
@@ -56,8 +56,8 @@ html {
 
 body {
   font-family: var(--font);
-  font-size: 9pt;
-  line-height: 1.45;
+  font-size: 11pt;
+  line-height: 1.55;
   color: var(--text);
   background: var(--bg);
   -webkit-print-color-adjust: exact;
@@ -1731,4 +1731,488 @@ html.is-arabic .pdf-nearby,
 html.is-arabic ul {
   padding-right: 14px;
   padding-left: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   Phone-friendly readability pass
+   Larger type, fewer columns, more breathing room.
+   Keeps A4 print size but reads clearly when zoomed.
+   ═══════════════════════════════════════════════ */
+
+.pdf-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5mm;
+  margin-top: 3mm;
+}
+
+.pdf-nav {
+  gap: 2mm;
+  padding: 2.5mm 0 3mm;
+  margin-bottom: 4mm;
+}
+
+.pdf-nav a {
+  padding: 3px 8px;
+  font-size: 7.5pt;
+  border-radius: 999px;
+}
+
+.pdf-nav--bottom {
+  display: none;
+}
+
+.pdf-section-head h2,
+.pdf-spread__title {
+  font-size: 20pt;
+  line-height: 1.15;
+}
+
+.pdf-spread__address {
+  font-size: 9.5pt;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.pdf-spread__header {
+  margin-bottom: 5mm;
+  padding-bottom: 3mm;
+}
+
+.pdf-media-card--hero {
+  height: 62mm;
+  max-height: 62mm;
+  margin-bottom: 5mm;
+  border-radius: 8px;
+}
+
+.pdf-photo--hero {
+  max-height: 62mm;
+}
+
+.pdf-media-card--thumb {
+  height: 40mm;
+  max-height: 40mm;
+}
+
+.pdf-media-card--gallery {
+  height: 42mm;
+  max-height: 42mm;
+}
+
+.pdf-media-card--dish {
+  height: 36mm;
+  max-height: 36mm;
+}
+
+.pdf-media-card--day {
+  height: 38mm;
+  max-height: 38mm;
+}
+
+.pdf-photo-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5mm;
+  margin-bottom: 4mm;
+}
+
+.pdf-hotel-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5mm;
+  margin-bottom: 5mm;
+  width: 100%;
+}
+
+.pdf-hotel-gallery .pdf-media-card {
+  width: 100%;
+  height: 48mm;
+  max-height: 48mm;
+}
+
+.pdf-hotel-gallery .pdf-media-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  height: 52mm;
+  max-height: 52mm;
+}
+
+.pdf-hotel-gallery figure,
+.pdf-hotel-gallery .pdf-photo-wrap,
+.pdf-hotel-gallery .pdf-photo {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.pdf-hotel-gallery .pdf-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdf-dish-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5mm;
+  margin-bottom: 4mm;
+}
+
+.pdf-dish__name {
+  font-size: 9pt;
+  margin-top: 4px;
+}
+
+.pdf-dish__desc {
+  font-size: 8pt;
+  line-height: 1.35;
+}
+
+.pdf-cols-2,
+.pdf-cols-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+}
+
+.pdf-grid--3,
+.pdf-grid--4,
+.pdf-grid--5 {
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+}
+
+.pdf-essentials,
+.pdf-packing,
+.pdf-transport-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+}
+
+.pdf-steps {
+  grid-template-columns: 1fr;
+  gap: 3.5mm;
+}
+
+.pdf-seasonal-strip {
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+}
+
+.pdf-seasonal-strip .pdf-photo {
+  height: 28mm;
+}
+
+.pdf-card {
+  grid-template-columns: 1fr;
+  margin-bottom: 5mm;
+}
+
+.pdf-card--wide {
+  grid-template-columns: 1fr;
+}
+
+.pdf-card__img {
+  height: 48mm;
+  max-height: 48mm;
+  min-height: 48mm;
+}
+
+.pdf-card__body {
+  padding: 10px 12px 12px;
+}
+
+.pdf-card__title {
+  font-size: 13pt;
+  line-height: 1.2;
+}
+
+.pdf-card__desc {
+  margin-top: 5px;
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+
+.pdf-chips {
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.pdf-chip {
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 8.5pt;
+}
+
+.pdf-meta-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  font-size: 9.5pt;
+  padding: 6px 0;
+  line-height: 1.4;
+}
+
+.pdf-meta-row strong {
+  min-width: 0;
+  font-size: 8pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pdf-box {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.pdf-box strong {
+  font-size: 8pt;
+  margin-bottom: 4px;
+}
+
+.pdf-essential,
+.pdf-step,
+.pdf-transport-mode,
+.pdf-season,
+.pdf-budget-tier {
+  padding: 10px 11px;
+  border-radius: 8px;
+}
+
+.pdf-essential__label,
+.pdf-step__title,
+.pdf-transport-mode__name {
+  font-size: 10pt;
+}
+
+.pdf-essential__note,
+.pdf-step__desc,
+.pdf-transport-mode__desc,
+.pdf-season__items,
+.pdf-budget-tier ul {
+  font-size: 8.5pt;
+  line-height: 1.4;
+}
+
+.pdf-season__head {
+  padding: 7px 9px;
+  font-size: 9pt;
+}
+
+.pdf-season__temp {
+  padding: 5px 9px;
+  font-size: 8.5pt;
+}
+
+.pdf-table {
+  font-size: 9pt;
+}
+
+.pdf-table th {
+  padding: 7px 8px;
+  font-size: 8pt;
+}
+
+.pdf-table td {
+  padding: 6px 8px;
+  line-height: 1.4;
+}
+
+.pdf-day__head {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 5mm;
+}
+
+.pdf-day__badge {
+  font-size: 8.5pt;
+  padding: 4px 12px;
+}
+
+.pdf-day__title {
+  font-size: 18pt;
+  width: 100%;
+}
+
+.pdf-day__route {
+  font-size: 9.5pt;
+  margin-left: 0;
+  text-align: start;
+  line-height: 1.4;
+  max-width: 100%;
+}
+
+.pdf-day-photos {
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5mm;
+  margin-bottom: 5mm;
+}
+
+.pdf-day-photos .pdf-media-card {
+  height: 42mm;
+}
+
+.pdf-day__route-row {
+  margin-bottom: 5mm;
+  padding: 3mm;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.pdf-day__route-text {
+  font-size: 9.5pt;
+  line-height: 1.4;
+}
+
+.pdf-budget-tiers {
+  grid-template-columns: 1fr;
+  gap: 4mm;
+}
+
+.pdf-budget-tier {
+  font-size: 9.5pt;
+}
+
+.pdf-budget-tier__label {
+  font-size: 8pt;
+}
+
+.pdf-budget-tier__total {
+  font-size: 14pt;
+}
+
+.pdf-timeline--compact {
+  display: block;
+}
+
+.pdf-stop {
+  grid-template-columns: 16mm 1fr;
+  gap: 3.5mm;
+  margin-bottom: 7mm;
+}
+
+.pdf-stop__time {
+  font-size: 9.5pt;
+  padding-top: 8px;
+}
+
+.pdf-stop__card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  font-size: 9.5pt;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.pdf-stop__photo {
+  height: 32mm;
+  overflow: hidden;
+}
+
+.pdf-stop__photo .pdf-photo {
+  height: 100%;
+  border-radius: 0;
+}
+
+.pdf-stop__name,
+.pdf-stop__desc,
+.pdf-stop__meta {
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+.pdf-stop__name {
+  font-size: 12pt;
+  padding-top: 9px;
+  line-height: 1.25;
+}
+
+.pdf-stop__desc {
+  font-size: 9.5pt;
+  margin-top: 4px;
+  line-height: 1.5;
+  padding-bottom: 2px;
+}
+
+.pdf-stop__meta {
+  margin-top: 5px;
+  font-size: 8.5pt;
+  padding-bottom: 10px;
+}
+
+.pdf-map-qr {
+  grid-template-columns: auto 1fr;
+  gap: 4mm;
+  align-items: center;
+  padding: 4mm;
+  margin-top: 2mm;
+}
+
+.pdf-map-qr--simple {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+
+.pdf-map-qr__map {
+  height: 42mm;
+}
+
+.pdf-crowd__row {
+  font-size: 9pt;
+  margin-bottom: 3px;
+}
+
+.pdf-nearby {
+  font-size: 9.5pt;
+}
+
+.pdf-nearby li {
+  padding: 4px 0;
+}
+
+.pdf-oyster-tips {
+  grid-template-columns: 1fr;
+}
+
+.pdf-weather-cards {
+  grid-template-columns: 1fr;
+  gap: 4mm;
+}
+
+.pdf-caption {
+  font-size: 8pt;
+}
+
+.pdf-photo-label {
+  font-size: 7.5pt;
+  padding: 5px 8px;
+}
+
+.pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3mm;
+  margin-top: 2mm;
+}
+
+.pdf-btn {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 9.5pt;
+  font-weight: 700;
+}
+
+html.is-arabic .pdf-meta-row,
+html[dir='rtl'] .pdf-meta-row {
+  align-items: flex-end;
+}
+
+html.is-arabic .pdf-day__route,
+html[dir='rtl'] .pdf-day__route {
+  text-align: right;
 }
