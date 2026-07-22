@@ -98,7 +98,22 @@
 
   function txIdeal(hIdx, itemIdx, fallback) {
     if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.hotels?.[hIdx]?.idealFor?.[itemIdx] ?? fallback;
+    const ideal = global.PLAN_AR?.hotels?.[hIdx]?.idealFor;
+    if (typeof ideal === 'string') return itemIdx === 0 ? ideal : fallback;
+    return ideal?.[itemIdx] ?? fallback;
+  }
+
+  function idealForItems(h, hIdx) {
+    const raw = h.idealFor;
+    if (Array.isArray(raw)) return raw.map((item, ii) => txIdeal(hIdx, ii, item));
+    if (typeof raw === 'string' && raw.trim()) {
+      if (global.I18n?.isAr()) {
+        const ar = global.PLAN_AR?.hotels?.[hIdx]?.idealFor;
+        if (typeof ar === 'string' && ar.trim()) return [ar];
+      }
+      return [raw];
+    }
+    return [];
   }
 
   function txTransport(i, field, fallback) {
@@ -579,7 +594,7 @@
 
     return `<div class="home">
       ${renderHomeHero()}
-      ${renderHomeSection(t('homeWelcomeKicker', 'Welcome'), t('homeWelcomeTitle', 'From the Editor'), t('homeWelcomeSub', 'Your pocket companion to London.'), letterBody)}
+      ${renderHomeSection(t('homeWelcomeKicker', 'Welcome'), t('homeWelcomeTitle', 'From the Editor'), t('homeWelcomeSub', { city: txMeta('city', PLAN.meta?.city || PLAN.city || '') }, 'Your pocket companion.'), letterBody)}
       ${renderHomeSection(t('homeEssentialsKicker', 'Before you land'), t('homeEssentialsTitle', 'Essentials'), t('homeEssentialsSub', 'Everything you need before touchdown.'), `<div class="home-essentials">${essentialCards}</div>`)}
       ${renderHomeSection(t('homeArrivalKicker', 'Day one'), t('homeArrivalTitle', 'Arrival playbook'), t('homeArrivalSub', 'Seven steps from touchdown to tea.'), `<div class="home-arrival">${arrival}</div>`)}
       ${renderHomeSection(t('homePackingKicker', 'What to pack'), t('homePackingTitle', 'Packing'), t('homePackingSub', { season: packingSeasonLabel }, `${packingSeasonLabel} checklist.`), packingBody)}
@@ -644,7 +659,7 @@
   function renderHotelDetail(h, index) {
     const i = Number(index);
     const hotelName = txName('hotels', i, h.name);
-    const ideal = (h.idealFor || []).map((item, ii) => `<span class="chip chip--ok">${esc(txIdeal(i, ii, item))}</span>`).join('');
+    const ideal = idealForItems(h, i).map((item) => `<span class="chip chip--ok">${esc(item)}</span>`).join('');
     const cover = photoUrl(h.photos, 'exterior', 'room');
     const category = txC('hotels', i, 'category', h.category);
     const room = txC('hotels', i, 'room', h.room);

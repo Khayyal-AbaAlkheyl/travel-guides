@@ -27,6 +27,7 @@
 
   --font: 'DM Sans', system-ui, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
+  --font-ar: 'Noto Sans Arabic', 'DM Sans', system-ui, sans-serif;
 
   --page-margin-x: 12mm;
   --page-margin-top: 14mm;
@@ -1691,4 +1692,43 @@ img {
     width: 210mm;
     margin: 0;
   }
+}
+
+/* Arabic / RTL PDF */
+html.is-arabic,
+html[dir='rtl'] {
+  font-family: var(--font-ar);
+}
+
+html.is-arabic body,
+html[dir='rtl'] body,
+.pdf-doc.is-arabic {
+  font-family: var(--font-ar);
+  direction: rtl;
+  text-align: right;
+}
+
+html.is-arabic .pdf-cover__title,
+html.is-arabic .pdf-chapter__title,
+html.is-arabic .pdf-spread__title,
+html.is-arabic .pdf-day__title,
+html.is-arabic .pdf-cheat-sheet__title,
+html.is-arabic .pdf-back-cover__title {
+  font-family: var(--font-ar);
+}
+
+html.is-arabic .pdf-nav {
+  direction: rtl;
+}
+
+html.is-arabic .pdf-meta-row,
+html.is-arabic .pdf-cheat-item {
+  direction: rtl;
+}
+
+html.is-arabic .pdf-season__items,
+html.is-arabic .pdf-nearby,
+html.is-arabic ul {
+  padding-right: 14px;
+  padding-left: 0;
 }

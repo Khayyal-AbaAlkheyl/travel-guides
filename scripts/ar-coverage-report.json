@@ -1,0 +1,97 @@
+{
+  "cities": {
+    "london": {
+      "total": 1029,
+      "ok": 1029,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    },
+    "paris": {
+      "total": 961,
+      "ok": 961,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    },
+    "edinburgh": {
+      "total": 839,
+      "ok": 839,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    },
+    "istanbul": {
+      "total": 1211,
+      "ok": 1211,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    },
+    "italy": {
+      "total": 977,
+      "ok": 977,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    },
+    "bosnia": {
+      "total": 684,
+      "ok": 684,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    },
+    "azerbaijan": {
+      "total": 779,
+      "ok": 779,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    },
+    "trabzon": {
+      "total": 849,
+      "ok": 849,
+      "missing": 0,
+      "identical": 0,
+      "coveragePass": true,
+      "shellIssues": [],
+      "missingSample": [],
+      "identicalSample": []
+    }
+  },
+  "shells": {
+    "london": [],
+    "paris": [],
+    "edinburgh": [],
+    "istanbul": [],
+    "italy": [],
+    "bosnia": [],
+    "azerbaijan": [],
+    "trabzon": []
+  },
+  "i18n": [],
+  "pdfHardcoded": [],
+  "pass": true
+}

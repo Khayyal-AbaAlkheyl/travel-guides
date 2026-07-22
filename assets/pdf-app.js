@@ -1,62 +1,109 @@
 /**
- * PDF renderer — linear A4 magazine document from global PLAN.
- * Requires shared.js loaded first (applyTheme, qr, stars, staticMap, getCoords, esc, caption, timeClass, actionButtons).
+ * PDF renderer — linear A4 magazine document from global PLAN (+ PLAN_AR when Arabic).
+ * Requires shared.js + i18n.js loaded first.
  */
 (function () {
   'use strict';
 
-  /* ── PLAN accessors ── */
+  let ACTIVE = null;
+
+  function deepMergePlan(en, ar) {
+    if (ar == null) return en;
+    if (Array.isArray(en)) {
+      return en.map(function (item, i) {
+        return deepMergePlan(item, Array.isArray(ar) ? ar[i] : undefined);
+      });
+    }
+    if (en && typeof en === 'object' && !Array.isArray(en)) {
+      const out = Object.assign({}, en);
+      if (ar && typeof ar === 'object' && !Array.isArray(ar)) {
+        Object.keys(ar).forEach(function (k) {
+          out[k] = deepMergePlan(en[k], ar[k]);
+        });
+      }
+      return out;
+    }
+    if (typeof ar === 'string' && ar.trim()) return ar;
+    return en;
+  }
+
+  function resolveActivePlan() {
+    const base = typeof PLAN !== 'undefined' ? PLAN : {};
+    if (typeof I18n !== 'undefined' && I18n.isAr() && typeof PLAN_AR !== 'undefined' && PLAN_AR) {
+      return deepMergePlan(base, PLAN_AR);
+    }
+    return base;
+  }
+
+  function plan() {
+    return ACTIVE || resolveActivePlan();
+  }
+
+  function tx(key, varsOrFallback, maybeFallback) {
+    if (typeof I18n !== 'undefined' && I18n.t) return I18n.t(key, varsOrFallback, maybeFallback);
+    if (typeof varsOrFallback === 'string') return varsOrFallback;
+    return maybeFallback || key;
+  }
+
+  function isAr() {
+    return typeof I18n !== 'undefined' && I18n.isAr();
+  }
+
+  /* ── plan() accessors ── */
   function meta() {
-    return PLAN.meta || PLAN;
+    const p = plan();
+    return p.meta || p;
   }
 
   function cityName() {
-    return meta().city || PLAN.city || 'City';
+    return meta().city || plan().city || 'City';
   }
 
   function countryName() {
-    return meta().country || PLAN.country || '';
+    return meta().country || plan().country || '';
   }
 
   function themeHero() {
-    return (meta().theme || PLAN.theme || {}).heroImage || '';
+    return (meta().theme || plan().theme || {}).heroImage || '';
   }
 
   function statsEntries() {
-    const stats = meta().stats || PLAN.stats;
+    const stats = meta().stats || plan().stats;
     if (Array.isArray(stats)) return stats;
     if (!stats || typeof stats !== 'object') return [];
     const map = [
-      ['attractions', 'Attractions'],
-      ['hotels', 'Hotels'],
-      ['dining', 'Restaurants'],
-      ['days', 'Day Plans'],
-      ['chapters', 'Chapters'],
-      ['qrCodes', 'QR Codes']
+      ['attractions', 'pdfStatAttractions'],
+      ['hotels', 'pdfStatHotels'],
+      ['dining', 'pdfStatRestaurants'],
+      ['days', 'pdfStatDayPlans'],
+      ['chapters', 'pdfStatChapters'],
+      ['qrCodes', 'pdfStatQr']
     ];
     return map
       .filter(function (pair) { return stats[pair[0]] != null; })
-      .map(function (pair) { return { value: String(stats[pair[0]]), label: pair[1] }; });
+      .map(function (pair) { return { value: String(stats[pair[0]]), label: tx(pair[1]) }; });
   }
 
   /* ── PDF navigation & photo cards ── */
-  const PDF_NAV = [
-    { id: 'pdf-welcome', label: 'Welcome' },
-    { id: 'pdf-essentials', label: 'Essentials' },
-    { id: 'pdf-attractions', label: 'Sights' },
-    { id: 'pdf-hotels', label: 'Hotels' },
-    { id: 'pdf-dining', label: 'Dining' },
-    { id: 'pdf-itinerary', label: 'Plan' },
-    { id: 'pdf-transport', label: 'Transport' },
-    { id: 'pdf-emergency', label: 'Emergency' },
-    { id: 'pdf-cheat', label: 'Cheat sheet' }
-  ];
+  function pdfNavItems() {
+    return [
+      { id: 'pdf-welcome', label: tx('pdfNavWelcome') },
+      { id: 'pdf-essentials', label: tx('pdfNavEssentials') },
+      { id: 'pdf-attractions', label: tx('pdfNavSights') },
+      { id: 'pdf-hotels', label: tx('pdfNavHotels') },
+      { id: 'pdf-dining', label: tx('pdfNavDining') },
+      { id: 'pdf-itinerary', label: tx('pdfNavPlan') },
+      { id: 'pdf-transport', label: tx('pdfNavTransport') },
+      { id: 'pdf-emergency', label: tx('pdfNavEmergency') },
+      { id: 'pdf-cheat', label: tx('pdfNavCheat') }
+    ];
+  }
 
   function pdfNavBar(position) {
     const mod = position === 'bottom' ? ' pdf-nav--bottom' : '';
     return (
-      '<nav class="pdf-nav' + mod + '" aria-label="Jump to section">' +
-        PDF_NAV.map(function (item) {
+      '<nav class="pdf-nav' + mod + '" aria-label="' + esc(tx('pdfJumpNav')) + '">' +
+        pdfNavItems().map(function (item) {
           return '<a href="#' + item.id + '">' + esc(item.label) + '</a>';
         }).join('') +
       '</nav>'
@@ -161,12 +208,12 @@
   function qrBlock(url, label, size) {
     size = size || 72;
     const imgHtml = typeof qrImg === 'function'
-      ? qrImg(url, size, label || 'QR code')
-      : '<img src="' + esc(qr(url, size)) + '" width="' + size + '" height="' + size + '" alt="' + esc(label || 'QR code') + '">';
+      ? qrImg(url, size, label || tx('pdfQrCode'))
+      : '<img src="' + esc(qr(url, size)) + '" width="' + size + '" height="' + size + '" alt="' + esc(label || tx('pdfQrCode')) + '">';
     return (
       '<div class="pdf-spread__qr">' +
         imgHtml +
-        '<div class="pdf-spread__qr-label">' + esc(label || 'Scan for map') + '</div>' +
+        '<div class="pdf-spread__qr-label">' + esc(label || tx('scanMap')) + '</div>' +
       '</div>'
     );
   }
@@ -187,13 +234,13 @@
   function crowdHtml(crowd) {
     if (!crowd) return '';
     const periods = [
-      ['morning', 'Morning'],
-      ['afternoon', 'Afternoon'],
-      ['evening', 'Evening']
+      ['morning', tx('morning')],
+      ['afternoon', tx('afternoon')],
+      ['evening', tx('evening')]
     ];
     return (
       '<div class="pdf-crowd">' +
-        '<strong style="font-size:7pt;display:block;margin-bottom:3px;">Crowd levels</strong>' +
+        '<strong style="font-size:7pt;display:block;margin-bottom:3px;">' + esc(tx('pdfCrowdLevels')) + '</strong>' +
         periods.map(function (p) {
           return (
             '<div class="pdf-crowd__row">' +
@@ -220,10 +267,10 @@
   function pdfActionButtons(mapUrl, bookUrl, bookText) {
     const parts = [];
     if (mapUrl) {
-      parts.push('<a class="pdf-btn pdf-btn--map" href="' + esc(mapUrl) + '">Open map</a>');
+      parts.push('<a class="pdf-btn pdf-btn--map" href="' + esc(mapUrl) + '">' + esc(tx('pdfOpenMap')) + '</a>');
     }
     if (bookUrl) {
-      parts.push('<a class="pdf-btn pdf-btn--book" href="' + esc(bookUrl) + '">' + esc(bookText || 'Book') + '</a>');
+      parts.push('<a class="pdf-btn pdf-btn--book" href="' + esc(bookUrl) + '">' + esc(bookText || tx('book')) + '</a>');
     }
     return parts.length ? '<div class="pdf-actions">' + parts.join('') + '</div>' : '';
   }
@@ -242,10 +289,10 @@
       '<div class="pdf-map-qr">' +
         '<div class="pdf-map-qr__map">' +
           (coords
-            ? '<img src="' + esc(mapImg) + '" alt="Map">'
-            : '<div style="height:100%;background:#e8e4de;display:flex;align-items:center;justify-content:center;font-size:7pt;color:#6b6560;">Map · scan QR</div>') +
+            ? '<img src="' + esc(mapImg) + '" alt="' + esc(tx('pdfMap')) + '">'
+            : '<div style="height:100%;background:#e8e4de;display:flex;align-items:center;justify-content:center;font-size:7pt;color:#6b6560;">' + esc(tx('pdfMapScanQr')) + '</div>') +
         '</div>' +
-        qrBlock(mapUrl, 'Google Maps', 64) +
+        qrBlock(mapUrl, tx('pdfGoogleMaps'), 64) +
       '</div>'
     );
   }
@@ -289,9 +336,9 @@
         pdfBgImg(themeHero(), 'pdf-cover__bg', cityName()) +
         '<div class="pdf-cover__overlay"></div>' +
         '<div class="pdf-cover__content">' +
-          '<span class="pdf-cover__badge">' + esc(m.badge || 'Travel Guide') + ' · ' + esc(countryName()) + '</span>' +
+          '<span class="pdf-cover__badge">' + esc(m.badge || tx('discover')) + ' · ' + esc(countryName()) + '</span>' +
           '<h1 class="pdf-cover__title">' + esc(cityName()) + '</h1>' +
-          '<p class="pdf-cover__tagline">' + esc(m.tagline || PLAN.tagline || '') + '</p>' +
+          '<p class="pdf-cover__tagline">' + esc(m.tagline || plan().tagline || '') + '</p>' +
           '<div class="pdf-cover__stats">' +
             statsEntries().map(function (st) {
               return (
@@ -308,19 +355,19 @@
   }
 
   function renderWelcome() {
-    const w = PLAN.welcome || {};
+    const w = plan().welcome || {};
     const letter = (typeof shortText === 'function' ? shortText(w.editorLetter, 2) : (w.editorLetter || '').split('\n\n')[0]) || '';
     return sectionWithNav('pdf-welcome', 'pdf-section',
-      chapterOpener('Editor\'s Letter', 'Discover ' + cityName(), 'Your visual-first companion for every day of the trip.') +
+      chapterOpener(tx('pdfEditorsLetter'), tx('pdfDiscoverCity', { city: cityName() }), tx('pdfWelcomeSub')) +
       '<div class="pdf-prose pdf-prose--letter"><p>' + esc(letter) + '</p></div>'
     );
   }
 
   function renderEssentials() {
-    const e = PLAN.essentials || {};
+    const e = plan().essentials || {};
     const keys = Object.keys(e);
     return sectionWithNav('pdf-essentials', 'pdf-section',
-      chapterOpener('Before You Go', 'Essentials', 'Currency, power, connectivity and the numbers that matter.') +
+      chapterOpener(tx('pdfBeforeYouGo'), tx('pdfNavEssentials'), tx('pdfEssentialsSub')) +
       '<div class="pdf-essentials">' +
         keys.map(function (key) {
           const item = e[key];
@@ -338,9 +385,9 @@
   }
 
   function renderArrival() {
-    const steps = PLAN.arrival || [];
+    const steps = plan().arrival || [];
     return sectionWithNav('pdf-arrival', 'pdf-section',
-      chapterOpener('Arrival', 'First Hour in ' + cityName(), 'From border to first meal — the sequence that saves time and money.') +
+      chapterOpener(tx('pdfArrival'), tx('pdfFirstHour', { city: cityName() }), tx('pdfArrivalSub')) +
         '<div class="pdf-steps">' +
           steps.map(function (s) {
             return (
@@ -356,10 +403,10 @@
   }
 
   function renderPacking() {
-    const p = PLAN.packing || {};
+    const p = plan().packing || {};
     const seasons = ['spring', 'summer', 'autumn', 'winter'];
     return sectionWithNav('pdf-packing', 'pdf-section',
-      chapterOpener('Packing', 'Season by Season', 'What to bring for London\'s changeable weather.') +
+      chapterOpener(tx('pdfPacking'), tx('pdfSeasonBySeason'), tx('pdfPackingSub', { city: cityName() })) +
         '<div class="pdf-packing">' +
           seasons.map(function (key) {
             const s = p[key];
@@ -381,14 +428,14 @@
   }
 
   function renderWeather() {
-    const wt = PLAN.weatherTable || {};
+    const wt = plan().weatherTable || {};
     const rows = wt.rows || [];
     return sectionWithNav('pdf-weather', 'pdf-section',
-      chapterOpener('Weather', 'Month by Month', 'Temperature, rain, crowds and what to book.') +
+      chapterOpener(tx('pdfWeather'), tx('pdfMonthByMonth'), tx('pdfWeatherSub')) +
         '<div class="pdf-table-wrap">' +
           '<table class="pdf-table">' +
             '<thead><tr>' +
-              '<th>Month</th><th>Temp</th><th>Rain</th><th>Sunset</th><th>Crowds</th><th>Best for</th>' +
+              '<th>' + esc(tx('labelMonth')) + '</th><th>' + esc(tx('weatherTemp')) + '</th><th>' + esc(tx('weatherRain')) + '</th><th>' + esc(tx('labelSunset')) + '</th><th>' + esc(tx('weatherCrowds')) + '</th><th>' + esc(tx('weatherBestFor')) + '</th>' +
             '</tr></thead>' +
             '<tbody>' +
               rows.map(function (r) {
@@ -407,17 +454,17 @@
           '</table>' +
         '</div>' +
         (wt.sweetSpot
-          ? '<div class="pdf-box pdf-box--tip" style="margin-top:4mm;"><strong>Sweet spot</strong>' + esc(wt.sweetSpot) + '</div>'
+          ? '<div class="pdf-box pdf-box--tip" style="margin-top:4mm;"><strong>' + esc(tx('pdfSweetSpot')) + '</strong>' + esc(wt.sweetSpot) + '</div>'
           : '')
     );
   }
 
   function renderTransport() {
-    const t = PLAN.transport || {};
+    const t = plan().transport || {};
     const modes = t.modes || [];
     const tips = t.oysterTips || [];
     return sectionWithNav('pdf-transport', 'pdf-section',
-      chapterOpener('Getting Around', 'Transport', 'Tube, bus, river and the contactless cap that changes everything.') +
+      chapterOpener(tx('pdfGettingAround'), tx('pdfNavTransport'), tx('pdfTransportSub')) +
       '<div class="pdf-transport-grid">' +
         modes.map(function (m) {
           const iconClass = TRANSPORT_ICONS[m.icon] ? ' pdf-transport-mode__icon--' + m.icon : '';
@@ -442,13 +489,13 @@
         }).join('') +
       '</div>' +
       (t.exit6Tip
-        ? '<div class="pdf-box pdf-box--secret" style="margin-top:4mm;"><strong>Local secret</strong>' + esc(t.exit6Tip) + '</div>'
+        ? '<div class="pdf-box pdf-box--secret" style="margin-top:4mm;"><strong>' + esc(tx('pdfLocalSecret')) + '</strong>' + esc(t.exit6Tip) + '</div>'
         : '')
     );
   }
 
   function renderMaps() {
-    const maps = PLAN.maps || {};
+    const maps = plan().maps || {};
     const overview = maps.overview || {};
     const markers = overview.markers || [];
     const center = markers[0]
@@ -456,13 +503,13 @@
       : { lat: 51.5074, lng: -0.1278 };
     const mapUrl = staticMap(center.lat, center.lng, 640, 480);
     return sectionWithNav('pdf-maps', 'pdf-section',
-      chapterOpener('Maps', 'City Overview', overview.caption || 'Scan any QR in this guide for turn-by-turn directions.') +
+      chapterOpener(tx('pdfMaps'), tx('pdfCityOverview'), overview.caption || tx('pdfMapsCaption')) +
         '<div class="pdf-map-overview">' +
           '<div class="pdf-map-qr__map" style="height:70mm;">' +
-            '<img src="' + esc(mapUrl) + '" alt="City overview map">' +
+            '<img src="' + esc(mapUrl) + '" alt="' + esc(tx('pdfCityOverviewMap')) + '">' +
           '</div>' +
           '<div>' +
-            sectionHead('Key locations', markers.length + ' pinned places') +
+            sectionHead(tx('pdfKeyLocations'), tx('pdfPinnedPlaces', { count: String(markers.length) })) +
             '<ul class="pdf-marker-list">' +
               markers.map(function (m) {
                 return '<li>' + esc(m.name) + ' <span style="color:#6b6560;">(' + esc(m.type) + ')</span></li>';
@@ -485,14 +532,14 @@
             '<h2 class="pdf-spread__title">' + esc(a.name) + '</h2>' +
             '<div class="pdf-spread__address">' + esc(a.address) + '</div>' +
           '</div>' +
-          qrBlock(a.mapUrl, 'Directions', 72) +
+          qrBlock(a.mapUrl, tx('pdfDirections'), 72) +
         '</div>' +
 
         photoInCard(photos.hero || photos.detail, 'pdf-photo--hero', 'hero') +
 
         '<div class="pdf-photo-grid">' +
-          labeledPhotoCard(photos.detail, 'Detail', 'pdf-photo--square', 'thumb') +
-          labeledPhotoCard(photos.photoSpot, 'Photo spot', 'pdf-photo--square', 'thumb') +
+          labeledPhotoCard(photos.detail, tx('pdfDetail'), 'pdf-photo--square', 'thumb') +
+          labeledPhotoCard(photos.photoSpot, tx('pdfPhotoSpot'), 'pdf-photo--square', 'thumb') +
         '</div>' +
 
         '<div class="pdf-cols-2" style="margin-top:4mm;">' +
@@ -500,22 +547,22 @@
             chipsHtml([
               chip(a.ticket, 'accent'),
               chip(a.hours),
-              chip('Tube: ' + a.tube),
-              chip('Wait summer: ' + a.waitSummer, 'warn'),
-              chip('Visit: ' + a.avgVisit)
+              chip(tx('pdfTube') + ': ' + a.tube),
+              chip(tx('pdfWaitSummer') + ': ' + a.waitSummer, 'warn'),
+              chip(tx('pdfVisit') + ': ' + a.avgVisit)
             ]) +
             crowdHtml(a.crowd) +
-            '<div style="margin-top:3mm;font-size:7pt;"><strong>Nearby (walk)</strong></div>' +
+            '<div style="margin-top:3mm;font-size:7pt;"><strong>' + esc(tx('pdfNearbyWalk')) + '</strong></div>' +
             nearbyHtml(a.nearby) +
-            (eatNearby ? '<div class="pdf-meta-row"><strong>Eat nearby</strong><span>' + esc(eatNearby) + '</span></div>' : '') +
-            (a.nearbyTube ? '<div class="pdf-meta-row"><strong>Getting there</strong><span>' + esc(a.nearbyTube) + '</span></div>' : '') +
+            (eatNearby ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfEatNearby')) + '</strong><span>' + esc(eatNearby) + '</span></div>' : '') +
+            (a.nearbyTube ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfGettingThere')) + '</strong><span>' + esc(a.nearbyTube) + '</span></div>' : '') +
           '</div>' +
           '<div>' +
-            (insider ? '<div class="pdf-box pdf-box--fact"><strong>Insider</strong>' + esc(insider) + '</div>' : '') +
-            (a.photoSpot ? '<div class="pdf-box pdf-box--tip"><strong>Best photo spot</strong>' + esc(a.photoSpot) + '</div>' : '') +
-            (a.tip ? '<div class="pdf-box pdf-box--tip"><strong>Tip</strong>' + esc(a.tip) + '</div>' : '') +
+            (insider ? '<div class="pdf-box pdf-box--fact"><strong>' + esc(tx('pdfInsider')) + '</strong>' + esc(insider) + '</div>' : '') +
+            (a.photoSpot ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfBestPhotoSpot')) + '</strong>' + esc(a.photoSpot) + '</div>' : '') +
+            (a.tip ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfTip')) + '</strong>' + esc(a.tip) + '</div>' : '') +
             mapQrBlock(a.name, a.mapUrl) +
-            pdfActionButtons(a.mapUrl, a.bookUrl, a.bookText || 'Book') +
+            pdfActionButtons(a.mapUrl, a.bookUrl, a.bookText || tx('book')) +
           '</div>' +
         '</div>' +
         pdfNavBar('bottom') +
@@ -524,24 +571,27 @@
   }
 
   function renderAttractionsSection() {
-    const list = PLAN.attractions || [];
+    const list = plan().attractions || [];
     const hero = list[0] && list[0].photos ? (list[0].photos.hero || list[0].photos.detail) : themeHero();
     return (
-      chapterLeadPage('pdf-attractions', 'Must-See', 'Attractions', list.length + ' sights with photos, maps, crowd timing and QR codes.', hero) +
+      chapterLeadPage('pdf-attractions', tx('pdfMustSee'), tx('pdfAttractions'), tx('pdfAttractionsSub', { count: String(list.length) }), hero) +
       list.map(renderAttraction).join('')
     );
   }
 
-  const HOTEL_PHOTO_LABELS = {
-    exterior: 'Exterior',
-    room: 'Room',
-    restaurant: 'Restaurant',
-    view: 'View'
+  function hotelPhotoLabels() {
+    return {
+    exterior: tx('labelExterior'),
+    room: tx('labelRoom'),
+    restaurant: tx('labelRestaurant'),
+    view: tx('labelView')
   };
+  }
 
   function renderHotel(h) {
     const photos = h.photos || {};
-    const photoKeys = Object.keys(HOTEL_PHOTO_LABELS).filter(function (k) { return photos[k]; });
+    const labels = hotelPhotoLabels();
+    const photoKeys = Object.keys(labels).filter(function (k) { return photos[k]; });
     return (
       '<section class="pdf-spread pdf-spread--hotel">' +
         pdfNavBar('top') +
@@ -550,14 +600,14 @@
             '<h2 class="pdf-spread__title">' + esc(h.name) + '</h2>' +
             '<div class="pdf-spread__address">' + esc(h.address) + '</div>' +
           '</div>' +
-          qrBlock(h.mapUrl, 'Hotel map', 72) +
+          qrBlock(h.mapUrl, tx('pdfHotelMap'), 72) +
         '</div>' +
 
         '<div class="pdf-hotel-gallery">' +
           photoKeys.map(function (key) {
             return (
               '<div class="pdf-media-card pdf-media-card--gallery">' +
-                labeledPhoto(photos[key], HOTEL_PHOTO_LABELS[key], '') +
+                labeledPhoto(photos[key], labels[key], '') +
               '</div>'
             );
           }).join('') +
@@ -568,24 +618,24 @@
             chipsHtml([
               chip(h.category, 'accent'),
               chip(h.price, 'gold'),
-              chip('Rating ' + h.rating),
-              chip('Google ' + h.googleRating, 'ok'),
+              chip(tx('pdfRating') + ' ' + h.rating),
+              chip(tx('pdfGoogle') + ' ' + h.googleRating, 'ok'),
               chip(h.room),
               chip(h.cancellation),
               chip(h.breakfast)
             ]) +
-            '<div class="pdf-meta-row"><strong>Tube</strong><span>' + esc(h.tube) + '</span></div>' +
-            '<div class="pdf-meta-row"><strong>Airport</strong><span>' + esc(h.airport) + '</span></div>' +
-            '<div class="pdf-meta-row"><strong>Nearby</strong><span>' + esc(h.nearbyAttractions) + '</span></div>' +
-            '<div class="pdf-meta-row"><strong>Walk score</strong><span>' + esc(h.walkingScore) + '</span></div>' +
-            (h.idealFor && h.idealFor.length
-              ? '<div class="pdf-meta-row"><strong>Ideal for</strong><span>' + esc(h.idealFor.join(' · ')) + '</span></div>'
+            '<div class="pdf-meta-row"><strong>' + esc(tx('pdfTube')) + '</strong><span>' + esc(h.tube) + '</span></div>' +
+            '<div class="pdf-meta-row"><strong>' + esc(tx('labelAirport')) + '</strong><span>' + esc(h.airport) + '</span></div>' +
+            '<div class="pdf-meta-row"><strong>' + esc(tx('labelNearby')) + '</strong><span>' + esc(h.nearbyAttractions) + '</span></div>' +
+            '<div class="pdf-meta-row"><strong>' + esc(tx('pdfWalkScore')) + '</strong><span>' + esc(h.walkingScore) + '</span></div>' +
+            (h.idealFor && (Array.isArray(h.idealFor) ? h.idealFor.length : String(h.idealFor).trim())
+              ? '<div class="pdf-meta-row"><strong>' + esc(tx('pdfIdealFor')) + '</strong><span>' + esc(Array.isArray(h.idealFor) ? h.idealFor.join(' · ') : h.idealFor) + '</span></div>'
               : '') +
           '</div>' +
           '<div>' +
-            (h.tip ? '<div class="pdf-box pdf-box--tip"><strong>Insider tip</strong>' + esc(h.tip) + '</div>' : '') +
+            (h.tip ? '<div class="pdf-box pdf-box--tip"><strong>' + esc(tx('pdfInsiderTip')) + '</strong>' + esc(h.tip) + '</div>' : '') +
             mapQrBlock(h.name, h.mapUrl) +
-            pdfActionButtons(h.mapUrl, h.bookUrl, 'Book') +
+            pdfActionButtons(h.mapUrl, h.bookUrl, tx('book')) +
           '</div>' +
         '</div>' +
         pdfNavBar('bottom') +
@@ -594,10 +644,10 @@
   }
 
   function renderHotelsSection() {
-    const list = PLAN.hotels || [];
+    const list = plan().hotels || [];
     const hero = list[0] && list[0].photos ? (list[0].photos.exterior || list[0].photos.room) : themeHero();
     return (
-      chapterLeadPage('pdf-hotels', 'Where to Stay', 'Hotels', 'Exterior, rooms, pools and rooftops — the full picture before you book.', hero) +
+      chapterLeadPage('pdf-hotels', tx('pdfWhereToStay'), tx('pdfNavHotels'), tx('pdfHotelsSub'), hero) +
       list.map(renderHotel).join('')
     );
   }
@@ -613,7 +663,7 @@
             '<h2 class="pdf-spread__title">' + esc(d.name) + '</h2>' +
             '<div class="pdf-spread__address">' + esc(d.address) + '</div>' +
           '</div>' +
-          qrBlock(d.mapUrl, 'Reserve / map', 72) +
+          qrBlock(d.mapUrl, tx('pdfReserveMap'), 72) +
         '</div>' +
 
         (photos.signature ? photoInCard(photos.signature, 'pdf-photo--hero', 'hero') : '') +
@@ -641,16 +691,16 @@
               chip(d.michelin, 'gold'),
               chip(d.reservation, 'warn'),
               chip(d.wait, 'warn'),
-              d.halal ? chip('Halal', 'ok') : '',
-              d.vegetarian ? chip('Vegetarian', 'ok') : '',
+              d.halal ? chip(tx('pdfHalal'), 'ok') : '',
+              d.vegetarian ? chip(tx('pdfVegetarian'), 'ok') : '',
               chip(d.dressCode),
               chip(d.kidsFriendly)
             ]) +
-            (d.tip ? '<div class="pdf-box pdf-box--tip" style="margin-top:3mm;"><strong>Tip</strong>' + esc(d.tip) + '</div>' : '') +
+            (d.tip ? '<div class="pdf-box pdf-box--tip" style="margin-top:3mm;"><strong>' + esc(tx('pdfTip')) + '</strong>' + esc(d.tip) + '</div>' : '') +
           '</div>' +
           '<div>' +
             mapQrBlock(d.name, d.mapUrl) +
-            pdfActionButtons(d.mapUrl, d.bookUrl, 'Reserve') +
+            pdfActionButtons(d.mapUrl, d.bookUrl, tx('reserve')) +
           '</div>' +
         '</div>' +
         pdfNavBar('bottom') +
@@ -659,10 +709,10 @@
   }
 
   function renderDiningSection() {
-    const list = PLAN.dining || [];
+    const list = plan().dining || [];
     const hero = list[0] && list[0].photos ? list[0].photos.signature : themeHero();
     return (
-      chapterLeadPage('pdf-dining', 'Where to Eat', 'Dining', 'Signature dishes, interiors and every reservation link you need.', hero) +
+      chapterLeadPage('pdf-dining', tx('pdfWhereToEat'), tx('pdfNavDining'), tx('pdfDiningSub'), hero) +
       list.map(renderDining).join('')
     );
   }
@@ -672,7 +722,7 @@
       '<section class="pdf-day" style="' + (day.color ? '--accent:' + day.color : '') + '">' +
         pdfNavBar('top') +
         '<div class="pdf-day__head">' +
-          '<span class="pdf-day__badge">Day ' + esc(String(day.day)) + '</span>' +
+          '<span class="pdf-day__badge">' + esc(tx('pdfDay', { n: String(day.day) })) + '</span>' +
           '<h2 class="pdf-day__title">' + esc(day.title) + '</h2>' +
           (day.routePreview ? '<span class="pdf-day__route">' + esc(day.routePreview) + '</span>' : '') +
         '</div>' +
@@ -687,8 +737,8 @@
 
         (day.mapUrl
           ? '<div class="pdf-day__route-row">' +
-              qrBlock(day.mapUrl, 'Full route map', 56) +
-              '<div class="pdf-day__route-text"><strong>Route map</strong><br>Scan QR for Google Maps</div>' +
+              qrBlock(day.mapUrl, tx('pdfFullRouteMap'), 56) +
+              '<div class="pdf-day__route-text"><strong>' + esc(tx('pdfRouteMap')) + '</strong><br>' + esc(tx('pdfScanQrMaps')) + '</div>' +
             '</div>'
           : '') +
 
@@ -701,7 +751,7 @@
                   '<div class="pdf-stop__name">' + esc(stop.name) + '</div>' +
                   '<div class="pdf-stop__desc">' + esc(stop.desc) + '</div>' +
                   '<div class="pdf-stop__meta">' + esc(stop.transit) +
-                    (stop.mapUrl ? ' · <a href="' + esc(stop.mapUrl) + '">Map</a>' : '') +
+                    (stop.mapUrl ? ' · <a href="' + esc(stop.mapUrl) + '">' + esc(tx('pdfMap')) + '</a>' : '') +
                   '</div>' +
                 '</div>' +
               '</div>'
@@ -714,10 +764,10 @@
   }
 
   function renderItinerariesSection() {
-    const days = PLAN.itineraries || [];
+    const days = plan().itineraries || [];
     const hero = days[0] && days[0].photos && days[0].photos[0] ? days[0].photos[0] : themeHero();
     return (
-      chapterLeadPage('pdf-itinerary', 'Your Itinerary', '5 Day Plans', 'Hour-by-hour routes with budgets, maps and time-of-day colour coding.', hero) +
+      chapterLeadPage('pdf-itinerary', tx('pdfYourItinerary'), tx('pdfDayPlans', { count: String(days.length) }), tx('pdfItinerarySub'), hero) +
       days.map(renderDay).join('')
     );
   }
@@ -749,10 +799,10 @@
   }
 
   function renderHiddenGems() {
-    const gems = PLAN.hiddenGems || [];
+    const gems = plan().hiddenGems || [];
     const hero = gems[0] && gems[0].img ? gems[0].img : themeHero();
     return sectionWithNav('pdf-gems', 'pdf-section',
-      chapterOpener('Hidden Gems', 'Off the Beaten Path', 'Courtyards, ruins and neon — the London most visitors miss.', hero) +
+      chapterOpener(tx('pdfHiddenGems'), tx('pdfOffBeaten'), tx('pdfGemsSub'), hero) +
       '<div class="pdf-grid pdf-grid--2">' +
         gems.map(function (g) {
             return (
@@ -772,8 +822,8 @@
 
   function renderWarnings() {
     return sectionWithNav('pdf-warnings', 'pdf-section',
-      chapterOpener('Warnings', 'Avoid These', 'The scams and traps that catch even experienced travellers.') +
-      (PLAN.warnings || []).slice(0, 4).map(function (w) {
+      chapterOpener(tx('pdfWarnings'), tx('pdfAvoidThese'), tx('pdfWarningsSub')) +
+      (plan().warnings || []).slice(0, 4).map(function (w) {
         return (
           '<div class="pdf-box pdf-box--warn" style="margin-bottom:3mm;">' +
             '<strong>' + esc(w.title) + '</strong>' +
@@ -785,10 +835,10 @@
   }
 
   function renderShopping() {
-    const s = PLAN.shopping || {};
+    const s = plan().shopping || {};
     const hero = s.districts && s.districts[0] ? s.districts[0].img : themeHero();
     return sectionWithNav('pdf-shopping', 'pdf-section',
-      chapterOpener('Shopping', 'Districts & Souvenirs', 'From Bond Street to Bicester Village.', hero) +
+      chapterOpener(tx('pdfShopping'), tx('pdfDistrictsSouvenirs'), tx('pdfShoppingSub'), hero) +
         '<div class="pdf-shopping-districts">' +
           (s.districts || []).map(function (d) {
             return (
@@ -804,19 +854,19 @@
           }).join('') +
         '</div>' +
         (s.vatTips
-          ? '<div class="pdf-box pdf-box--tip" style="margin-top:4mm;"><strong>VAT & sales</strong>' +
+          ? '<div class="pdf-box pdf-box--tip" style="margin-top:4mm;"><strong>' + esc(tx('pdfVatSales')) + '</strong>' +
               esc(s.vatTips.note) + ' ' + esc(s.vatTips.saleSeasons) +
             '</div>'
           : '') +
         ((s.brands && s.brands.length) || (s.souvenirs && s.souvenirs.length)
           ? '<div class="pdf-cols-2" style="margin-top:4mm;">' +
               (s.brands && s.brands.length
-                ? '<div><strong style="font-size:8pt;">British brands</strong><ul style="font-size:7pt;margin-top:4px;padding-left:14px;">' +
+                ? '<div><strong style="font-size:8pt;">' + esc(tx('pdfBritishBrands')) + '</strong><ul style="font-size:7pt;margin-top:4px;padding-left:14px;">' +
                     s.brands.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') +
                   '</ul></div>'
                 : '') +
               (s.souvenirs && s.souvenirs.length
-                ? '<div><strong style="font-size:8pt;">Souvenirs</strong><ul style="font-size:7pt;margin-top:4px;padding-left:14px;">' +
+                ? '<div><strong style="font-size:8pt;">' + esc(tx('pdfSouvenirs')) + '</strong><ul style="font-size:7pt;margin-top:4px;padding-left:14px;">' +
                     s.souvenirs.map(function (sv) { return '<li>' + esc(sv) + '</li>'; }).join('') +
                   '</ul></div>'
                 : '') +
@@ -826,14 +876,14 @@
   }
 
   function renderBudget() {
-    const b = PLAN.budget || {};
+    const b = plan().budget || {};
     const tiers = [
-      ['budget', 'Budget', 'pdf-budget-card--budget'],
-      ['mid', 'Mid-range', 'pdf-budget-card--mid'],
-      ['luxury', 'Luxury', 'pdf-budget-card--luxury']
+      ['budget', tx('tierBudget'), 'pdf-budget-card--budget'],
+      ['mid', tx('pdfMidRange'), 'pdf-budget-card--mid'],
+      ['luxury', tx('tierLuxury'), 'pdf-budget-card--luxury']
     ];
     return sectionWithNav('pdf-budget', 'pdf-section',
-      chapterOpener('Budget', 'Daily Costs', 'What to expect per person, per day — three tiers.') +
+      chapterOpener(tx('pdfBudget'), tx('pdfDailyCosts'), tx('pdfBudgetSub')) +
         '<div class="pdf-budget-page">' +
           tiers.map(function (t) {
             const tier = b[t[0]];
@@ -842,11 +892,11 @@
               '<div class="pdf-budget-card ' + t[2] + '">' +
                 '<div style="font-weight:700;text-transform:uppercase;font-size:7pt;letter-spacing:0.06em;">' + t[1] + '</div>' +
                 '<div class="pdf-budget-card__daily">' + esc(tier.daily) + '</div>' +
-                '<div class="pdf-meta-row"><strong>Stay</strong><span>' + esc(tier.accommodation) + '</span></div>' +
-                '<div class="pdf-meta-row"><strong>Food</strong><span>' + esc(tier.food) + '</span></div>' +
-                '<div class="pdf-meta-row"><strong>Transport</strong><span>' + esc(tier.transport) + '</span></div>' +
-                '<div class="pdf-meta-row"><strong>Activities</strong><span>' + esc(tier.activities) + '</span></div>' +
-                (tier.tip ? '<div class="pdf-box pdf-box--tip" style="margin-top:4px;"><strong>Tip</strong>' + esc(tier.tip) + '</div>' : '') +
+                '<div class="pdf-meta-row"><strong>' + esc(tx('pdfStay')) + '</strong><span>' + esc(tier.accommodation) + '</span></div>' +
+                '<div class="pdf-meta-row"><strong>' + esc(tx('pdfFood')) + '</strong><span>' + esc(tier.food) + '</span></div>' +
+                '<div class="pdf-meta-row"><strong>' + esc(tx('pdfNavTransport')) + '</strong><span>' + esc(tier.transport) + '</span></div>' +
+                '<div class="pdf-meta-row"><strong>' + esc(tx('pdfActivities')) + '</strong><span>' + esc(tier.activities) + '</span></div>' +
+                (tier.tip ? '<div class="pdf-box pdf-box--tip" style="margin-top:4px;"><strong>' + esc(tx('pdfTip')) + '</strong>' + esc(tier.tip) + '</div>' : '') +
               '</div>'
             );
           }).join('') +
@@ -855,13 +905,13 @@
   }
 
   function renderFamily() {
-    const f = PLAN.family || {};
+    const f = plan().family || {};
     return sectionWithNav('pdf-family', 'pdf-section',
-      chapterOpener('Family', 'Travelling with Kids', 'Child-friendly attractions and practical notes.') +
-        (f.tip ? '<div class="pdf-box pdf-box--tip" style="margin-bottom:4mm;"><strong>Transport tip</strong>' + esc(f.tip) + '</div>' : '') +
+      chapterOpener(tx('pdfFamily'), tx('pdfTravellingKids'), tx('pdfFamilySub')) +
+        (f.tip ? '<div class="pdf-box pdf-box--tip" style="margin-bottom:4mm;"><strong>' + esc(tx('pdfTransportTip')) + '</strong>' + esc(f.tip) + '</div>' : '') +
         '<div class="pdf-table-wrap pdf-family-table">' +
           '<table class="pdf-table">' +
-            '<thead><tr><th>Attraction</th><th>Notes</th><th>Kids</th><th>Stroller</th><th>Baby change</th><th>Family ticket</th></tr></thead>' +
+            '<thead><tr><th>' + esc(tx('labelAttraction')) + '</th><th>' + esc(tx('pdfNotes')) + '</th><th>' + esc(tx('labelKids')) + '</th><th>' + esc(tx('labelStroller')) + '</th><th>' + esc(tx('pdfBabyChange')) + '</th><th>' + esc(tx('pdfFamilyTicket')) + '</th></tr></thead>' +
             '<tbody>' +
               (f.rows || []).map(function (r) {
                 function yn(val) {
@@ -887,9 +937,9 @@
   }
 
   function renderEmergency() {
-    const e = PLAN.emergency || {};
+    const e = plan().emergency || {};
     return sectionWithNav('pdf-emergency', 'pdf-section',
-      chapterOpener('Emergency', 'Numbers & Embassies', 'Save this page — hope you never need it.') +
+      chapterOpener(tx('pdfEmergency'), tx('pdfNumbersEmbassies'), tx('pdfEmergencySub')) +
       '<div class="pdf-emergency-grid">' +
         (e.numbers || []).map(function (n) {
           return (
@@ -901,7 +951,7 @@
           );
         }).join('') +
       '</div>' +
-      sectionHead('Hospitals', 'Major A&E departments') +
+      sectionHead(tx('pdfHospitals'), tx('pdfMajorAE')) +
       '<div class="pdf-grid pdf-grid--3" style="margin-bottom:4mm;">' +
         (e.hospitals || []).map(function (h) {
           return (
@@ -915,17 +965,17 @@
           );
         }).join('') +
       '</div>' +
-      sectionHead('Embassies', 'GCC & regional missions') +
+      sectionHead(tx('pdfEmbassies'), tx('pdfGccMissions')) +
       '<div class="pdf-table-wrap">' +
         '<table class="pdf-table">' +
-          '<thead><tr><th>Country</th><th>Address</th><th>Map</th></tr></thead>' +
+          '<thead><tr><th>' + esc(tx('pdfCountry')) + '</th><th>' + esc(tx('labelAddress')) + '</th><th>' + esc(tx('pdfMap')) + '</th></tr></thead>' +
           '<tbody>' +
             (e.embassies || []).map(function (emb) {
               return (
                 '<tr>' +
                   '<td><strong>' + esc(emb.country) + '</strong></td>' +
                   '<td>' + esc(emb.address) + '</td>' +
-                  '<td><a href="' + esc(emb.mapUrl) + '">Open map</a></td>' +
+                  '<td><a href="' + esc(emb.mapUrl) + '">' + esc(tx('pdfOpenMap')) + '</a></td>' +
                 '</tr>'
               );
             }).join('') +
@@ -933,16 +983,16 @@
         '</table>' +
       '</div>' +
       (e.lostPassport
-        ? '<div class="pdf-box pdf-box--warn" style="margin-top:4mm;"><strong>Lost passport</strong>' + esc(e.lostPassport) + '</div>'
+        ? '<div class="pdf-box pdf-box--warn" style="margin-top:4mm;"><strong>' + esc(tx('pdfLostPassport')) + '</strong>' + esc(e.lostPassport) + '</div>'
         : '')
     );
   }
 
   function renderLocalTips() {
     return sectionWithNav('pdf-tips', 'pdf-section',
-      chapterOpener('Local Tips', 'Phrases & Etiquette', 'Useful English and unwritten rules.') +
+      chapterOpener(tx('pdfLocalTips'), tx('pdfPhrasesEtiquette'), tx('pdfLocalTipsSub')) +
         '<div class="pdf-phrases">' +
-          (PLAN.phrases || []).map(function (p) {
+          (plan().phrases || []).map(function (p) {
             return (
               '<div class="pdf-phrase">' +
                 '<div class="pdf-phrase__english">' + esc(p.english) + '</div>' +
@@ -952,7 +1002,7 @@
           }).join('') +
         '</div>' +
         '<div class="pdf-etiquette" style="margin-top:5mm;">' +
-          (PLAN.etiquette || []).map(function (e) {
+          (plan().etiquette || []).map(function (e) {
             return (
               '<div class="pdf-etiquette-item">' +
                 '<strong>' + esc(e.rule) + '</strong>' +
@@ -965,7 +1015,7 @@
   }
 
   function renderCheatSheet() {
-    const cs = PLAN.cheatSheet || {};
+    const cs = plan().cheatSheet || {};
     function cheatBlock(title, items, labelKey, valueKey) {
       labelKey = labelKey || 'label';
       valueKey = valueKey || 'value';
@@ -987,14 +1037,14 @@
       '<section class="pdf-cheat-sheet" id="pdf-cheat">' +
         pdfNavBar('top') +
         '<div class="pdf-cheat-sheet__head">' +
-          '<h2 class="pdf-cheat-sheet__title">' + esc(cs.title || 'One-Page Cheat Sheet') + '</h2>' +
+          '<h2 class="pdf-cheat-sheet__title">' + esc(cs.title || tx('pdfOnePageCheat')) + '</h2>' +
           '<p class="pdf-cheat-sheet__subtitle">' + esc(cs.subtitle || '') + '</p>' +
         '</div>' +
         '<div class="pdf-cheat-sheet__grid">' +
-          cheatBlock('Emergency', cs.emergency) +
-          cheatBlock('Transport', cs.transport) +
-          cheatBlock('Money', cs.money) +
-          cheatBlock('Apps', cs.apps, 'name', 'use') +
+          cheatBlock(tx('cheatEmergency'), cs.emergency) +
+          cheatBlock(tx('cheatTransport'), cs.transport) +
+          cheatBlock(tx('cheatMoney'), cs.money) +
+          cheatBlock(tx('cheatApps'), cs.apps, 'name', 'use') +
         '</div>' +
         '<div class="pdf-cheat-qr-row">' +
           (cs.topQrCodes || []).map(function (item) {
@@ -1019,8 +1069,8 @@
         '<div class="pdf-back-cover__overlay"></div>' +
         '<div class="pdf-back-cover__content">' +
           '<h2 class="pdf-back-cover__title">' + esc(cityName()) + '</h2>' +
-          '<p class="pdf-back-cover__text">' + esc(m.tagline || PLAN.tagline || 'Your premium travel companion.') + '</p>' +
-          '<p class="pdf-back-cover__edition">' + esc(m.badge || 'Travel Guide') + ' · Edition ' + esc(m.edition || '2026') + '</p>' +
+          '<p class="pdf-back-cover__text">' + esc(m.tagline || plan().tagline || tx('pdfPremiumCompanion')) + '</p>' +
+          '<p class="pdf-back-cover__edition">' + esc(m.badge || tx('discover')) + ' · ' + esc(tx('pdfEditionLabel')) + ' ' + esc(m.edition || '2026') + '</p>' +
         '</div>' +
       '</section>'
     );
@@ -1028,14 +1078,21 @@
 
   /* ── Main render ── */
   function render() {
-    if (typeof DiscoverBrand !== 'undefined') DiscoverBrand.apply(PLAN);
-    else applyTheme(PLAN);
-    document.title = 'Discover ' + cityName() + ' · PDF';
+    if (typeof I18n !== 'undefined') {
+      I18n.init(null);
+    }
+    ACTIVE = resolveActivePlan();
+    if (typeof DiscoverBrand !== 'undefined') DiscoverBrand.apply(ACTIVE);
+    else applyTheme(ACTIVE);
+    document.title = tx('pdfDiscoverCity', { city: cityName() }) + ' · PDF';
+    document.documentElement.lang = isAr() ? 'ar' : 'en';
+    document.documentElement.dir = isAr() ? 'rtl' : 'ltr';
+    document.documentElement.classList.toggle('is-arabic', isAr());
 
     const root = document.getElementById('root');
     if (!root) return;
 
-    root.className = 'pdf-doc';
+    root.className = 'pdf-doc' + (isAr() ? ' is-arabic' : '');
     root.innerHTML = [
       renderCover(),
       renderWelcome(),
@@ -1049,8 +1106,8 @@
       renderHotelsSection(),
       renderDiningSection(),
       renderItinerariesSection(),
-      renderWeatherPlan('Rainy Day Plan', 'Indoor alternatives when the sky opens.', PLAN.rainyDay),
-      renderWeatherPlan('Sunny Day Plan', 'Parks, rivers and golden-hour views.', PLAN.sunnyDay),
+      renderWeatherPlan(tx('pdfRainyDayPlan'), tx('pdfRainyDaySub'), plan().rainyDay),
+      renderWeatherPlan(tx('pdfSunnyDayPlan'), tx('pdfSunnyDaySub'), plan().sunnyDay),
       renderHiddenGems(),
       renderWarnings(),
       renderShopping(),
