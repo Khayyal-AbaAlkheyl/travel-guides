@@ -7,30 +7,12 @@
 
   let ACTIVE = null;
 
-  function deepMergePlan(en, ar) {
-    if (ar == null) return en;
-    if (Array.isArray(en)) {
-      return en.map(function (item, i) {
-        return deepMergePlan(item, Array.isArray(ar) ? ar[i] : undefined);
-      });
-    }
-    if (en && typeof en === 'object' && !Array.isArray(en)) {
-      const out = Object.assign({}, en);
-      if (ar && typeof ar === 'object' && !Array.isArray(ar)) {
-        Object.keys(ar).forEach(function (k) {
-          out[k] = deepMergePlan(en[k], ar[k]);
-        });
-      }
-      return out;
-    }
-    if (typeof ar === 'string' && ar.trim()) return ar;
-    return en;
-  }
-
   function resolveActivePlan() {
     const base = typeof PLAN !== 'undefined' ? PLAN : {};
-    if (typeof I18n !== 'undefined' && I18n.isAr() && typeof PLAN_AR !== 'undefined' && PLAN_AR) {
-      return deepMergePlan(base, PLAN_AR);
+    const isArabic = typeof I18n !== 'undefined' && I18n.isAr();
+    const overlay = typeof PLAN_AR !== 'undefined' ? PLAN_AR : null;
+    if (isArabic && overlay && typeof deepMergePlan === 'function') {
+      return deepMergePlan(base, overlay);
     }
     return base;
   }
@@ -191,7 +173,7 @@
 
   function labeledPhoto(url, label, extraClass) {
     if (typeof pdfPhoto === 'function') {
-      return pdfPhoto(url, extraClass || 'pdf-photo--square', label, 'center');
+      return pdfPhoto(url, extraClass || 'pdf-photo--square', label || '', 'center');
     }
     if (!url) return '';
     const u = normalizeImageUrl(url, 800);
@@ -199,7 +181,7 @@
       '<figure>' +
         '<div class="pdf-photo ' + (extraClass || 'pdf-photo--square') + '">' +
           '<img src="' + esc(u) + '" alt="" decoding="sync" onerror="handleImgError(this)" data-ph="' + esc(IMAGE_PLACEHOLDER) + '">' +
-          '<span class="pdf-photo-label">' + esc(label) + '</span>' +
+          (label ? '<span class="pdf-photo-label">' + esc(label) + '</span>' : '') +
         '</div>' +
       '</figure>'
     );
@@ -579,19 +561,19 @@
     );
   }
 
-  function hotelPhotoLabels() {
-    return {
-    exterior: tx('labelExterior'),
-    room: tx('labelRoom'),
-    restaurant: tx('labelRestaurant'),
-    view: tx('labelView')
-  };
-  }
-
   function renderHotel(h) {
     const photos = h.photos || {};
-    const labels = hotelPhotoLabels();
-    const photoKeys = Object.keys(labels).filter(function (k) { return photos[k]; });
+    const order = ['exterior', 'room', 'restaurant', 'view'];
+    const seen = new Set();
+    const photoUrls = order
+      .map(function (k) { return photos[k]; })
+      .filter(function (url) {
+        if (!url) return false;
+        const norm = String(url).split('?')[0];
+        if (seen.has(norm)) return false;
+        seen.add(norm);
+        return true;
+      });
     return (
       '<section class="pdf-spread pdf-spread--hotel">' +
         pdfNavBar('top') +
@@ -604,10 +586,10 @@
         '</div>' +
 
         '<div class="pdf-hotel-gallery">' +
-          photoKeys.map(function (key) {
+          photoUrls.map(function (url) {
             return (
               '<div class="pdf-media-card pdf-media-card--gallery">' +
-                labeledPhoto(photos[key], labels[key], '') +
+                labeledPhoto(url, '', '') +
               '</div>'
             );
           }).join('') +

@@ -311,6 +311,33 @@
     return parts.slice(0, n).join(' ').trim();
   }
 
+  /** Deep-merge PLAN_AR string leaves onto PLAN (PDF + magazine Arabic mode). */
+  function deepMergePlan(en, ar) {
+    if (ar == null) return en;
+    if (Array.isArray(en)) {
+      return en.map(function (item, i) {
+        return deepMergePlan(item, Array.isArray(ar) ? ar[i] : undefined);
+      });
+    }
+    if (en && typeof en === 'object' && !Array.isArray(en)) {
+      const out = Object.assign({}, en);
+      if (ar && typeof ar === 'object' && !Array.isArray(ar)) {
+        Object.keys(ar).forEach(function (k) {
+          out[k] = deepMergePlan(en[k], ar[k]);
+        });
+      }
+      return out;
+    }
+    if (typeof ar === 'string' && ar.trim()) return ar;
+    return en;
+  }
+
+  function resolveActivePlan(basePlan, overlay, isArabic) {
+    const base = basePlan || {};
+    if (isArabic && overlay) return deepMergePlan(base, overlay);
+    return base;
+  }
+
   const api = {
     ICONS,
     applyTheme,
@@ -335,6 +362,8 @@
     handleImgError,
     IMAGE_PLACEHOLDER,
     shortText,
+    deepMergePlan,
+    resolveActivePlan,
     HOME_WEATHER_MONTHS,
     HOTEL_GALLERY_KEYS
   };

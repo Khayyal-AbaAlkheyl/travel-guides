@@ -442,19 +442,7 @@ body {
 
 /* Hotel gallery labels — see .hotel-grid above */
 .hotel-grid__label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 8px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-  color: #fff;
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  z-index: 1;
-  pointer-events: none;
+  display: none; /* photos only — no exterior/room/view labels */
 }
 
 /* Dish grid */

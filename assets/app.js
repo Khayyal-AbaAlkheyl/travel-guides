@@ -22,6 +22,7 @@
     img,
     photoUrl,
     shortText,
+    deepMergePlan,
     HOME_WEATHER_MONTHS,
     HOTEL_GALLERY_KEYS,
     ICONS
@@ -33,112 +34,40 @@
     return maybeFallback ?? key;
   }
 
-  function txMeta(field, fallback) {
-    return global.I18n ? global.I18n.metaField(field, fallback) : fallback;
+  /** English source plan (never mutated). */
+  function enPlan() {
+    return typeof PLAN !== 'undefined' ? PLAN : {};
   }
 
-  function txEssential(key, field, fallback) {
-    return global.I18n ? global.I18n.essentialField(key, field, fallback) : fallback;
+  let ACTIVE = null;
+
+  function refreshActivePlan() {
+    const base = enPlan();
+    const isAr = !!(global.I18n && global.I18n.isAr && global.I18n.isAr());
+    const overlay = typeof PLAN_AR !== 'undefined' ? PLAN_AR : null;
+    const merge = typeof deepMergePlan === 'function' ? deepMergePlan : global.deepMergePlan;
+    if (isAr && overlay && typeof merge === 'function') {
+      ACTIVE = merge(base, overlay);
+    } else {
+      ACTIVE = base;
+    }
+    return ACTIVE;
   }
 
-  function txArrival(step, field, fallback) {
-    return global.I18n ? global.I18n.arrivalField(step, field, fallback) : fallback;
-  }
-
-  function txPacking(season, field, fallback) {
-    return global.I18n ? global.I18n.packingField(season, field, fallback) : fallback;
-  }
-
-  function txPackingItems(season, fallbackItems) {
-    return global.I18n ? global.I18n.packingItems(season, fallbackItems) : fallbackItems;
-  }
-
-  function txWelcome(field, fallback) {
-    return global.I18n ? global.I18n.welcomeField(field, fallback) : fallback;
+  /** Active content plan — Arabic-merged when lang=ar. */
+  function plan() {
+    return ACTIVE || refreshActivePlan();
   }
 
   function txMonth(month) {
     return global.I18n ? global.I18n.monthName(month) : month;
   }
 
-  function txWeatherRow(month, field, fallback) {
-    return global.I18n ? global.I18n.weatherRowField(month, field, fallback) : fallback;
-  }
-
-  function txSweetSpot(fallback) {
-    return global.I18n ? global.I18n.weatherSweetSpot(fallback) : fallback;
-  }
-
-  function txC(section, index, field, fallback) {
-    return global.I18n ? global.I18n.content(section, index, field, fallback) : fallback;
-  }
-
-  function txPath(section, field, fallback) {
-    return global.I18n ? global.I18n.contentPath(section, field, fallback) : fallback;
-  }
-
-  function txStop(dayIdx, stopIdx, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.itineraries?.[dayIdx]?.stops?.[stopIdx]?.[field] ?? fallback;
-  }
-
-  function txName(section, index, fallback) {
-    return txC(section, index, 'name', fallback);
-  }
-
-  function txNearby(attrIdx, nearIdx, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.attractions?.[attrIdx]?.nearby?.[nearIdx]?.[field] ?? fallback;
-  }
-
-  function txDish(dIdx, dishIdx, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.dining?.[dIdx]?.dishes?.[dishIdx]?.[field] ?? fallback;
-  }
-
-  function txIdeal(hIdx, itemIdx, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    const ideal = global.PLAN_AR?.hotels?.[hIdx]?.idealFor;
-    if (typeof ideal === 'string') return itemIdx === 0 ? ideal : fallback;
-    return ideal?.[itemIdx] ?? fallback;
-  }
-
-  function idealForItems(h, hIdx) {
-    const raw = h.idealFor;
-    if (Array.isArray(raw)) return raw.map((item, ii) => txIdeal(hIdx, ii, item));
-    if (typeof raw === 'string' && raw.trim()) {
-      if (global.I18n?.isAr()) {
-        const ar = global.PLAN_AR?.hotels?.[hIdx]?.idealFor;
-        if (typeof ar === 'string' && ar.trim()) return [ar];
-      }
-      return [raw];
-    }
+  function idealForItems(h) {
+    const raw = h?.idealFor;
+    if (Array.isArray(raw)) return raw;
+    if (typeof raw === 'string' && raw.trim()) return [raw];
     return [];
-  }
-
-  function txTransport(i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.transport?.modes?.[i]?.[field] ?? fallback;
-  }
-
-  function txHospital(i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.emergency?.hospitals?.[i]?.[field] ?? fallback;
-  }
-
-  function txEmbassy(i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.emergency?.embassies?.[i]?.[field] ?? fallback;
-  }
-
-  function txMapMarker(i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.maps?.overview?.markers?.[i]?.[field] ?? fallback;
-  }
-
-  function txFamilyRow(i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.family?.rows?.[i]?.[field] ?? fallback;
   }
 
   function txMarkerType(type) {
@@ -157,26 +86,6 @@
     };
     const key = map[type];
     return key ? t(key, type) : type;
-  }
-
-  function txCheatBlock(section, i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.cheatSheet?.[section]?.[i]?.[field] ?? fallback;
-  }
-
-  function txCheatQr(i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.cheatSheet?.topQrCodes?.[i]?.[field] ?? fallback;
-  }
-
-  function txShoppingDistrict(i, field, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.shopping?.districts?.[i]?.[field] ?? fallback;
-  }
-
-  function txBrand(i, fallback) {
-    if (!global.I18n?.isAr()) return fallback;
-    return global.PLAN_AR?.shopping?.brands?.[i] ?? fallback;
   }
 
   const BUDGET_ROW_KEYS = {
@@ -243,11 +152,12 @@
   }
 
   function meta() {
-    return PLAN.meta || PLAN;
+    const p = plan();
+    return p.meta || p;
   }
 
   function theme() {
-    return meta().theme || PLAN.theme || {};
+    return meta().theme || plan().theme || {};
   }
 
   function statsArray() {
@@ -330,9 +240,9 @@
       </div>
       <div class="home-hero__panel">
         <span class="home-hero__wordmark">${esc(t('discover', 'Discover'))}</span>
-        <h1 class="home-hero__title">${esc(txMeta('city', m.city))}</h1>
-        <p class="home-hero__tagline">${esc(txMeta('tagline', m.tagline))}</p>
-        <p class="home-hero__edition">${esc(m.edition || '2026')} ${esc(t('edition', 'Edition'))} · ${esc(txMeta('country', m.country))}</p>
+        <h1 class="home-hero__title">${esc(m.city)}</h1>
+        <p class="home-hero__tagline">${esc(m.tagline)}</p>
+        <p class="home-hero__edition">${esc(m.edition || '2026')} ${esc(t('edition', 'Edition'))} · ${esc(m.country)}</p>
         ${statsHtml ? `<div class="home-hero__stats">${statsHtml}</div>` : ''}
       </div>
     </header>`;
@@ -350,17 +260,40 @@
   }
 
   function renderHomeWeatherCards() {
-    const rows = (PLAN.weatherTable?.rows || []).filter(r => HOME_WEATHER_MONTHS.includes(r.month));
-    const cards = rows.map(r =>
-      `<div class="home-weather-card">
+    const enRows = enPlan().weatherTable?.rows || [];
+    const rows = (plan().weatherTable?.rows || [])
+      .map((r, i) => ({ row: r, en: enRows[i] }))
+      .filter(({ en, row }) => HOME_WEATHER_MONTHS.includes(en?.month || row.month));
+
+    function weatherTemp(r) {
+      if (r.avgTemp) return r.avgTemp;
+      if (r.high || r.low) return [r.low, r.high].filter(Boolean).join('–');
+      return '';
+    }
+    function weatherCrowds(r) {
+      return r.crowds || r.crowd || '';
+    }
+    function weatherBest(r) {
+      return r.recommend || r.bestFor || '';
+    }
+    function weatherFourth(r) {
+      const best = weatherBest(r);
+      if (best) return { label: t('weatherBestFor', 'Best for'), value: best };
+      if (r.price) return { label: t('weatherPrice', 'Price'), value: r.price };
+      return { label: t('weatherBestFor', 'Best for'), value: '' };
+    }
+
+    const cards = rows.map(({ row: r }) => {
+      const fourth = weatherFourth(r);
+      return `<div class="home-weather-card">
         <div class="home-weather-card__month">${esc(txMonth(r.month))}</div>
-        <div class="home-weather-card__row"><span>${esc(t('weatherTemp', 'Temp'))}</span><strong dir="ltr">${esc(txWeatherRow(r.month, 'avgTemp', r.avgTemp))}</strong></div>
-        <div class="home-weather-card__row"><span>${esc(t('weatherRain', 'Rain'))}</span><strong dir="ltr">${esc(txWeatherRow(r.month, 'rain', r.rain))}</strong></div>
-        <div class="home-weather-card__row"><span>${esc(t('weatherCrowds', 'Crowds'))}</span><strong>${esc(txWeatherRow(r.month, 'crowds', r.crowds))}</strong></div>
-        <div class="home-weather-card__row"><span>${esc(t('weatherBestFor', 'Best for'))}</span><strong>${esc(txWeatherRow(r.month, 'recommend', r.recommend))}</strong></div>
-      </div>`
-    ).join('');
-    const sweetSpot = txSweetSpot(PLAN.weatherTable?.sweetSpot);
+        <div class="home-weather-card__row"><span>${esc(t('weatherTemp', 'Temp'))}</span><strong dir="ltr">${esc(weatherTemp(r))}</strong></div>
+        <div class="home-weather-card__row"><span>${esc(t('weatherRain', 'Rain'))}</span><strong dir="ltr">${esc(r.rain || '')}</strong></div>
+        <div class="home-weather-card__row"><span>${esc(t('weatherCrowds', 'Crowds'))}</span><strong>${esc(weatherCrowds(r))}</strong></div>
+        <div class="home-weather-card__row"><span>${esc(fourth.label)}</span><strong>${esc(fourth.value)}</strong></div>
+      </div>`;
+    }).join('');
+    const sweetSpot = plan().weatherTable?.sweetSpot;
     return `<div class="home-weather-grid">${cards}</div>
       ${sweetSpot ? `<div class="home-weather__spot">${esc(sweetSpot)}</div>` : ''}`;
   }
@@ -444,15 +377,15 @@
   function renderAttractionListCard(a, index) {
     const hero = photoUrl(a.photos, 'hero', 'detail');
     const focal = a.photos?.heroPosition || 'center 30%';
-    const tip = a.tip ? txC('attractions', index, 'tip', a.tip) : '';
+    const tip = a.tip ? a.tip : '';
     return `<button type="button" class="place-list-card" onclick="openDetail('sight', ${index})">
-      <div class="place-list-card__media">${img(hero, txName('attractions', index, a.name), '16/9', focal, hero)}</div>
+      <div class="place-list-card__media">${img(hero, a.name, '16/9', focal, hero)}</div>
       <div class="place-list-card__body">
-        <h3 class="place-list-card__title">${esc(txName('attractions', index, a.name))}</h3>
+        <h3 class="place-list-card__title">${esc(a.name)}</h3>
         <div class="place-list-card__chips">
-          <span class="chip chip--accent">${esc(txC('attractions', index, 'ticket', a.ticket))}</span>
-          <span class="chip chip--parks">${esc(txC('attractions', index, 'avgVisit', a.avgVisit))}</span>
-          <span class="chip chip--warn">${esc(txC('attractions', index, 'waitSummer', a.waitSummer))} ${esc(t('waitSuffix', 'wait'))}</span>
+          <span class="chip chip--accent">${esc(a.ticket)}</span>
+          <span class="chip chip--parks">${esc(a.avgVisit)}</span>
+          <span class="chip chip--warn">${esc(a.waitSummer)} ${esc(t('waitSuffix', 'wait'))}</span>
         </div>
         ${tip ? `<p class="place-list-card__teaser">${esc(shortText(tip, 1))}</p>` : ''}
         <span class="place-list-card__cta">${esc(t('viewGuide', 'View guide →'))}</span>
@@ -467,20 +400,20 @@
     const focal = photos.heroPosition || 'center 30%';
     const detailUrl = photoUrl(photos, 'detail', 'hero');
     const spotUrl = photoUrl(photos, 'photoSpot', 'detail');
-    const placeName = txName('attractions', i, a.name);
-    const photoSpot = txC('attractions', i, 'photoSpot', a.photoSpot || a.name);
-    const tip = a.tip ? txC('attractions', i, 'tip', a.tip) : '';
-    const hours = txC('attractions', i, 'hours', a.hours);
-    const ticket = txC('attractions', i, 'ticket', a.ticket);
-    const tube = txC('attractions', i, 'tube', a.tube);
-    const avgVisit = txC('attractions', i, 'avgVisit', a.avgVisit);
-    const waitSummer = txC('attractions', i, 'waitSummer', a.waitSummer);
-    const bookText = txC('attractions', i, 'bookText', a.bookText || 'Book');
-    const didYouKnow = a.didYouKnow ? txC('attractions', i, 'didYouKnow', a.didYouKnow) : '';
-    const localSecret = a.localSecret ? txC('attractions', i, 'localSecret', a.localSecret) : '';
-    const nearbyCafes = a.nearbyCafes ? txC('attractions', i, 'nearbyCafes', a.nearbyCafes) : '';
-    const nearbyRestaurants = a.nearbyRestaurants ? txC('attractions', i, 'nearbyRestaurants', a.nearbyRestaurants) : '';
-    const nearbyTube = a.nearbyTube ? txC('attractions', i, 'nearbyTube', a.nearbyTube) : '';
+    const placeName = a.name;
+    const photoSpot = a.photoSpot || a.name;
+    const tip = a.tip ? a.tip : '';
+    const hours = a.hours;
+    const ticket = a.ticket;
+    const tube = a.tube;
+    const avgVisit = a.avgVisit;
+    const waitSummer = a.waitSummer;
+    const bookText = a.bookText || 'Book';
+    const didYouKnow = a.didYouKnow ? a.didYouKnow : '';
+    const localSecret = a.localSecret ? a.localSecret : '';
+    const nearbyCafes = a.nearbyCafes ? a.nearbyCafes : '';
+    const nearbyRestaurants = a.nearbyRestaurants ? a.nearbyRestaurants : '';
+    const nearbyTube = a.nearbyTube ? a.nearbyTube : '';
 
     const gridSlots = [];
     if (detailUrl && detailUrl !== hero) {
@@ -500,8 +433,8 @@
 
     const nearbyTop = (a.nearby || []).slice(0, 5).map((n, ni) =>
       `<div class="nearby-item">
-        <span>${esc(txNearby(i, ni, 'name', n.name))}</span>
-        <span class="nearby-item__walk">${esc(txNearby(i, ni, 'walk', n.walk))}</span>
+        <span>${esc(n.name)}</span>
+        <span class="nearby-item__walk">${esc(n.walk)}</span>
       </div>`
     ).join('');
 
@@ -547,40 +480,40 @@
 
   function renderHome() {
     const m = meta();
-    const w = PLAN.welcome || {};
-    const essentials = PLAN.essentials || {};
-    const letter = shortText(txWelcome('editorLetter', w.editorLetter), 2);
+    const w = plan().welcome || {};
+    const essentials = plan().essentials || {};
+    const letter = shortText(w.editorLetter, 2);
 
     const essentialCards = Object.entries(essentials).map(([key, e]) =>
       `<div class="home-essential">
         <div class="home-essential__icon">${iconWrap(ESSENTIAL_ICONS[key] || 'pin')}</div>
-        <div class="home-essential__value">${esc(txEssential(key, 'label', e.label))}</div>
-        <div class="home-essential__note">${esc(txEssential(key, 'note', e.note))}</div>
+        <div class="home-essential__value">${esc(e.label)}</div>
+        <div class="home-essential__note">${esc(e.note)}</div>
       </div>`
     ).join('');
 
-    const arrival = (PLAN.arrival || []).map(s =>
+    const arrival = (plan().arrival || []).map(s =>
       `<div class="home-arrival-card">
         <span class="home-arrival-card__step">${esc(s.step)}</span>
-        <div class="home-arrival-card__title">${esc(txArrival(s.step, 'title', s.title))}</div>
-        <div class="home-arrival-card__desc">${esc(txArrival(s.step, 'desc', s.desc))}</div>
+        <div class="home-arrival-card__title">${esc(s.title)}</div>
+        <div class="home-arrival-card__desc">${esc(s.desc)}</div>
       </div>`
     ).join('');
 
-    const packing = PLAN.packing || {};
+    const packing = plan().packing || {};
     const seasons = Object.keys(packing);
     const packingTabs = seasons.map(k =>
-      `<button type="button" class="home-packing__tab ${k === activePackingSeason ? 'active' : ''}" onclick="setPackingSeason('${k}')">${esc(txPacking(k, 'months', packing[k].months || k))}</button>`
+      `<button type="button" class="home-packing__tab ${k === activePackingSeason ? 'active' : ''}" onclick="setPackingSeason('${k}')">${esc(packingMonthsLabel(k, packing[k].months || k))}</button>`
     ).join('');
 
     const pk = packing[activePackingSeason] || packing[seasons[0]] || {};
-    const packingItemsList = txPackingItems(activePackingSeason, pk.items || []);
+    const packingItemsList = pk.items || [];
     const packingList = packingItemsList.map(i => `<li class="home-packing__item">${esc(i)}</li>`).join('');
 
     const packingBody = `<div class="home-packing">
       <div class="home-packing__tabs">${packingTabs}</div>
       <div class="home-packing__panel">
-        <div class="home-packing__temp" dir="ltr">${esc(txPacking(activePackingSeason, 'temp', pk.temp))}</div>
+        <div class="home-packing__temp" dir="ltr">${esc(pk.temp)}</div>
         <ul class="home-packing__list">${packingList}</ul>
       </div>
     </div>`;
@@ -590,11 +523,11 @@
       <p class="home-letter__body">${esc(letter)}</p>
     </blockquote>`;
 
-    const packingSeasonLabel = txPacking(activePackingSeason, 'months', packing[activePackingSeason]?.months || 'Spring');
+    const packingSeasonLabel = packingMonthsLabel(activePackingSeason, packing[activePackingSeason]?.months || 'Spring');
 
     return `<div class="home">
       ${renderHomeHero()}
-      ${renderHomeSection(t('homeWelcomeKicker', 'Welcome'), t('homeWelcomeTitle', 'From the Editor'), t('homeWelcomeSub', { city: txMeta('city', PLAN.meta?.city || PLAN.city || '') }, 'Your pocket companion.'), letterBody)}
+      ${renderHomeSection(t('homeWelcomeKicker', 'Welcome'), t('homeWelcomeTitle', 'From the Editor'), t('homeWelcomeSub', { city: meta().city || plan().city || '' }, 'Your pocket companion.'), letterBody)}
       ${renderHomeSection(t('homeEssentialsKicker', 'Before you land'), t('homeEssentialsTitle', 'Essentials'), t('homeEssentialsSub', 'Everything you need before touchdown.'), `<div class="home-essentials">${essentialCards}</div>`)}
       ${renderHomeSection(t('homeArrivalKicker', 'Day one'), t('homeArrivalTitle', 'Arrival playbook'), t('homeArrivalSub', 'Seven steps from touchdown to tea.'), `<div class="home-arrival">${arrival}</div>`)}
       ${renderHomeSection(t('homePackingKicker', 'What to pack'), t('homePackingTitle', 'Packing'), t('homePackingSub', { season: packingSeasonLabel }, `${packingSeasonLabel} checklist.`), packingBody)}
@@ -603,7 +536,7 @@
   }
 
   function renderAttractions() {
-    const list = PLAN.attractions || [];
+    const list = plan().attractions || [];
     if (detailView?.kind === 'sight') {
       const a = list[detailView.index];
       if (a) return renderDetailShell('sight', renderAttractionDetail(a, detailView.index));
@@ -617,34 +550,48 @@
     return opener + `<div class="place-list">${list.map((a, i) => renderAttractionListCard(a, i)).join('')}</div>`;
   }
 
+  function packingMonthsLabel(seasonKey, fallback) {
+    if (global.I18n?.isAr()) {
+      const ar = {
+        spring: 'مارس–مايو',
+        summer: 'يونيو–أغسطس',
+        autumn: 'سبتمبر–نوفمبر',
+        winter: 'ديسمبر–فبراير'
+      };
+      if (ar[seasonKey]) return ar[seasonKey];
+    }
+    return fallback || seasonKey;
+  }
+
   function renderHotelGallery(photos) {
     if (!photos) return '';
     const hero = photoUrl(photos, 'exterior', 'room');
-    const labels = {
-      exterior: t('labelExterior', 'Exterior'),
-      room: t('labelRoom', 'Room'),
-      restaurant: t('labelRestaurant', 'Restaurant'),
-      view: t('labelView', 'View')
-    };
+    const seen = new Set();
     const cells = HOTEL_GALLERY_KEYS
-      .filter(key => photos[key])
-      .map(key =>
-        `<div class="hotel-grid__cell">${img(photos[key], labels[key], '1/1', 'center', hero)}
-          <span class="hotel-grid__label">${esc(labels[key])}</span>
-        </div>`
-      ).join('');
+      .filter((key) => {
+        const url = photos[key];
+        if (!url) return false;
+        const norm = String(url).split('?')[0];
+        if (seen.has(norm)) return false;
+        seen.add(norm);
+        return true;
+      })
+      .map((key) =>
+        `<div class="hotel-grid__cell">${img(photos[key], '', '1/1', 'center', hero)}</div>`
+      )
+      .join('');
     return cells ? `<div class="hotel-grid">${cells}</div>` : '';
   }
 
   function renderHotelListCard(h, index) {
     const cover = photoUrl(h.photos, 'exterior', 'room');
-    const category = txC('hotels', index, 'category', h.category);
-    const room = txC('hotels', index, 'room', h.room);
-    const tube = txC('hotels', index, 'tube', h.tube);
+    const category = h.category;
+    const room = h.room;
+    const tube = h.tube;
     return `<button type="button" class="place-list-card" onclick="openDetail('stay', ${index})">
-      <div class="place-list-card__media">${cover ? img(cover, txName('hotels', index, h.name), '16/9', 'center', cover) : ''}</div>
+      <div class="place-list-card__media">${cover ? img(cover, h.name, '16/9', 'center', cover) : ''}</div>
       <div class="place-list-card__body">
-        <h3 class="place-list-card__title">${esc(txName('hotels', index, h.name))}</h3>
+        <h3 class="place-list-card__title">${esc(h.name)}</h3>
         <div class="place-list-card__chips">
           <span class="chip chip--gold">${esc(category)}</span>
           <span class="chip chip--accent">${esc(h.price)}</span>
@@ -658,17 +605,17 @@
 
   function renderHotelDetail(h, index) {
     const i = Number(index);
-    const hotelName = txName('hotels', i, h.name);
-    const ideal = idealForItems(h, i).map((item) => `<span class="chip chip--ok">${esc(item)}</span>`).join('');
+    const hotelName = h.name;
+    const ideal = idealForItems(h).map((item) => `<span class="chip chip--ok">${esc(item)}</span>`).join('');
     const cover = photoUrl(h.photos, 'exterior', 'room');
-    const category = txC('hotels', i, 'category', h.category);
-    const room = txC('hotels', i, 'room', h.room);
-    const tube = txC('hotels', i, 'tube', h.tube);
-    const address = txC('hotels', i, 'address', h.address);
-    const airport = txC('hotels', i, 'airport', h.airport);
-    const nearbyAttractions = txC('hotels', i, 'nearbyAttractions', h.nearbyAttractions);
-    const cancellation = txC('hotels', i, 'cancellation', h.cancellation);
-    const tip = h.tip ? txC('hotels', i, 'tips', h.tip) : '';
+    const category = h.category;
+    const room = h.room;
+    const tube = h.tube;
+    const address = h.address;
+    const airport = h.airport;
+    const nearbyAttractions = h.nearbyAttractions;
+    const cancellation = h.cancellation;
+    const tip = h.tip ? h.tip : '';
 
     return `<article class="magazine-page detail-page__content">
       <h1 class="page-title">${esc(hotelName)}</h1>
@@ -701,7 +648,7 @@
   }
 
   function renderHotels() {
-    const list = PLAN.hotels || [];
+    const list = plan().hotels || [];
     if (detailView?.kind === 'stay') {
       const h = list[detailView.index];
       if (h) return renderDetailShell('stay', renderHotelDetail(h, detailView.index));
@@ -712,13 +659,13 @@
 
   function renderDiningListCard(d, index) {
     const signature = photoUrl(d.photos, 'signature', 'hero');
-    const category = txC('dining', index, 'category', d.category);
-    const famous = d.famous ? txC('dining', index, 'famous', d.famous) : '';
-    const wait = txC('dining', index, 'wait', d.wait);
+    const category = d.category;
+    const famous = d.famous ? d.famous : '';
+    const wait = d.wait;
     return `<button type="button" class="place-list-card" onclick="openDetail('eat', ${index})">
       <div class="place-list-card__media">${signature ? img(signature, d.name, '16/9', 'center', signature) : ''}</div>
       <div class="place-list-card__body">
-        <h3 class="place-list-card__title">${esc(txName('dining', index, d.name))}</h3>
+        <h3 class="place-list-card__title">${esc(d.name)}</h3>
         <div class="place-list-card__chips">
           <span class="chip">${esc(category)}</span>
           <span class="chip chip--accent">${esc(d.price)}</span>
@@ -732,23 +679,23 @@
 
   function renderDiningDetail(d, index) {
     const i = Number(index);
-    const category = txC('dining', i, 'category', d.category);
-    const famous = txC('dining', i, 'famous', d.famous);
-    const wait = txC('dining', i, 'wait', d.wait);
-    const tip = d.tip ? txC('dining', i, 'menu', d.tip) : '';
+    const category = d.category;
+    const famous = d.famous;
+    const wait = d.wait;
+    const tip = d.tip ? d.tip : '';
     const dishes = (d.dishes || []).slice(0, 3);
     const signature = photoUrl(d.photos, 'signature', 'hero');
     const dishGrid = dishes.map((dish, di) =>
       `<div class="dish-card">
-        ${img(dish.img, txDish(i, di, 'name', dish.name), '4/3', 'center', signature)}
+        ${img(dish.img, dish.name, '4/3', 'center', signature)}
         <div class="dish-card__body">
-          <div class="dish-card__name">${esc(txDish(i, di, 'name', dish.name))}</div>
-          <div class="dish-card__desc">${esc(txDish(i, di, 'desc', dish.desc))}</div>
+          <div class="dish-card__name">${esc(dish.name)}</div>
+          <div class="dish-card__desc">${esc(dish.desc)}</div>
         </div>
       </div>`
     ).join('');
 
-    const restaurantName = txName('dining', i, d.name);
+    const restaurantName = d.name;
 
     return `<article class="magazine-page detail-page__content">
       <h1 class="page-title">${esc(restaurantName)}</h1>
@@ -774,7 +721,7 @@
   }
 
   function renderDining() {
-    const list = PLAN.dining || [];
+    const list = plan().dining || [];
     if (detailView?.kind === 'eat') {
       const d = list[detailView.index];
       if (d) return renderDetailShell('eat', renderDiningDetail(d, detailView.index));
@@ -784,14 +731,28 @@
   }
 
   function findStopPhoto(stopName) {
-    const a = (PLAN.attractions || []).find(x =>
-      normalize(x.name) === normalize(stopName) ||
-      normalize(stopName).includes(normalize(x.name)) ||
-      normalize(x.name).includes(normalize(stopName))
-    );
+    // Match against English names (normalize strips non-Latin)
+    const needle = normalize(stopName);
+    if (!needle) return null;
+    const source = enPlan();
+    const a = (source.attractions || []).find(x => {
+      const name = normalize(x.name);
+      if (!name) return false;
+      return name === needle || needle.includes(name) || name.includes(needle);
+    });
     if (a?.photos?.hero) return a.photos.hero;
-    const d = (PLAN.dining || []).find(x => normalize(x.name).includes(normalize(stopName)));
+    const d = (source.dining || []).find(x => {
+      const name = normalize(x.name);
+      if (!name) return false;
+      return name === needle || needle.includes(name) || name.includes(needle);
+    });
     if (d?.photos?.signature) return d.photos.signature;
+    const gem = (source.hiddenGems || []).find(x => {
+      const name = normalize(x.name);
+      if (!name) return false;
+      return name === needle || needle.includes(name) || name.includes(needle);
+    });
+    if (gem?.img) return gem.img;
     return null;
   }
 
@@ -800,20 +761,20 @@
   }
 
   function renderPlan() {
-    const days = PLAN.itineraries || [];
+    const days = plan().itineraries || [];
     const day = days.find(d => d.day === activeDay) || days[0];
     if (!day) return renderChapterOpener(t('chapter04', 'Chapter 04'), t('planTitle', 'Your Itinerary'), t('planEmpty', 'No plans yet.'));
 
     const dayIdx = days.findIndex(d => d.day === day.day);
-    const dayTitle = txC('itineraries', dayIdx, 'title', day.title);
-    const routePreview = txC('itineraries', dayIdx, 'routePreview', day.routePreview || '');
+    const dayTitle = day.title;
+    const routePreview = day.routePreview || '';
 
     const opener = renderChapterOpener(t('chapter04', 'Chapter 04'), t('planTitle', 'Your Itinerary'), t('planSub', 'Hour-by-hour routes, ready to follow.'), day.photos?.[0]);
 
     const dayTabs = days.map((d, di) =>
       `<button type="button" class="day-tab ${d.day === activeDay ? 'active' : ''}" onclick="setDay(${d.day})">
         <div class="day-tab__num">${esc(t('dayPrefix', 'Day'))} ${d.day}</div>
-        <div class="day-tab__title">${esc(txC('itineraries', di, 'title', d.title))}</div>
+        <div class="day-tab__title">${esc(d.title)}</div>
       </button>`
     ).join('');
 
@@ -834,11 +795,12 @@
 
     const stops = (day.stops || []).map((stop, si) => {
       const cls = timeClass(stop.timeOfDay);
-      const stopName = txStop(dayIdx, si, 'name', stop.name);
-      const photo = findStopPhoto(stop.name);
+      const stopName = stop.name;
+      const enStopName = enPlan().itineraries?.[dayIdx]?.stops?.[si]?.name || stop.name;
+      const photo = findStopPhoto(enStopName);
       const transitIcon = ICONS[stop.icon] || ICONS.walk;
-      const desc = txStop(dayIdx, si, 'desc', stop.desc);
-      const transit = txStop(dayIdx, si, 'transit', stop.transit);
+      const desc = stop.desc;
+      const transit = stop.transit;
       return `<div class="stop">
         <time class="stop__time">${esc(stop.time)}</time>
         <div class="stop__card ${cls}">
@@ -863,14 +825,19 @@
   }
 
   function renderFullWeatherTable() {
-    const rows = (PLAN.weatherTable?.rows || []).map(r =>
+    function weatherTemp(r) {
+      if (r.avgTemp) return r.avgTemp;
+      if (r.high || r.low) return [r.low, r.high].filter(Boolean).join('–');
+      return '';
+    }
+    const rows = (plan().weatherTable?.rows || []).map(r =>
       `<tr>
         <td><strong>${esc(txMonth(r.month))}</strong></td>
-        <td dir="ltr">${esc(txWeatherRow(r.month, 'avgTemp', r.avgTemp))}</td>
-        <td dir="ltr">${esc(txWeatherRow(r.month, 'rain', r.rain))}</td>
-        <td dir="ltr">${esc(txWeatherRow(r.month, 'sunset', r.sunset))}</td>
-        <td>${esc(txWeatherRow(r.month, 'crowds', r.crowds))}</td>
-        <td>${esc(txWeatherRow(r.month, 'recommend', r.recommend))}</td>
+        <td dir="ltr">${esc(weatherTemp(r))}</td>
+        <td dir="ltr">${esc(r.rain || '')}</td>
+        <td dir="ltr">${esc(r.sunset || '')}</td>
+        <td>${esc(r.crowds || r.crowd || '')}</td>
+        <td>${esc(r.recommend || r.bestFor || r.price || '')}</td>
       </tr>`
     ).join('');
     return `<div class="weather-table-wrap">
@@ -889,11 +856,11 @@
   }
 
   function renderLocalTips() {
-    const phrases = (PLAN.phrases || []).map((p, i) =>
-      `<li class="phrase-item"><div class="phrase-item__english">${esc(txC('phrases', i, 'english', p.english))}</div><div class="phrase-item__use">${esc(txC('phrases', i, 'use', p.use))}</div></li>`
+    const phrases = (plan().phrases || []).map((p, i) =>
+      `<li class="phrase-item"><div class="phrase-item__english">${esc(p.english)}</div><div class="phrase-item__use">${esc(p.use)}</div></li>`
     ).join('');
-    const etiquette = (PLAN.etiquette || []).map((e, i) =>
-      `<li class="etiquette-item"><div class="etiquette-item__rule">${esc(txC('etiquette', i, 'rule', e.rule))}</div><div class="etiquette-item__desc">${esc(txC('etiquette', i, 'desc', e.desc))}</div></li>`
+    const etiquette = (plan().etiquette || []).map((e, i) =>
+      `<li class="etiquette-item"><div class="etiquette-item__rule">${esc(e.rule)}</div><div class="etiquette-item__desc">${esc(e.desc)}</div></li>`
     ).join('');
     return `<h3 style="font-size:13px;margin-bottom:10px">${esc(t('usefulPhrases', 'Useful phrases'))}</h3>
       <ul class="phrase-list">${phrases}</ul>
@@ -904,11 +871,11 @@
   function renderWeatherCards(items, section) {
     return (items || []).map((item, i) =>
       `<div class="weather-card">
-        ${item.img ? img(item.img, txC(section, i, 'name', item.name), '16/9', 'center', null) : ''}
+        ${item.img ? img(item.img, item.name, '16/9', 'center', null) : ''}
         <div class="weather-card__body">
-          <div class="weather-card__name">${esc(txC(section, i, 'name', item.name))}</div>
-          ${item.address ? `<div class="weather-card__addr">${esc(txC(section, i, 'address', item.address))}</div>` : ''}
-          <div class="weather-card__desc">${esc(txC(section, i, 'desc', item.desc))}</div>
+          <div class="weather-card__name">${esc(item.name)}</div>
+          ${item.address ? `<div class="weather-card__addr">${esc(item.address)}</div>` : ''}
+          <div class="weather-card__desc">${esc(item.desc)}</div>
           ${item.mapUrl ? `<a href="${esc(item.mapUrl)}" target="_blank" rel="noopener" class="link-sm">${esc(t('openMap', 'Open map →'))}</a>` : ''}
         </div>
       </div>`
@@ -916,25 +883,25 @@
   }
 
   function renderTransport() {
-    const transport = PLAN.transport || {};
+    const transport = plan().transport || {};
     const modes = (transport.modes || []).map((m, i) => {
       const iconCls = ['tube', 'boat', 'walk'].includes(m.icon) ? ` transport-card__icon--${m.icon}` : '';
-      const desc = global.PLAN_AR?.transport?.modes?.[i]?.desc ?? m.desc;
+      const desc = m.desc;
       return `<div class="transport-card">
         <div class="transport-card__icon${iconCls}">${icon(m.icon) || icon('train')}</div>
-        <div class="transport-card__name">${esc(txTransport(i, 'name', m.name))}</div>
+        <div class="transport-card__name">${esc(m.name)}</div>
         <div class="transport-card__price">${esc(m.price)}</div>
-        <div class="transport-card__desc">${esc(txTransport(i, 'desc', desc))}</div>
+        <div class="transport-card__desc">${esc(desc)}</div>
       </div>`;
     }).join('');
 
     const oyster = (transport.oysterTips || []).map((o, i) => {
-      const title = global.PLAN_AR?.transport?.oysterTips?.[i]?.title ?? o.title;
-      const desc = global.PLAN_AR?.transport?.oysterTips?.[i]?.desc ?? o.desc;
+      const title = o.title;
+      const desc = o.desc;
       return `<li><strong>${esc(title)}</strong>${esc(desc)}</li>`;
     }).join('');
 
-    const exitTip = global.PLAN_AR?.transport?.exit6Tip ?? transport.exit6Tip;
+    const exitTip = transport.exit6Tip;
 
     return `<div class="transport-grid">${modes}</div>
       ${exitTip ? `<div class="transport-tip"><strong>${esc(t('labelProTip', 'Pro tip'))}:</strong> ${esc(exitTip)}</div>` : ''}
@@ -943,8 +910,8 @@
   }
 
   function renderMaps() {
-    const captionText = txPath('maps', 'caption', PLAN.maps?.overview?.caption || '');
-    const markers = PLAN.maps?.overview?.markers || [];
+    const captionText = plan().maps?.overview?.caption || '';
+    const markers = plan().maps?.overview?.markers || [];
     const center = markers[0] ? { lat: markers[0].lat, lng: markers[0].lng } : { lat: 51.5074, lng: -0.1278 };
     const mapImg = staticMap(center.lat, center.lng, 400, 220);
 
@@ -956,7 +923,7 @@
     </div>`;
 
     const list = markers.slice(0, 12).map((m, i) =>
-      `<div class="nearby-item"><span>${esc(txMapMarker(i, 'name', m.name))}</span><span class="chip" style="font-size:9px">${esc(txMarkerType(m.type))}</span></div>`
+      `<div class="nearby-item"><span>${esc(m.name)}</span><span class="chip" style="font-size:9px">${esc(txMarkerType(m.type))}</span></div>`
     ).join('');
 
     return `<p class="prose">${esc(captionText)}</p>
@@ -966,7 +933,7 @@
   }
 
   function renderBudget() {
-    const b = PLAN.budget || {};
+    const b = plan().budget || {};
     return ['budget', 'mid', 'luxury'].map(tier => {
       const data = b[tier];
       if (!data) return '';
@@ -974,12 +941,12 @@
       const rows = ['daily', 'accommodation', 'food', 'transport', 'activities', 'extras']
         .filter(k => data[k])
         .map(k => {
-          const val = global.PLAN_AR?.budget?.[tier]?.[k] ?? data[k];
+          const val = data[k];
           const safeVal = (typeof val === 'string' && val.includes('MYMEMORY WARNING')) ? data[k] : val;
           return `<div class="budget-row"><span>${esc(t(BUDGET_ROW_KEYS[k], k))}</span><span class="budget-row__val">${esc(safeVal)}</span></div>`;
         })
         .join('');
-      const tipRaw = global.PLAN_AR?.budget?.[tier]?.tip ?? data.tip;
+      const tipRaw = data.tip;
       const tip = tipRaw && !String(tipRaw).includes('MYMEMORY WARNING') ? tipRaw : data.tip;
       return `<div class="budget-overview__card">
         <h3>${esc(label)}</h3>
@@ -990,10 +957,10 @@
   }
 
   function renderFamily() {
-    const f = PLAN.family || {};
+    const f = plan().family || {};
     const rows = (f.rows || []).map((r, i) => {
-      const attraction = txFamilyRow(i, 'attraction', r.attraction);
-      const desc = txFamilyRow(i, 'desc', r.desc);
+      const attraction = r.attraction;
+      const desc = r.desc;
       return `<tr>
         <td><strong>${esc(attraction)}</strong><br><span style="color:var(--text-muted)">${esc(desc)}</span></td>
         <td class="${r.goodForKids ? 'family-yes' : 'family-no'}">${r.goodForKids ? '✓' : '—'}</td>
@@ -1003,7 +970,7 @@
       </tr>`;
     }).join('');
 
-    const tip = global.PLAN_AR?.family?.tip ?? f.tip;
+    const tip = f.tip;
 
     return `${tip ? `<div class="prose prose--highlight">${esc(tip)}</div>` : ''}
       <table class="family-table">
@@ -1019,10 +986,10 @@
   }
 
   function renderEmergency() {
-    const e = PLAN.emergency || {};
+    const e = plan().emergency || {};
     const numbers = (e.numbers || []).map((n, i) => {
-      const label = global.PLAN_AR?.emergency?.numbers?.[i]?.label ?? n.label;
-      const desc = global.PLAN_AR?.emergency?.numbers?.[i]?.desc ?? n.desc;
+      const label = n.label;
+      const desc = n.desc;
       return `<div class="emergency-card">
         <div class="emergency-card__icon">${icon(n.icon) || ICONS.emergency}</div>
         <div class="emergency-card__label">${esc(label)}</div>
@@ -1033,7 +1000,7 @@
     const hospitals = (e.hospitals || []).map((h, i) =>
       `<li>
         <span class="emergency-list__icon">${icon(h.icon) || ICONS.hospital}</span>
-        <span><strong>${esc(txHospital(i, 'name', h.name))}</strong><br>${esc(txHospital(i, 'address', h.address))}</span>
+        <span><strong>${esc(h.name)}</strong><br>${esc(h.address)}</span>
         <a href="${esc(h.mapUrl)}" target="_blank" rel="noopener" class="btn btn--ghost" style="min-height:36px;padding:0 10px;font-size:10px">${esc(t('map', 'Map'))}</a>
       </li>`
     ).join('');
@@ -1041,12 +1008,12 @@
     const embassies = (e.embassies || []).map((em, i) =>
       `<li>
         <span class="emergency-list__icon">${icon(em.icon) || ICONS.embassy}</span>
-        <span><strong>${esc(txEmbassy(i, 'country', em.country))}</strong><br>${esc(txEmbassy(i, 'address', em.address))}</span>
+        <span><strong>${esc(em.country)}</strong><br>${esc(em.address)}</span>
         <a href="${esc(em.mapUrl)}" target="_blank" rel="noopener" class="btn btn--ghost" style="min-height:36px;padding:0 10px;font-size:10px">${esc(t('map', 'Map'))}</a>
       </li>`
     ).join('');
 
-    const lostPassport = global.PLAN_AR?.emergency?.lostPassport ?? e.lostPassport;
+    const lostPassport = e.lostPassport;
 
     return `<div class="emergency-grid">${numbers}</div>
       ${lostPassport ? `<div class="warning-card"><div class="warning-card__title">${esc(t('labelLostPassport', 'Lost passport'))}</div><div class="warning-card__desc">${esc(lostPassport)}</div></div>` : ''}
@@ -1057,9 +1024,9 @@
   }
 
   function renderCheatSheet() {
-    const cs = PLAN.cheatSheet || {};
-    const csTitle = txPath('cheatSheet', 'title', cs.title || t('cheatSheetTitle', 'Cheat Sheet'));
-    const csSubtitle = txPath('cheatSheet', 'subtitle', cs.subtitle || '');
+    const cs = plan().cheatSheet || {};
+    const csTitle = cs.title || t('cheatSheetTitle', 'Cheat Sheet');
+    const csSubtitle = cs.subtitle || '';
     const blockTitles = {
       emergency: t('cheatEmergency', 'Emergency'),
       transport: t('cheatTransport', 'Transport'),
@@ -1071,11 +1038,11 @@
       return `<div class="cheat-sheet__block"><h4>${esc(blockTitles[key] || key)}</h4>
         ${rows.map((r, i) => {
           const left = r.label != null
-            ? txCheatBlock(key, i, 'label', r.label)
-            : txCheatBlock(key, i, 'name', r.name);
+            ? r.label
+            : r.name;
           const right = r.value != null
-            ? txCheatBlock(key, i, 'value', r.value)
-            : txCheatBlock(key, i, 'use', r.use);
+            ? r.value
+            : r.use;
           return `<div class="cheat-sheet__row"><span>${esc(left)}</span><strong>${esc(right)}</strong></div>`;
         }).join('')}
       </div>`;
@@ -1083,8 +1050,8 @@
 
     const qrGrid = (cs.topQrCodes || []).map((q, i) =>
       `<div class="cheat-sheet__qr-item">
-        ${qrImg(q.mapUrl, 56, txCheatQr(i, 'name', q.name))}
-        <span>${esc(txCheatQr(i, 'name', q.name))}</span>
+        ${qrImg(q.mapUrl, 56, q.name)}
+        <span>${esc(q.name)}</span>
       </div>`
     ).join('');
 
@@ -1108,26 +1075,26 @@
     maps: { labelKey: 'moreMaps', label: 'Maps', render: renderMaps },
     weather: { labelKey: 'moreWeather', label: 'Weather', render: () =>
       `${renderFullWeatherTable()}
-       <h3 style="font-size:13px;margin:24px 0 10px">${esc(t('labelRainyDay', 'Rainy day'))}</h3><div class="weather-cards">${renderWeatherCards(PLAN.rainyDay, 'rainyDay')}</div>
-       <h3 style="font-size:13px;margin:24px 0 10px">${esc(t('labelSunnyDay', 'Sunny day'))}</h3><div class="weather-cards">${renderWeatherCards(PLAN.sunnyDay, 'sunnyDay')}</div>`
+       <h3 style="font-size:13px;margin:24px 0 10px">${esc(t('labelRainyDay', 'Rainy day'))}</h3><div class="weather-cards">${renderWeatherCards(plan().rainyDay, 'rainyDay')}</div>
+       <h3 style="font-size:13px;margin:24px 0 10px">${esc(t('labelSunnyDay', 'Sunny day'))}</h3><div class="weather-cards">${renderWeatherCards(plan().sunnyDay, 'sunnyDay')}</div>`
     },
     gems: { labelKey: 'moreGems', label: 'Gems', render: () =>
-      (PLAN.hiddenGems || []).map((g, i) =>
+      (plan().hiddenGems || []).map((g, i) =>
         `<div class="gem-card">
-          ${img(g.img, txName('hiddenGems', i, g.name), '16/9', 'center', null)}
+          ${img(g.img, g.name, '16/9', 'center', null)}
           <div class="gem-card__body">
-            <div class="gem-card__name">${esc(txName('hiddenGems', i, g.name))}</div>
-            <div class="gem-card__desc">${esc(txC('hiddenGems', i, 'desc', g.desc))}</div>
+            <div class="gem-card__name">${esc(g.name)}</div>
+            <div class="gem-card__desc">${esc(g.desc)}</div>
             ${g.mapUrl ? `<a href="${esc(g.mapUrl)}" target="_blank" rel="noopener" class="link-sm">${esc(t('openMap', 'Open map →'))}</a>` : ''}
           </div>
         </div>`
       ).join('')
     },
     shopping: { labelKey: 'moreShopping', label: 'Shopping', render: () => {
-      const s = PLAN.shopping || {};
+      const s = plan().shopping || {};
       const districts = (s.districts || []).map((d, i) => {
-        const name = txShoppingDistrict(i, 'name', d.name);
-        const desc = txShoppingDistrict(i, 'desc', d.desc);
+        const name = d.name;
+        const desc = d.desc;
         return `<div class="gem-card">
           ${img(d.img, name, '16/9', 'center', null)}
           <div class="gem-card__body">
@@ -1137,24 +1104,20 @@
         </div>`;
       }).join('');
       const vat = s.vatTips || {};
-      const vatNote = global.PLAN_AR?.shopping?.vatTips?.note ?? vat.note;
-      const vatSales = global.PLAN_AR?.shopping?.vatTips?.saleSeasons ?? vat.saleSeasons;
-      const vatShip = global.PLAN_AR?.shopping?.vatTips?.shippingTip ?? vat.shippingTip;
+      const vatNote = vat.note;
+      const vatSales = vat.saleSeasons;
+      const vatShip = vat.shippingTip;
       const safe = v => (typeof v === 'string' && v.includes('MYMEMORY WARNING')) ? '' : v;
-      const brands = (s.brands || []).map((b, i) => `<span class="chip">${esc(txBrand(i, b))}</span>`).join('');
-      const souvenirs = (s.souvenirs || []).map((x, i) => {
-        const ar = global.PLAN_AR?.shopping?.souvenirs?.[i];
-        const val = (typeof ar === 'string' && !ar.includes('MYMEMORY WARNING')) ? ar : x;
-        return `<li>${esc(val)}</li>`;
-      }).join('');
+      const brands = (s.brands || []).map((b) => `<span class="chip">${esc(b)}</span>`).join('');
+      const souvenirs = (s.souvenirs || []).map((x) => `<li>${esc(x)}</li>`).join('');
       return `${districts}
         ${vat.note ? `<div class="prose prose--highlight" style="margin-top:16px"><strong>${esc(t('labelVat', 'VAT'))}:</strong> ${esc(safe(vatNote) || vat.note)}<br><br>${esc(safe(vatSales) || vat.saleSeasons)}<br><br>${esc(safe(vatShip) || vat.shippingTip)}</div>` : ''}
         ${brands ? `<div class="chips" style="margin-top:16px">${brands}</div>` : ''}
         ${souvenirs ? `<ul style="margin-top:12px;font-size:12px;padding-left:20px">${souvenirs}</ul>` : ''}`;
     }},
     warnings: { labelKey: 'moreWarnings', label: 'Warnings', render: () =>
-      (PLAN.warnings || []).slice(0, 4).map((w, i) =>
-        `<div class="warning-card"><div class="warning-card__title">${esc(txC('warnings', i, 'title', w.title))}</div><div class="warning-card__desc">${esc(txC('warnings', i, 'desc', w.desc))}</div></div>`
+      (plan().warnings || []).slice(0, 4).map((w, i) =>
+        `<div class="warning-card"><div class="warning-card__title">${esc(w.title)}</div><div class="warning-card__desc">${esc(w.desc)}</div></div>`
       ).join('')
     },
     budget: { labelKey: 'moreBudget', label: 'Budget', render: () => `<div class="budget-overview">${renderBudget()}</div>` },
@@ -1202,6 +1165,7 @@
   }
 
   function render() {
+    refreshActivePlan();
     const panels = {
       home: renderHome(),
       sights: renderAttractions(),
@@ -1238,8 +1202,9 @@
       return;
     }
     document.getElementById('app-chrome-sticky')?.remove();
-    if (global.DiscoverBrand) global.DiscoverBrand.apply(PLAN);
-    else applyTheme(PLAN);
+    refreshActivePlan();
+    if (global.DiscoverBrand) global.DiscoverBrand.apply(plan());
+    else applyTheme(plan());
     if (global.I18n) global.I18n.init(render);
     render();
   }

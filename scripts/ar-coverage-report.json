@@ -1,97 +1,82 @@
 {
-  "cities": {
-    "london": {
-      "total": 1029,
-      "ok": 1029,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    },
-    "paris": {
-      "total": 961,
-      "ok": 961,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    },
-    "edinburgh": {
-      "total": 839,
-      "ok": 839,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    },
-    "istanbul": {
-      "total": 1211,
-      "ok": 1211,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    },
-    "italy": {
-      "total": 977,
-      "ok": 977,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    },
-    "bosnia": {
-      "total": 684,
-      "ok": 684,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    },
-    "azerbaijan": {
-      "total": 779,
-      "ok": 779,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    },
-    "trabzon": {
-      "total": 849,
-      "ok": 849,
-      "missing": 0,
-      "identical": 0,
-      "coveragePass": true,
-      "shellIssues": [],
-      "missingSample": [],
-      "identicalSample": []
-    }
+  "london": {
+    "total": 1026,
+    "ok": 1026,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\london-ar.js",
+    "missingSample": [],
+    "identicalSample": []
   },
-  "shells": {
-    "london": [],
-    "paris": [],
-    "edinburgh": [],
-    "istanbul": [],
-    "italy": [],
-    "bosnia": [],
-    "azerbaijan": [],
-    "trabzon": []
+  "paris": {
+    "total": 948,
+    "ok": 948,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\paris-ar.js",
+    "missingSample": [],
+    "identicalSample": []
   },
-  "i18n": [],
-  "pdfHardcoded": [],
-  "pass": true
+  "edinburgh": {
+    "total": 830,
+    "ok": 830,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\edinburgh-ar.js",
+    "missingSample": [],
+    "identicalSample": []
+  },
+  "istanbul": {
+    "total": 1204,
+    "ok": 1204,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\istanbul-ar.js",
+    "missingSample": [],
+    "identicalSample": []
+  },
+  "italy": {
+    "total": 970,
+    "ok": 970,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\italy-ar.js",
+    "missingSample": [],
+    "identicalSample": []
+  },
+  "bosnia": {
+    "total": 669,
+    "ok": 669,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\bosnia-ar.js",
+    "missingSample": [],
+    "identicalSample": []
+  },
+  "azerbaijan": {
+    "total": 771,
+    "ok": 771,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\azerbaijan-ar.js",
+    "missingSample": [],
+    "identicalSample": []
+  },
+  "trabzon": {
+    "total": 839,
+    "ok": 839,
+    "missing": 0,
+    "identical": 0,
+    "pass": true,
+    "out": "C:\\Users\\khayy\\yasserandme\\travel-guides\\data\\trabzon-ar.js",
+    "missingSample": [],
+    "identicalSample": []
+  }
 }
